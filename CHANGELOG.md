@@ -1,5 +1,13 @@
 # Obsidian Meta Bind Changelog
 
+# 1.4.10
+
+Misc
+
+- Changed minimum JS Engine dependency version to 0.3.5
+- Utilize JS Engine for the evaluate argument of the update metadata button action
+- revert the fix for [#652](https://github.com/mProjectsCode/obsidian-meta-bind-plugin/issues/652), as it breaks how view fields behave with undefined. JS view fields should be written to be undefined safe.
+
 # 1.4.9
 
 Misc
