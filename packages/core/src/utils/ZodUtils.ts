@@ -13,7 +13,7 @@ export function zodFunction<T extends Function>() {
 
 export function oneOf<K1 extends string, K2 extends string>(key1: K1, key2: K2) {
 	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-	return function <Shape extends Record<K1 | K2, z.ZodTypeAny>>(schema: z.ZodObject<Shape>) {
+	return function <Shape extends Record<K1 | K2, z.ZodType>>(schema: z.ZodObject<Shape>) {
 		return schema.refine(
 			data => {
 				const value = data as Record<K1 | K2, unknown>;

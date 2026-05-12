@@ -2,8 +2,8 @@ import type { EditorView } from '@codemirror/view';
 import { WidgetType } from '@codemirror/view';
 import type { Component } from 'obsidian';
 import type { InlineFieldType } from 'packages/core/src/config/APIConfigs';
-import type { ObsMetaBind } from 'packages/obsidian/src/main';
 import type { MountableMDRC } from 'packages/obsidian/src/MountableMDRC';
+import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 export class MarkdownRenderChildWidget extends WidgetType {
 	mb: ObsMetaBind;

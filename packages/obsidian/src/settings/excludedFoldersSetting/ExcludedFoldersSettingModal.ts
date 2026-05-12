@@ -1,7 +1,7 @@
 import type { App } from 'obsidian';
 import { Modal } from 'obsidian';
 import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import type { ObsMetaBind } from 'packages/obsidian/src/main';
+import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 import ExcludedFoldersSettingComponent from 'packages/obsidian/src/settings/excludedFoldersSetting/ExcludedFoldersSettingComponent.svelte';
 import type { Component as SvelteComponent } from 'svelte';
 import { mount, unmount } from 'svelte';

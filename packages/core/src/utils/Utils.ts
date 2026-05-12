@@ -68,56 +68,69 @@ export function areArraysEqual<T>(arr1: T[] | undefined, arr2: T[] | undefined):
 }
 
 export function areObjectsEqual(obj1: unknown, obj2: unknown): boolean {
-	if (obj1 === null && obj2 === null) {
+	// Fast path: identical references and primitives (note: NaN !== NaN)
+	if (obj1 === obj2) {
 		return true;
 	}
+
+	// Treat NaN as equal to NaN
+	if (typeof obj1 === 'number' && typeof obj2 === 'number') {
+		if (Number.isNaN(obj1) && Number.isNaN(obj2)) {
+			return true;
+		}
+	}
+
+	// Distinguish null and undefined explicitly
 	if (obj1 === null || obj2 === null) {
-		return false;
+		return obj1 === obj2;
+	}
+	if (obj1 === undefined || obj2 === undefined) {
+		return obj1 === obj2;
 	}
 
 	if (typeof obj1 !== typeof obj2) {
 		return false;
 	}
 
-	if (typeof obj1 === 'object' && typeof obj2 === 'object') {
-		// both are arrays
-		if (Array.isArray(obj1) && Array.isArray(obj2)) {
-			if (obj1.length !== obj2.length) {
-				return false;
-			}
+	// Non-objects (including functions) already handled by reference/strict-equality above
+	if (typeof obj1 !== 'object') {
+		return obj1 === obj2;
+	}
 
-			for (let i = 0; i < obj1.length; i++) {
-				if (!areObjectsEqual(obj1[i], obj2[i])) {
-					return false;
-				}
-			}
+	// At this point both are non-null objects
+	// Date handling
+	if (obj1 instanceof Date && obj2 instanceof Date) {
+		return obj1.getTime() === obj2.getTime();
+	}
 
-			return true;
+	// Array handling
+	const isArray1 = Array.isArray(obj1);
+	const isArray2 = Array.isArray(obj2);
+	if (isArray1 || isArray2) {
+		if (!isArray1 || !isArray2) return false;
+		const a1 = obj1 as unknown[];
+		const a2 = obj2 as unknown[];
+		if (a1.length !== a2.length) return false;
+		for (let i = 0; i < a1.length; i++) {
+			if (!areObjectsEqual(a1[i], a2[i])) return false;
 		}
-
-		// one is array and the other is not
-		if (Array.isArray(obj1) || Array.isArray(obj2)) {
-			return false;
-		}
-
-		const keys1 = Object.keys(obj1);
-		const keys2 = Object.keys(obj2);
-
-		if (keys1.length !== keys2.length) {
-			return false;
-		}
-
-		for (const key of keys1) {
-			// @ts-ignore
-			if (!areObjectsEqual(obj1[key], obj2[key])) {
-				return false;
-			}
-		}
-
 		return true;
 	}
 
-	return obj1 === obj2;
+	// Plain object: compare keys and values
+	const keys1 = Object.keys(obj1);
+	const keys2 = Object.keys(obj2);
+	if (keys1.length !== keys2.length) return false;
+
+	const keys2Set = new Set(keys2);
+	for (const k of keys1) {
+		if (!keys2Set.has(k)) return false;
+		const v1 = (obj1 as Record<string, unknown>)[k];
+		const v2 = (obj2 as Record<string, unknown>)[k];
+		if (!areObjectsEqual(v1, v2)) return false;
+	}
+
+	return true;
 }
 
 /**
@@ -243,7 +256,7 @@ export function toEnumeration(
 		return `${arr[0]} ${lastSeparator} ${arr[1]}`;
 	}
 
-	return `${arr.slice(0, -1).join(separator)} ${lastSeparator} ${arr.slice(-1)}`;
+	return `${arr.slice(0, -1).join(separator)} ${lastSeparator} ${arr.slice(-1)[0]}`;
 }
 
 export function expectType<T>(_: T): void {

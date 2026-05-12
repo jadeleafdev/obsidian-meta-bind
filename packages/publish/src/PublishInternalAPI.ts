@@ -64,6 +64,14 @@ export class PublishInternalAPI extends InternalAPI<PublishComponents> {
 		return Promise.reject(new Error('not implemented'));
 	}
 
+	public jsEngineExecuteCustom(
+		_code: string,
+		_globals: Record<string, unknown>,
+		_expression?: boolean,
+	): Promise<unknown> {
+		return Promise.reject(new Error('not implemented'));
+	}
+
 	public createJsRenderer(_container: HTMLElement, _filePath: string, _code: string, _hidden: boolean): IJsRenderer {
 		throw new Error('not implemented');
 	}

@@ -12,10 +12,19 @@ const entryFile = 'packages/obsidian/src/main.ts';
 export default defineConfig(async ({ mode }) => {
 	const { resolve } = path;
 	const prod = mode === 'production';
-	const outDir = prod ? 'dist/' : `exampleVault/.obsidian/plugins/${manifest.id}/`;
+	const outDir = prod ? 'dist' : `exampleVault/.obsidian/plugins/${manifest.id}`;
 
 	let plugins = [
-		svelte(),
+		svelte({
+			onwarn: (warning, handler) => {
+				// ignore certain warnings
+				if (warning.code === 'state_referenced_locally') {
+					return;
+				}
+
+				handler(warning);
+			},
+		}),
 		banner({
 			outDir: outDir,
 			content: getBuildBanner(prod ? 'Release Build' : 'Dev Build', version => version),
@@ -24,7 +33,7 @@ export default defineConfig(async ({ mode }) => {
 			targets: [
 				{
 					src: 'manifest.json',
-					dest: outDir,
+					dest: '.',
 				},
 			],
 		}),
@@ -54,13 +63,12 @@ export default defineConfig(async ({ mode }) => {
 			sourcemap: prod ? false : 'inline',
 			cssCodeSplit: false,
 			emptyOutDir: false,
-			outDir: '',
+			outDir: outDir,
 			rolldownOptions: {
 				input: {
 					main: resolve(__dirname, entryFile),
 				},
 				output: {
-					dir: outDir,
 					entryFileNames: 'main.js',
 					assetFileNames: 'styles.css',
 				},

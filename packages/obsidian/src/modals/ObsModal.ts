@@ -3,7 +3,7 @@ import type { ModalOptions } from 'packages/core/src/api/InternalAPI';
 import type { IModal } from 'packages/core/src/modals/IModal';
 import type { ModalContent } from 'packages/core/src/modals/ModalContent';
 import { DomHelpers } from 'packages/core/src/utils/Utils';
-import type { ObsMetaBind } from 'packages/obsidian/src/main';
+import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 export class ObsModal extends Modal implements IModal {
 	content: ModalContent;

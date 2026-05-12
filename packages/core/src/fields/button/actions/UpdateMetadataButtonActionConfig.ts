@@ -33,17 +33,18 @@ export class UpdateMetadataButtonActionConfig extends AbstractButtonActionConfig
 				});
 			}
 
-			// eslint-disable-next-line @typescript-eslint/no-implied-eval
-			const func = new Function('x', 'getMetadata', `return ${action.value};`) as (
-				value: unknown,
-				getMetadata: (bindTarget: string) => unknown,
-			) => unknown;
-
-			this.mb.api.updateMetadata(bindTarget, value =>
-				func(value, bindTarget => {
-					return this.mb.api.getMetadata(this.mb.api.parseBindTarget(bindTarget, filePath));
-				}),
+			const value = this.mb.api.getMetadata(bindTarget);
+			const newValue = await this.mb.internal.jsEngineExecuteCustom(
+				action.value,
+				{
+					x: value,
+					getMetadata: (bindTarget: string) =>
+						this.mb.api.getMetadata(this.mb.api.parseBindTarget(bindTarget, filePath)),
+				},
+				true,
 			);
+
+			this.mb.api.setMetadata(bindTarget, newValue);
 		} else {
 			this.mb.api.setMetadata(bindTarget, parseLiteral(action.value));
 		}

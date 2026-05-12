@@ -8,7 +8,7 @@ import type { ImageSuggesterLikeIPF } from 'packages/core/src/fields/inputFields
 import { SuggesterOption } from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
 import { ErrorLevel, MetaBindArgumentError } from 'packages/core/src/utils/errors/MetaBindErrors';
 import { stringifyLiteral } from 'packages/core/src/utils/Literal';
-import type { ObsMetaBind } from 'packages/obsidian/src/main';
+import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 function recSearchFolder(folder: TFolder): SuggesterOption<string>[] {
 	const ret = [];

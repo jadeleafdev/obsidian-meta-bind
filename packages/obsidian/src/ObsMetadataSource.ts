@@ -4,7 +4,7 @@ import type { MetadataManager } from 'packages/core/src/metadata/MetadataManager
 import type { Metadata } from 'packages/core/src/metadata/MetadataSource';
 import { FilePathMetadataSource } from 'packages/core/src/metadata/MetadataSource';
 import { ErrorLevel, MetaBindInternalError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import type { ObsMetaBind } from 'packages/obsidian/src/main';
+import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 interface ObsMetadataCacheItem extends FilePathMetadataCacheItem {
 	file: TFile;

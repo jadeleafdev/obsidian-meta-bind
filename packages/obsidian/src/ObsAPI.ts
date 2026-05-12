@@ -1,4 +1,4 @@
-import type { ReactiveComponent } from 'jsEngine/api/reactive/ReactiveComponent';
+import type { ReactiveComponent } from 'jsEngine/src/api/reactive/ReactiveComponent';
 import type { Component } from 'obsidian';
 import type { LifecycleHook } from 'packages/core/src/api/API.js';
 import { API } from 'packages/core/src/api/API.js';
@@ -12,8 +12,8 @@ import { Signal } from 'packages/core/src/utils/Signal';
 import { getUUID } from 'packages/core/src/utils/Utils';
 import { validateAPIArgs, zodFunction } from 'packages/core/src/utils/ZodUtils';
 import { MarkdownRenderChildWidget } from 'packages/obsidian/src/cm6/Cm6_Widgets';
-import type { ObsComponents, ObsMetaBind } from 'packages/obsidian/src/main';
 import { MountableMDRC } from 'packages/obsidian/src/MountableMDRC';
+import type { ObsComponents, ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 import { getJsEnginePluginAPI } from 'packages/obsidian/src/ObsUtils';
 import { z } from 'zod';
 

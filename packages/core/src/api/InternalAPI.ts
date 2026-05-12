@@ -152,6 +152,19 @@ export abstract class InternalAPI<Components extends MB_Comps> {
 	): Promise<() => void>;
 
 	/**
+	 * Execute code using js engine with the given globals.
+	 *
+	 * @param code
+	 * @param globals
+	 * @param expression If true, evaluate code as an expression instead of as a function body.
+	 */
+	abstract jsEngineExecuteCustom(
+		code: string,
+		globals: Record<string, unknown>,
+		expression?: boolean,
+	): Promise<unknown>;
+
+	/**
 	 * Creates a js renderer, used for the js view field.
 	 *
 	 * @param container

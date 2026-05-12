@@ -43,7 +43,6 @@ export class TestMetadataSource extends FilePathMetadataSource<FilePathMetadataC
 	}
 
 	public readExternal(storagePath: string): Metadata {
-		console.log('reading external', storagePath);
 		return this.externalMetadata[storagePath] ?? {};
 	}
 

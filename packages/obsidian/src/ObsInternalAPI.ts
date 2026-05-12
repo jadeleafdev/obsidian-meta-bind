@@ -15,13 +15,13 @@ import type { IFuzzySearch } from 'packages/core/src/utils/IFuzzySearch';
 import type { IJsRenderer } from 'packages/core/src/utils/IJsRenderer';
 import type { MBLiteral } from 'packages/core/src/utils/Literal';
 import { FuzzySearch } from 'packages/obsidian/src/FuzzySearch';
-import type { ObsMetaBind } from 'packages/obsidian/src/main';
 import { getImageSuggesterOptionsForInputField } from 'packages/obsidian/src/modals/ImageSuggesterModalHelper';
 import { ObsModal } from 'packages/obsidian/src/modals/ObsModal';
 import { ObsSearchModal } from 'packages/obsidian/src/modals/ObsSearchModal';
 import { getSuggesterOptionsForInputField } from 'packages/obsidian/src/modals/SuggesterModalHelper';
 import { ObsContextMenu } from 'packages/obsidian/src/ObsContextMenu';
 import { ObsJsRenderer } from 'packages/obsidian/src/ObsJsRenderer';
+import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 import { getJsEnginePluginAPI, getTemplaterPluginAPI, Templater_RunMode } from 'packages/obsidian/src/ObsUtils';
 import type { ZodType } from 'zod';
 import { z } from 'zod';
@@ -112,6 +112,16 @@ export class ObsInternalAPI extends InternalAPI<ObsMetaBind> {
 		});
 
 		return () => component.unload();
+	}
+
+	public async jsEngineExecuteCustom(
+		code: string,
+		globals: Record<string, unknown>,
+		expression?: boolean,
+	): Promise<unknown> {
+		const jsEngineAPI = getJsEnginePluginAPI(this.omb);
+
+		return jsEngineAPI.internal.executeCustom(code, globals, expression);
 	}
 
 	public createJsRenderer(container: HTMLElement, filePath: string, code: string, hidden: boolean): IJsRenderer {

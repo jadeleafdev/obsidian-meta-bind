@@ -2,7 +2,7 @@ import type { App } from 'obsidian';
 import { Modal } from 'obsidian';
 import type { ButtonConfig } from 'packages/core/src/config/ButtonConfig';
 import type { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import type { ObsMetaBind } from 'packages/obsidian/src/main';
+import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 import ButtonTemplatesSettingComponent from 'packages/obsidian/src/settings/buttonTemplateSetting/ButtonTemplatesSettingComponent.svelte';
 import type { Component as SvelteComponent } from 'svelte';
 import { mount, unmount } from 'svelte';

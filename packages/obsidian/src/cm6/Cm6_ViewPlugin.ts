@@ -9,7 +9,7 @@ import { Component, editorLivePreviewField } from 'obsidian';
 import type { InlineFieldType } from 'packages/core/src/config/APIConfigs';
 import type { MB_WidgetSpec } from 'packages/obsidian/src/cm6/Cm6_Util';
 import { Cm6_Util, MB_WidgetType } from 'packages/obsidian/src/cm6/Cm6_Util';
-import type { ObsMetaBind } from 'packages/obsidian/src/main';
+import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 interface NodeData {
 	content: string;

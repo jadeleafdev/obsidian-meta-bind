@@ -115,6 +115,29 @@ const buttonActionTests: Record<ButtonActionType, () => void> = {
 
 			expect(testPlugin.getCacheMetadata(testFilePath)?.['testProp']).toBe('testValue');
 		});
+
+		test('evaluates metadata updates through js engine custom execution', async () => {
+			testPlugin.api.setMetadata(testPlugin.api.parseBindTarget('testProp', testFilePath), 2);
+			testPlugin.api.setMetadata(testPlugin.api.parseBindTarget('otherProp', testFilePath), 40);
+
+			testPlugin.internal.jsEngineExecuteCustom = async (code, globals, expression) => {
+				expect(code).toBe('x + getMetadata("otherProp")');
+				expect(expression).toBe(true);
+				expect(globals.x).toBe(2);
+
+				const getMetadata = globals.getMetadata as (bindTarget: string) => unknown;
+				return (globals.x as number) + (getMetadata('otherProp') as number);
+			};
+
+			await simplifiedRunAction({
+				type: ButtonActionType.UPDATE_METADATA,
+				bindTarget: 'testProp',
+				evaluate: true,
+				value: 'x + getMetadata("otherProp")',
+			});
+
+			expect(testPlugin.getCacheMetadata(testFilePath)?.['testProp']).toBe(42);
+		});
 	},
 	[ButtonActionType.CREATE_NOTE]: () => {
 		test('does not throw', () => {

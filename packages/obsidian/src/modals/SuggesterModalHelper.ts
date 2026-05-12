@@ -7,7 +7,7 @@ import { applyUseLinksArgument } from 'packages/core/src/fields/fieldArguments/i
 import type { SuggesterLikeIFP } from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
 import { SuggesterOption } from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
 import type { MBLiteral } from 'packages/core/src/utils/Literal';
-import type { ObsMetaBind } from 'packages/obsidian/src/main';
+import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 import { getDataViewPluginAPI } from 'packages/obsidian/src/ObsUtils';
 import { z } from 'zod';
 

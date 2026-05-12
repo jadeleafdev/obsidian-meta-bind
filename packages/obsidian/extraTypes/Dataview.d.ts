@@ -10,5 +10,5 @@ declare module 'obsidian-dataview' {
 	}
 
 	export type DataObject = Record<string, Literal>;
-	export type Literal = boolean | number | string | Literal[] | DataObject | Function | null | HTMLElement;
+	export type Literal = boolean | number | string | Literal[] | DataObject | (() => void) | null | HTMLElement;
 }

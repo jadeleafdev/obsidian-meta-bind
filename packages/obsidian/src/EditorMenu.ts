@@ -4,7 +4,7 @@ import {
 	createInputFieldInsertExamples,
 	createViewFieldInsertExamples,
 } from 'packages/core/src/utils/InputFieldExamples';
-import type { ObsMetaBind } from 'packages/obsidian/src/main';
+import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 export function createEditorMenu(menu: Menu, editor: Editor, mb: ObsMetaBind): void {
 	const inputFieldExamples = createInputFieldInsertExamples(mb);

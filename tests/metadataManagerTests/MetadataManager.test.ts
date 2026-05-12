@@ -282,7 +282,7 @@ describe('metadata manager', () => {
 		).toThrow(MetaBindBindTargetError);
 	});
 
-	test('should skip initial derived computation when dependency is undefined', async () => {
+	test('should cascade derived subscriptions', async () => {
 		const targetA = createBindTarget(testFilePath, ['a']);
 		const targetB = createBindTarget(testFilePath, ['b']);
 		const targetC = createBindTarget(testFilePath, ['c']);
@@ -318,7 +318,7 @@ describe('metadata manager', () => {
 			[targetB],
 			[signalB],
 			() => {
-				const value = Number(signalB.get()) + 1;
+				const value = Number(signalB.get() ?? 0) + 1;
 				cWrites.push(value);
 				return value;
 			},
@@ -331,7 +331,7 @@ describe('metadata manager', () => {
 			[targetC],
 			[signalC],
 			() => {
-				const value = Number(signalC.get()) + 1;
+				const value = Number(signalC.get() ?? 0) + 1;
 				dWrites.push(value);
 				return value;
 			},
@@ -346,8 +346,8 @@ describe('metadata manager', () => {
 		expect(manager.read(targetC)).toBe(3);
 		expect(manager.read(targetD)).toBe(4);
 
-		expect(cWrites).toEqual([3]);
-		expect(dWrites).toEqual([4]);
+		expect(cWrites).toEqual([1, 3]);
+		expect(dWrites).toEqual([1, 2, 4]);
 	});
 });
 

@@ -20,7 +20,7 @@ export class SleepButtonActionConfig extends AbstractButtonActionConfig<SleepBut
 		_context: ButtonContext,
 		_click: ButtonClickContext,
 	): Promise<void> {
-		await new Promise(resolve => setTimeout(resolve, action.ms));
+		await new Promise(resolve => window.setTimeout(resolve, action.ms));
 	}
 
 	create(): Required<SleepButtonAction> {

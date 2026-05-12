@@ -1,67 +1,28 @@
-import { javascript } from '@codemirror/legacy-modes/mode/javascript';
-import { yaml } from '@codemirror/legacy-modes/mode/yaml';
 import { mapIndexToLineColumn } from '@lemons_dev/parsinom';
 import type { Mode, StringStream } from 'codemirror';
 import type { InlineFieldType } from 'packages/core/src/config/APIConfigs';
 import { SyntaxHighlighting } from 'packages/core/src/parsers/syntaxHighlighting/SyntaxHighlighting';
-import type { ObsMetaBind } from 'packages/obsidian/src/main';
+import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 export function registerCm5HLModes(mb: ObsMetaBind): void {
-	/* eslint-disable */
-
 	if (!mb.getSettings().enableSyntaxHighlighting) {
 		return;
 	}
 
-	window.CodeMirror.defineMode('meta-bind-button', _config => {
-		const mode: Mode<any> = {
-			startState: () => {
-				return yaml.startState?.(4);
-			},
-			blankLine: (state: any) => {
-				return yaml.blankLine?.(state, 4);
-			},
-			copyState: (_state: any) => {
-				return yaml.startState?.(4);
-			},
-			token: (stream: any, state: any) => {
-				return `line-HyperMD-codeblock ${yaml.token?.(stream, state)}`;
-			},
-		};
-
-		return mode;
-	});
-
-	window.CodeMirror.defineMode('meta-bind-js-view', _config => {
-		const mode: Mode<any> = {
-			startState: () => {
-				return javascript.startState?.(4);
-			},
-			blankLine: (state: any) => {
-				return javascript.blankLine?.(state, 4);
-			},
-			copyState: (_state: any) => {
-				return javascript.startState?.(4);
-			},
-			token: (stream: any, state: any) => {
-				return `line-HyperMD-codeblock ${javascript.token?.(stream, state)}`;
-			},
-		};
-
-		return mode;
-	});
+	window.CodeMirror.defineMode('meta-bind-button', config => window.CodeMirror.getMode(config, 'yaml'));
+	window.CodeMirror.defineMode('meta-bind-js-view', config => window.CodeMirror.getMode(config, 'javascript'));
 
 	const codeBlockEndRegexp = /^\s*(```+|~~~+)/;
 
-	type MBModeState = {
-		str: string;
-		fieldType: InlineFieldType;
-		highlights: SyntaxHighlighting;
+	interface MBModeState {
+		str?: string;
+		fieldType?: InlineFieldType;
+		highlights?: SyntaxHighlighting;
 		line: number;
-	};
+	}
 
 	window.CodeMirror.defineMode('meta-bind', _config => {
-		const mode: Mode<any> = {
+		const mode: Mode<MBModeState> = {
 			startState: () => {
 				return {
 					str: undefined,
@@ -76,7 +37,7 @@ export function registerCm5HLModes(mb: ObsMetaBind): void {
 				// then parse it and save the generated highlights
 				// then the stream parser can simply look up the highlights for the current line and column
 				if (state.str === undefined) {
-					let lines = [stream.string];
+					const lines = [stream.string];
 					let i = 1;
 					let lookAhead = stream.lookAhead(i);
 
@@ -91,7 +52,7 @@ export function registerCm5HLModes(mb: ObsMetaBind): void {
 
 					state.str = lines.filter(x => x.trim() !== '').join('\n');
 
-					let fieldType = mb.api.isInlineFieldDeclarationAndGetType(state.str.trim());
+					const fieldType = mb.api.isInlineFieldDeclarationAndGetType(state.str.trim());
 					if (fieldType === undefined) {
 						state.highlights = new SyntaxHighlighting(state.str, []);
 					} else {
@@ -103,14 +64,14 @@ export function registerCm5HLModes(mb: ObsMetaBind): void {
 				}
 
 				const lineHighlights = state.highlights
-					.getHighlights()
+					?.getHighlights()
 					.map(h => ({
 						highlight: h,
-						from: mapIndexToLineColumn(state.str, h.range.from),
-						to: mapIndexToLineColumn(state.str, h.range.to),
+						from: state.str ? mapIndexToLineColumn(state.str, h.range.from) : { line: 1, column: 1 },
+						to: state.str ? mapIndexToLineColumn(state.str, h.range.to) : { line: 1, column: 1 },
 					}))
 					.filter(h => h.from.line === state.line);
-				const highlight = lineHighlights.find(h => h.from.column === stream.pos + 1);
+				const highlight = lineHighlights?.find(h => h.from.column === stream.pos + 1);
 
 				// console.log(state.line, stream.pos, stream.peek(), highlight);
 

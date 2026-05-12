@@ -1,9 +1,9 @@
-import type { API } from 'jsEngine/api/API';
-import type { JsExecution } from 'jsEngine/engine/JsExecution';
+import type { API } from 'jsEngine/src/api/API';
+import type { JsExecution } from 'jsEngine/src/engine/JsExecution';
 import { Component } from 'obsidian';
 import type { IJsRenderer } from 'packages/core/src/utils/IJsRenderer';
 import { DomHelpers } from 'packages/core/src/utils/Utils';
-import type { ObsMetaBind } from 'packages/obsidian/src/main';
+import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 import { getJsEnginePluginAPI } from 'packages/obsidian/src/ObsUtils';
 
 export class ObsJsRenderer implements IJsRenderer {

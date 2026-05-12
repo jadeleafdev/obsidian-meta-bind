@@ -68,18 +68,14 @@ export class DerivedMetadataSubscription implements IMetadataSubscription {
 			signal.registerListener({ callback: () => void this.computeValue() });
 		}
 
-		void this.computeValue(true);
+		void this.computeValue();
 	}
 
 	/**
 	 * Computes the value of the subscription and writes it to the cache.
 	 * This uses the compute function and handles any errors that might occur.
 	 */
-	private async computeValue(isInitialComputation: boolean = false): Promise<void> {
-		if (isInitialComputation && this.dependencySignals.some(signal => signal.get() === undefined)) {
-			return;
-		}
-
+	private async computeValue(): Promise<void> {
 		try {
 			const value = await this.computeFunction();
 			if (this.bindTarget) {

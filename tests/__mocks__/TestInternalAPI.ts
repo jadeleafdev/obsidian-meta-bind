@@ -57,6 +57,14 @@ export class TestInternalAPI extends InternalAPI<TestComponents> {
 		return Promise.resolve(() => {});
 	}
 
+	public jsEngineExecuteCustom(
+		_code: string,
+		_globals: Record<string, unknown>,
+		_expression?: boolean,
+	): Promise<unknown> {
+		return Promise.resolve(undefined);
+	}
+
 	public createJsRenderer(_container: HTMLElement, _filePath: string, _code: string, _hidden: boolean): IJsRenderer {
 		throw new Error('not implemented');
 	}
