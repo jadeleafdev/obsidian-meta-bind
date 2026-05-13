@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { MarkdownLink } from 'packages/core/src//parsers/MarkdownLinkParser';
-	import LinkComponent from 'packages/core/src/utils/components/LinkComponent.svelte';
-	import ListWrapper from 'packages/core/src/utils/components/ListWrapper.svelte';
+	import type { MarkdownLink } from 'meta-bind-core/src//parsers/MarkdownLinkParser';
+	import LinkComponent from 'meta-bind-core/src/utils/components/LinkComponent.svelte';
+	import ListWrapper from 'meta-bind-core/src/utils/components/ListWrapper.svelte';
 
 	let {
 		mdLinkList,

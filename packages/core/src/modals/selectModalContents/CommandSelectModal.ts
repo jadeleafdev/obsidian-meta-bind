@@ -1,5 +1,5 @@
-import type { Command } from 'packages/core/src/api/InternalAPI';
-import { SelectModalContent } from 'packages/core/src/modals/SelectModalContent';
+import type { Command } from 'meta-bind-core/src/api/InternalAPI';
+import { SelectModalContent } from 'meta-bind-core/src/modals/SelectModalContent';
 
 export class CommandSelectModal extends SelectModalContent<Command> {
 	public getItemText(item: Command): string {

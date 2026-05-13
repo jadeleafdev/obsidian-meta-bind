@@ -1,13 +1,13 @@
-import type { MetaBind } from 'packages/core/src';
+import type { MetaBind } from 'meta-bind-core/src';
 import type {
 	ButtonClickContext,
 	ButtonConfig,
 	ButtonContext,
 	CreateNoteButtonAction,
-} from 'packages/core/src/config/ButtonConfig';
-import { ButtonActionType } from 'packages/core/src/config/ButtonConfig';
-import { AbstractButtonActionConfig } from 'packages/core/src/fields/button/AbstractButtonActionConfig';
-import { ensureFileExtension, joinPath } from 'packages/core/src/utils/Utils';
+} from 'meta-bind-core/src/config/ButtonConfig';
+import { ButtonActionType } from 'meta-bind-core/src/config/ButtonConfig';
+import { AbstractButtonActionConfig } from 'meta-bind-core/src/fields/button/AbstractButtonActionConfig';
+import { ensureFileExtension, joinPath } from 'meta-bind-core/src/utils/Utils';
 
 export class CreateNoteButtonActionConfig extends AbstractButtonActionConfig<CreateNoteButtonAction> {
 	constructor(mb: MetaBind) {

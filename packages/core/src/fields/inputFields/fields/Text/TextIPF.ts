@@ -1,8 +1,8 @@
-import { InputFieldArgumentType } from 'packages/core/src/config/FieldConfigs';
-import { AbstractInputField } from 'packages/core/src/fields/inputFields/AbstractInputField';
-import TextComponent from 'packages/core/src/fields/inputFields/fields/Text/TextComponent.svelte';
-import type { InputFieldSvelteComponent } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-import { parseUnknownToString } from 'packages/core/src/utils/Literal';
+import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
+import { AbstractInputField } from 'meta-bind-core/src/fields/inputFields/AbstractInputField';
+import type { InputFieldSvelteComponent } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+import { parseUnknownToString } from 'meta-bind-core/src/utils/Literal';
+import TextComponent from 'meta-bind-core/src/fields/inputFields/fields/Text/TextComponent.svelte';
 
 export class TextIPF extends AbstractInputField<string, string> {
 	protected filterValue(value: unknown): string | undefined {

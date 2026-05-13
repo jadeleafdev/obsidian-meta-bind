@@ -1,10 +1,10 @@
-import type { MetaBind } from 'packages/core/src';
-import type { NotePosition, RenderChildType } from 'packages/core/src/config/APIConfigs';
-import { ButtonGroupField } from 'packages/core/src/fields/button/ButtonGroupField';
-import { FieldMountable } from 'packages/core/src/fields/FieldMountable';
-import type { ButtonGroupDeclaration } from 'packages/core/src/parsers/ButtonParser';
-import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import { DomHelpers, showUnloadedMessage } from 'packages/core/src/utils/Utils';
+import type { MetaBind } from 'meta-bind-core/src';
+import type { NotePosition, RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+import { ButtonGroupField } from 'meta-bind-core/src/fields/button/ButtonGroupField';
+import { FieldMountable } from 'meta-bind-core/src/fields/FieldMountable';
+import type { ButtonGroupDeclaration } from 'meta-bind-core/src/parsers/ButtonParser';
+import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import { DomHelpers, showUnloadedMessage } from 'meta-bind-core/src/utils/Utils';
 
 export class ButtonGroupMountable extends FieldMountable {
 	errorCollection: ErrorCollection;

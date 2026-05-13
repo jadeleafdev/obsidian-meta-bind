@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { ButtonStyleType } from 'packages/core/src/config/ButtonConfig';
-	import type { InputFieldSvelteProps } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-	import Button from 'packages/core/src/utils/components/Button.svelte';
-	import Icon from 'packages/core/src/utils/components/Icon.svelte';
-	import type { ContextMenuItemDefinition } from 'packages/core/src/utils/IContextMenu';
+	import { ButtonStyleType } from 'meta-bind-core/src/config/ButtonConfig';
+	import type { InputFieldSvelteProps } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+	import Button from 'meta-bind-core/src/utils/components/Button.svelte';
+	import Icon from 'meta-bind-core/src/utils/components/Icon.svelte';
+	import type { ContextMenuItemDefinition } from 'meta-bind-core/src/utils/IContextMenu';
 
 	const props: InputFieldSvelteProps<string | undefined> & {
 		showSuggester: () => void;

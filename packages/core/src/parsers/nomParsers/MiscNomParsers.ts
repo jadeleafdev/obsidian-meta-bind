@@ -1,7 +1,7 @@
 import type { Parser } from '@lemons_dev/parsinom';
 import { P_UTILS, P } from '@lemons_dev/parsinom';
-import { P_Ident } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
-import { LineNumberExpression, lineNumberOpFromString } from 'packages/core/src/utils/LineNumberExpression';
+import { P_Ident } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
+import { LineNumberExpression, lineNumberOpFromString } from 'meta-bind-core/src/utils/LineNumberExpression';
 
 export const P_float: Parser<number> = P.sequenceMap(
 	(sign, number) => (sign === undefined ? number : -number),

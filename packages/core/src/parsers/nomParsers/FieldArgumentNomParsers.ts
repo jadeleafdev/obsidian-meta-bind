@@ -1,12 +1,12 @@
 import type { Parser } from '@lemons_dev/parsinom';
 import { P_UTILS, P } from '@lemons_dev/parsinom';
-import type { UnvalidatedFieldArgument } from 'packages/core/src/parsers/FieldDeclaration';
-import type { ParsingResultNode } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
+import type { UnvalidatedFieldArgument } from 'meta-bind-core/src/parsers/FieldDeclaration';
+import type { ParsingResultNode } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
 import {
 	createResultNode,
 	P_Ident,
 	P_SingleQuotedString,
-} from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
+} from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
 
 export const P_NonStringArgumentValue: Parser<string> = P.regexp(/^[^()',]+/).describe(
 	'any character except parentheses, single quotation marks and commas',

@@ -1,13 +1,13 @@
+import { MetaBindBuild } from 'meta-bind-core/src';
+import { DEFAULT_SETTINGS, MAX_SYNC_INTERVAL, MIN_SYNC_INTERVAL, weekdays } from 'meta-bind-core/src/Settings';
+import { DocsUtils } from 'meta-bind-core/src/utils/DocsUtils';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
+import { MB_PLAYGROUND_VIEW_TYPE } from 'meta-bind-obsidian/src/playground/PlaygroundView';
+import { ButtonTemplatesSettingModal } from 'meta-bind-obsidian/src/settings/buttonTemplateSetting/ButtonTemplatesSettingModal';
+import { ExcludedFoldersSettingModal } from 'meta-bind-obsidian/src/settings/excludedFoldersSetting/ExcludedFoldersSettingModal';
+import { InputFieldTemplatesSettingModal } from 'meta-bind-obsidian/src/settings/inputFieldTemplateSetting/InputFieldTemplatesSettingModal';
 import type { App } from 'obsidian';
 import { ButtonComponent, PluginSettingTab, Setting } from 'obsidian';
-import { MetaBindBuild } from 'packages/core/src';
-import { DEFAULT_SETTINGS, MAX_SYNC_INTERVAL, MIN_SYNC_INTERVAL, weekdays } from 'packages/core/src/Settings';
-import { DocsUtils } from 'packages/core/src/utils/DocsUtils';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
-import { MB_PLAYGROUND_VIEW_TYPE } from 'packages/obsidian/src/playground/PlaygroundView';
-import { ButtonTemplatesSettingModal } from 'packages/obsidian/src/settings/buttonTemplateSetting/ButtonTemplatesSettingModal';
-import { ExcludedFoldersSettingModal } from 'packages/obsidian/src/settings/excludedFoldersSetting/ExcludedFoldersSettingModal';
-import { InputFieldTemplatesSettingModal } from 'packages/obsidian/src/settings/inputFieldTemplateSetting/InputFieldTemplatesSettingModal';
 
 export class MetaBindSettingTab extends PluginSettingTab {
 	mb: ObsMetaBind;

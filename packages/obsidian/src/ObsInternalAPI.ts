@@ -1,28 +1,28 @@
-import type { App } from 'obsidian';
-import { Component, MarkdownRenderer, Notice, parseYaml, setIcon, stringifyYaml, TFile, TFolder } from 'obsidian';
-import type { LifecycleHook } from 'packages/core/src/api/API';
-import type { Command, ModalOptions } from 'packages/core/src/api/InternalAPI';
-import { InternalAPI } from 'packages/core/src/api/InternalAPI';
+import type { LifecycleHook } from 'meta-bind-core/src/api/API';
+import type { Command, ModalOptions } from 'meta-bind-core/src/api/InternalAPI';
+import { InternalAPI } from 'meta-bind-core/src/api/InternalAPI';
 import type {
 	ImageSuggesterLikeIPF,
 	SuggesterLikeIFP,
 	SuggesterOption,
-} from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
-import type { ModalContent } from 'packages/core/src/modals/ModalContent';
-import type { SelectModalContent } from 'packages/core/src/modals/SelectModalContent';
-import type { ContextMenuItemDefinition, IContextMenu } from 'packages/core/src/utils/IContextMenu';
-import type { IFuzzySearch } from 'packages/core/src/utils/IFuzzySearch';
-import type { IJsRenderer } from 'packages/core/src/utils/IJsRenderer';
-import type { MBLiteral } from 'packages/core/src/utils/Literal';
-import { FuzzySearch } from 'packages/obsidian/src/FuzzySearch';
-import { getImageSuggesterOptionsForInputField } from 'packages/obsidian/src/modals/ImageSuggesterModalHelper';
-import { ObsModal } from 'packages/obsidian/src/modals/ObsModal';
-import { ObsSearchModal } from 'packages/obsidian/src/modals/ObsSearchModal';
-import { getSuggesterOptionsForInputField } from 'packages/obsidian/src/modals/SuggesterModalHelper';
-import { ObsContextMenu } from 'packages/obsidian/src/ObsContextMenu';
-import { ObsJsRenderer } from 'packages/obsidian/src/ObsJsRenderer';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
-import { getJsEnginePluginAPI, getTemplaterPluginAPI, Templater_RunMode } from 'packages/obsidian/src/ObsUtils';
+} from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
+import type { ModalContent } from 'meta-bind-core/src/modals/ModalContent';
+import type { SelectModalContent } from 'meta-bind-core/src/modals/SelectModalContent';
+import type { ContextMenuItemDefinition, IContextMenu } from 'meta-bind-core/src/utils/IContextMenu';
+import type { IFuzzySearch } from 'meta-bind-core/src/utils/IFuzzySearch';
+import type { IJsRenderer } from 'meta-bind-core/src/utils/IJsRenderer';
+import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
+import { FuzzySearch } from 'meta-bind-obsidian/src/FuzzySearch';
+import { getImageSuggesterOptionsForInputField } from 'meta-bind-obsidian/src/modals/ImageSuggesterModalHelper';
+import { ObsModal } from 'meta-bind-obsidian/src/modals/ObsModal';
+import { ObsSearchModal } from 'meta-bind-obsidian/src/modals/ObsSearchModal';
+import { getSuggesterOptionsForInputField } from 'meta-bind-obsidian/src/modals/SuggesterModalHelper';
+import { ObsContextMenu } from 'meta-bind-obsidian/src/ObsContextMenu';
+import { ObsJsRenderer } from 'meta-bind-obsidian/src/ObsJsRenderer';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
+import { getJsEnginePluginAPI, getTemplaterPluginAPI, Templater_RunMode } from 'meta-bind-obsidian/src/ObsUtils';
+import type { App } from 'obsidian';
+import { Component, MarkdownRenderer, Notice, parseYaml, setIcon, stringifyYaml, TFile, TFolder } from 'obsidian';
 import type { ZodType } from 'zod';
 import { z } from 'zod';
 

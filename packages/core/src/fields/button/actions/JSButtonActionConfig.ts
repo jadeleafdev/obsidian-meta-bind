@@ -1,13 +1,13 @@
-import type { MetaBind } from 'packages/core/src';
+import type { MetaBind } from 'meta-bind-core/src';
 import type {
 	ButtonClickContext,
 	ButtonConfig,
 	ButtonContext,
 	JSButtonAction,
-} from 'packages/core/src/config/ButtonConfig';
-import { ButtonActionType } from 'packages/core/src/config/ButtonConfig';
-import { AbstractButtonActionConfig } from 'packages/core/src/fields/button/AbstractButtonActionConfig';
-import { ErrorLevel, MetaBindJsError } from 'packages/core/src/utils/errors/MetaBindErrors';
+} from 'meta-bind-core/src/config/ButtonConfig';
+import { ButtonActionType } from 'meta-bind-core/src/config/ButtonConfig';
+import { AbstractButtonActionConfig } from 'meta-bind-core/src/fields/button/AbstractButtonActionConfig';
+import { ErrorLevel, MetaBindJsError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
 
 export class JSButtonActionConfig extends AbstractButtonActionConfig<JSButtonAction> {
 	constructor(mb: MetaBind) {

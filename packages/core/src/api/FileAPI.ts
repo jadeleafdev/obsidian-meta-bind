@@ -1,7 +1,7 @@
-import type { LinePosition } from 'packages/core/src/config/APIConfigs';
-import { MDLinkParser } from 'packages/core/src/parsers/MarkdownLinkParser';
-import { ErrorLevel, MetaBindParsingError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import type { LineNumberContext } from 'packages/core/src/utils/LineNumberExpression';
+import type { LinePosition } from 'meta-bind-core/src/config/APIConfigs';
+import { MDLinkParser } from 'meta-bind-core/src/parsers/MarkdownLinkParser';
+import { ErrorLevel, MetaBindParsingError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import type { LineNumberContext } from 'meta-bind-core/src/utils/LineNumberExpression';
 import type { MB_Comps, MetaBind } from '..';
 
 export abstract class FileAPI<Components extends MB_Comps> {

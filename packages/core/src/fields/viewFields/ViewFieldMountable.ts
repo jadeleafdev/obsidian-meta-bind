@@ -1,13 +1,13 @@
-import type { MetaBind } from 'packages/core/src';
-import { RenderChildType } from 'packages/core/src/config/APIConfigs';
-import { ViewFieldArgumentType } from 'packages/core/src/config/FieldConfigs';
-import type { ViewFieldArgumentMapType } from 'packages/core/src/fields/fieldArguments/viewFieldArguments/ViewFieldArgumentFactory';
-import { FieldMountable } from 'packages/core/src/fields/FieldMountable';
-import type { ViewField } from 'packages/core/src/fields/viewFields/ViewFieldFactory';
-import type { ViewFieldDeclaration } from 'packages/core/src/parsers/viewFieldParser/ViewFieldDeclaration';
-import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import { ErrorLevel, MetaBindInternalError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import { DomHelpers, showUnloadedMessage } from 'packages/core/src/utils/Utils';
+import type { MetaBind } from 'meta-bind-core/src';
+import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+import { ViewFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
+import type { ViewFieldArgumentMapType } from 'meta-bind-core/src/fields/fieldArguments/viewFieldArguments/ViewFieldArgumentFactory';
+import { FieldMountable } from 'meta-bind-core/src/fields/FieldMountable';
+import type { ViewField } from 'meta-bind-core/src/fields/viewFields/ViewFieldFactory';
+import type { ViewFieldDeclaration } from 'meta-bind-core/src/parsers/viewFieldParser/ViewFieldDeclaration';
+import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import { ErrorLevel, MetaBindInternalError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import { DomHelpers, showUnloadedMessage } from 'meta-bind-core/src/utils/Utils';
 
 export class ViewFieldMountable extends FieldMountable {
 	renderChildType: RenderChildType;

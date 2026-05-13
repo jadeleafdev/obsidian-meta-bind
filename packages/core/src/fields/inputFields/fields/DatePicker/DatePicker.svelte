@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { Moment } from 'moment';
 	import moment from 'moment';
-	import Calender from 'packages/core/src/fields/inputFields/fields/DatePicker/Calender.svelte';
-	import { getMonthName } from 'packages/core/src/utils/DatePickerUtils.js';
+	import Calender from 'meta-bind-core/src/fields/inputFields/fields/DatePicker/Calender.svelte';
+	import { getMonthName } from 'meta-bind-core/src/utils/DatePickerUtils.js';
 
 	let {
 		selectedDate = moment(),

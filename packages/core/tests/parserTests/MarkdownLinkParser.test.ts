@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { MarkdownLink, MDLinkParser } from '../../packages/core/src/parsers/MarkdownLinkParser';
+import { MarkdownLink, MDLinkParser } from 'meta-bind-core/src/parsers/MarkdownLinkParser';
 
 interface LinkObj {
 	isEmbed: boolean;

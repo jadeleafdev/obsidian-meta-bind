@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
 import { Stream, multi } from 'itertools-ts/es';
-import { InputFieldType } from 'packages/core/src/config/FieldConfigs';
-import { stringifyLiteral } from 'packages/core/src/utils/Literal';
-import { DEFAULT_VALUE_INDICATOR, TestMetaBind } from 'tests/__mocks__/TestPlugin';
+import { InputFieldType } from 'meta-bind-core/src/config/FieldConfigs';
+import { stringifyLiteral } from 'meta-bind-core/src/utils/Literal';
+import { DEFAULT_VALUE_INDICATOR, TestMetaBind } from '../__mocks__/TestPlugin';
 
 const TEST_FILE_PATH = 'testFile';
 const TEST_PROP = 'testProp';

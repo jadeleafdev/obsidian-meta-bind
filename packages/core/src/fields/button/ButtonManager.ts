@@ -1,9 +1,9 @@
-import type { MetaBind } from 'packages/core/src';
-import type { ButtonConfig } from 'packages/core/src/config/ButtonConfig';
-import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import { ErrorLevel, MetaBindButtonError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import { RefCounter } from 'packages/core/src/utils/RefCounter';
-import { getUUID } from 'packages/core/src/utils/Utils';
+import type { MetaBind } from 'meta-bind-core/src';
+import type { ButtonConfig } from 'meta-bind-core/src/config/ButtonConfig';
+import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import { ErrorLevel, MetaBindButtonError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import { RefCounter } from 'meta-bind-core/src/utils/RefCounter';
+import { getUUID } from 'meta-bind-core/src/utils/Utils';
 
 export class ButtonManager {
 	readonly mb: MetaBind;

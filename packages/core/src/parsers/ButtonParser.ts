@@ -1,12 +1,12 @@
 import { P_UTILS, P } from '@lemons_dev/parsinom';
-import type { ButtonConfig } from 'packages/core/src/config/ButtonConfig';
-import { V_ButtonConfig } from 'packages/core/src/config/validators/ButtonConfigValidators';
-import type { MetaBind } from 'packages/core/src/index';
-import { runParser } from 'packages/core/src/parsers/ParsingError';
-import { DocsUtils } from 'packages/core/src/utils/DocsUtils';
-import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import { ErrorLevel, MetaBindButtonError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import { toReadableError, validate } from 'packages/core/src/utils/ZodUtils';
+import type { ButtonConfig } from 'meta-bind-core/src/config/ButtonConfig';
+import { V_ButtonConfig } from 'meta-bind-core/src/config/validators/ButtonConfigValidators';
+import type { MetaBind } from 'meta-bind-core/src/index';
+import { runParser } from 'meta-bind-core/src/parsers/ParsingError';
+import { DocsUtils } from 'meta-bind-core/src/utils/DocsUtils';
+import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import { ErrorLevel, MetaBindButtonError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import { toReadableError, validate } from 'meta-bind-core/src/utils/ZodUtils';
 
 const P_ButtonGroupDeclaration = P.sequenceMap(
 	(_, b) => b,

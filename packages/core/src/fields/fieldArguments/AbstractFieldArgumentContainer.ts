@@ -1,8 +1,8 @@
-import type { FieldArgumentConfig } from 'packages/core/src/config/FieldConfigs';
-import { InputFieldArgumentType } from 'packages/core/src/config/FieldConfigs';
-import type { AbstractFieldArgument } from 'packages/core/src/fields/fieldArguments/AbstractFieldArgument';
-import { DocsUtils } from 'packages/core/src/utils/DocsUtils';
-import { ErrorLevel, MetaBindArgumentError } from 'packages/core/src/utils/errors/MetaBindErrors';
+import type { FieldArgumentConfig } from 'meta-bind-core/src/config/FieldConfigs';
+import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
+import type { AbstractFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/AbstractFieldArgument';
+import { DocsUtils } from 'meta-bind-core/src/utils/DocsUtils';
+import { ErrorLevel, MetaBindArgumentError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
 
 export abstract class AbstractFieldArgumentContainer<
 	FieldType extends string,

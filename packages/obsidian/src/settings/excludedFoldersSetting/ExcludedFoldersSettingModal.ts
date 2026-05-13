@@ -1,10 +1,10 @@
+import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import type { App } from 'obsidian';
 import { Modal } from 'obsidian';
-import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
-import ExcludedFoldersSettingComponent from 'packages/obsidian/src/settings/excludedFoldersSetting/ExcludedFoldersSettingComponent.svelte';
 import type { Component as SvelteComponent } from 'svelte';
 import { mount, unmount } from 'svelte';
+import ExcludedFoldersSettingComponent from 'meta-bind-obsidian/src/settings/excludedFoldersSetting/ExcludedFoldersSettingComponent.svelte';
 
 export class ExcludedFoldersSettingModal extends Modal {
 	private readonly mb: ObsMetaBind;

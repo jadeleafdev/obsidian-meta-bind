@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { InputFieldSvelteProps } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-	import Icon from 'packages/core/src/utils/components/Icon.svelte';
-	import LiteralRenderComponent from 'packages/core/src/utils/components/LiteralRenderComponent.svelte';
-	import type { ContextMenuItemDefinition } from 'packages/core/src/utils/IContextMenu';
-	import { stringifyLiteral, type MBLiteral } from 'packages/core/src/utils/Literal';
+	import type { InputFieldSvelteProps } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+	import Icon from 'meta-bind-core/src/utils/components/Icon.svelte';
+	import LiteralRenderComponent from 'meta-bind-core/src/utils/components/LiteralRenderComponent.svelte';
+	import type { ContextMenuItemDefinition } from 'meta-bind-core/src/utils/IContextMenu';
+	import { stringifyLiteral, type MBLiteral } from 'meta-bind-core/src/utils/Literal';
 
 	const props: InputFieldSvelteProps<MBLiteral[]> & {
 		showSuggester: () => void;

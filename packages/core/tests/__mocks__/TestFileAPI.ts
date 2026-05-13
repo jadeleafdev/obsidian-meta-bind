@@ -1,4 +1,4 @@
-import { FileAPI } from 'packages/core/src/api/FileAPI';
+import { FileAPI } from 'meta-bind-core/src/api/FileAPI';
 import { TestFileSystem } from './TestFileSystem';
 import type { TestComponents, TestMetaBind } from './TestPlugin';
 

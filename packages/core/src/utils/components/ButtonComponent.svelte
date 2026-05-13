@@ -1,8 +1,8 @@
 <!-- Inspired by https://github.com/marcusolsson/obsidian-svelte -->
 
 <script lang="ts">
-	import { ButtonClickType, ButtonStyleType } from 'packages/core/src/config/ButtonConfig';
-	import Icon from 'packages/core/src/utils/components/Icon.svelte';
+	import { ButtonClickType, ButtonStyleType } from 'meta-bind-core/src/config/ButtonConfig';
+	import Icon from 'meta-bind-core/src/utils/components/Icon.svelte';
 	import type { MetaBind } from '../..';
 
 	let {

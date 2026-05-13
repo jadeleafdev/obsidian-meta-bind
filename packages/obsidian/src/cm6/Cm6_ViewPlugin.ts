@@ -4,12 +4,12 @@ import type { DecorationSet, EditorView, ViewUpdate } from '@codemirror/view';
 import { Decoration, ViewPlugin } from '@codemirror/view';
 import type { SyntaxNode } from '@lezer/common';
 import { summary } from 'itertools-ts/es';
+import type { InlineFieldType } from 'meta-bind-core/src/config/APIConfigs';
+import type { MB_WidgetSpec } from 'meta-bind-obsidian/src/cm6/Cm6_Util';
+import { Cm6_Util, MB_WidgetType } from 'meta-bind-obsidian/src/cm6/Cm6_Util';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import type { TFile } from 'obsidian';
 import { Component, editorLivePreviewField } from 'obsidian';
-import type { InlineFieldType } from 'packages/core/src/config/APIConfigs';
-import type { MB_WidgetSpec } from 'packages/obsidian/src/cm6/Cm6_Util';
-import { Cm6_Util, MB_WidgetType } from 'packages/obsidian/src/cm6/Cm6_Util';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 interface NodeData {
 	content: string;

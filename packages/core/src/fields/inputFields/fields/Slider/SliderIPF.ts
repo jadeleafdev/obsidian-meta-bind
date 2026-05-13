@@ -1,11 +1,11 @@
-import { InputFieldArgumentType } from 'packages/core/src/config/FieldConfigs';
-import { AbstractInputField } from 'packages/core/src/fields/inputFields/AbstractInputField';
-import SliderComponent from 'packages/core/src/fields/inputFields/fields/Slider/SliderComponent.svelte';
-import type { InputFieldMountable } from 'packages/core/src/fields/inputFields/InputFieldMountable';
-import type { InputFieldSvelteComponent } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-import { ErrorLevel, MetaBindArgumentError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import { parseUnknownToFloat } from 'packages/core/src/utils/Literal';
-import { optClamp } from 'packages/core/src/utils/Utils';
+import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
+import { AbstractInputField } from 'meta-bind-core/src/fields/inputFields/AbstractInputField';
+import type { InputFieldMountable } from 'meta-bind-core/src/fields/inputFields/InputFieldMountable';
+import type { InputFieldSvelteComponent } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+import { ErrorLevel, MetaBindArgumentError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import { parseUnknownToFloat } from 'meta-bind-core/src/utils/Literal';
+import { optClamp } from 'meta-bind-core/src/utils/Utils';
+import SliderComponent from 'meta-bind-core/src/fields/inputFields/fields/Slider/SliderComponent.svelte';
 
 export class SliderIPF extends AbstractInputField<number, number> {
 	minValue: number;

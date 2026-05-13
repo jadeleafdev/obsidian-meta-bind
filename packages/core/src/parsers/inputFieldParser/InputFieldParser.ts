@@ -1,29 +1,29 @@
-import type { MetaBind } from 'packages/core/src';
-import { InputFieldType } from 'packages/core/src/config/FieldConfigs';
-import type { BindTargetScope } from 'packages/core/src/metadata/BindTargetScope';
-import type { UnvalidatedBindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import type { UnvalidatedFieldArgument } from 'packages/core/src/parsers/FieldDeclaration';
+import type { MetaBind } from 'meta-bind-core/src';
+import { InputFieldType } from 'meta-bind-core/src/config/FieldConfigs';
+import type { BindTargetScope } from 'meta-bind-core/src/metadata/BindTargetScope';
+import type { UnvalidatedBindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { UnvalidatedFieldArgument } from 'meta-bind-core/src/parsers/FieldDeclaration';
 import type {
 	InputFieldDeclaration,
 	PartialUnvalidatedInputFieldDeclaration,
 	SimpleInputFieldDeclaration,
 	UnvalidatedInputFieldDeclaration,
-} from 'packages/core/src/parsers/inputFieldParser/InputFieldDeclaration';
-import { InputFieldDeclarationValidator } from 'packages/core/src/parsers/inputFieldParser/InputFieldDeclarationValidator';
+} from 'meta-bind-core/src/parsers/inputFieldParser/InputFieldDeclaration';
+import { InputFieldDeclarationValidator } from 'meta-bind-core/src/parsers/inputFieldParser/InputFieldDeclarationValidator';
 import type {
 	ITemplateSupplier,
 	TemplateSupplierTemplate,
-} from 'packages/core/src/parsers/inputFieldParser/ITemplateSupplier';
-import { toResultNode } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
+} from 'meta-bind-core/src/parsers/inputFieldParser/ITemplateSupplier';
+import { toResultNode } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
 import {
 	P_InputFieldDeclaration,
 	P_PartialInputFieldDeclaration,
-} from 'packages/core/src/parsers/nomParsers/InputFieldNomParsers';
-import { ParsingValidationError, runParser } from 'packages/core/src/parsers/ParsingError';
-import type { InputFieldTemplate } from 'packages/core/src/Settings';
-import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import { ErrorLevel } from 'packages/core/src/utils/errors/MetaBindErrors';
-import { deepFreeze } from 'packages/core/src/utils/Utils';
+} from 'meta-bind-core/src/parsers/nomParsers/InputFieldNomParsers';
+import { ParsingValidationError, runParser } from 'meta-bind-core/src/parsers/ParsingError';
+import type { InputFieldTemplate } from 'meta-bind-core/src/Settings';
+import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import { ErrorLevel } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import { deepFreeze } from 'meta-bind-core/src/utils/Utils';
 
 export type InputFieldDeclarationTemplate = TemplateSupplierTemplate<UnvalidatedInputFieldDeclaration>;
 

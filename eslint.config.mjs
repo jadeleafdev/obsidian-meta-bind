@@ -22,7 +22,7 @@ for (const corePackage of projectConfig.corePackages) {
 
 	for (const nonCorePackage of projectConfig.packages) {
 		patterns.push({
-			group: [`packages/${nonCorePackage}/*`],
+			group: [`meta-bind-${nonCorePackage}`, `meta-bind-${nonCorePackage}/*`],
 			message: `Core package "${corePackage}" should not import from the non core "${nonCorePackage}" package.`,
 		});
 	}
@@ -53,7 +53,7 @@ for (const nonCorePackage of projectConfig.packages) {
 			continue;
 		}
 		patterns.push({
-			group: [`packages/${otherNonCorePackage}/*`],
+			group: [`meta-bind-${otherNonCorePackage}`, `meta-bind-${otherNonCorePackage}/*`],
 			message: `Non core package "${nonCorePackage}" should not import from the non core "${otherNonCorePackage}" package.`,
 		});
 	}

@@ -1,6 +1,6 @@
+import type { Mountable } from 'meta-bind-core/src/utils/Mountable';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import { MarkdownRenderChild } from 'obsidian';
-import type { Mountable } from 'packages/core/src/utils/Mountable';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 export class MountableMDRC extends MarkdownRenderChild {
 	readonly mb: ObsMetaBind;

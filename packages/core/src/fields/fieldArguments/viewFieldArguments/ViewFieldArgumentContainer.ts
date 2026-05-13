@@ -2,9 +2,9 @@ import type {
 	ViewFieldArgumentConfig,
 	ViewFieldArgumentType,
 	ViewFieldType,
-} from 'packages/core/src/config/FieldConfigs';
-import { AbstractFieldArgumentContainer } from 'packages/core/src/fields/fieldArguments/AbstractFieldArgumentContainer';
-import type { ViewFieldArgumentMapType } from 'packages/core/src/fields/fieldArguments/viewFieldArguments/ViewFieldArgumentFactory';
+} from 'meta-bind-core/src/config/FieldConfigs';
+import { AbstractFieldArgumentContainer } from 'meta-bind-core/src/fields/fieldArguments/AbstractFieldArgumentContainer';
+import type { ViewFieldArgumentMapType } from 'meta-bind-core/src/fields/fieldArguments/viewFieldArguments/ViewFieldArgumentFactory';
 
 export class ViewFieldArgumentContainer extends AbstractFieldArgumentContainer<
 	ViewFieldType,

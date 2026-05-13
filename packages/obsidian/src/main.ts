@@ -1,12 +1,12 @@
+import type { MetaBindPluginSettings } from 'meta-bind-core/src/Settings';
+import { DEFAULT_SETTINGS } from 'meta-bind-core/src/Settings';
+import { areObjectsEqual } from 'meta-bind-core/src/utils/Utils';
+import type { ObsAPI } from 'meta-bind-obsidian/src/ObsAPI';
+import { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import { Plugin } from 'obsidian';
-import type { MetaBindPluginSettings } from 'packages/core/src/Settings';
-import { DEFAULT_SETTINGS } from 'packages/core/src/Settings';
-import { areObjectsEqual } from 'packages/core/src/utils/Utils';
-import type { ObsAPI } from 'packages/obsidian/src/ObsAPI';
-import { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 // @ts-expect-error TS6133
-import 'packages/obsidian/src/styles.css';
+import 'meta-bind-obsidian/src/styles.css';
 
 export default class ObsMetaBindPlugin extends Plugin {
 	// @ts-expect-error TS2564

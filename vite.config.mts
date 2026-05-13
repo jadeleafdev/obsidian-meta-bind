@@ -43,7 +43,9 @@ export default defineConfig(async ({ mode }) => {
 		plugins: plugins,
 		resolve: {
 			alias: {
-				packages: path.resolve(__dirname, './packages'),
+				'meta-bind-core': path.resolve(__dirname, './packages/core'),
+				'meta-bind-obsidian': path.resolve(__dirname, './packages/obsidian'),
+				'meta-bind-publish': path.resolve(__dirname, './packages/publish'),
 			},
 		},
 		define: {

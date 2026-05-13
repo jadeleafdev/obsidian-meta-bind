@@ -1,33 +1,33 @@
-import type { Moment } from 'moment';
-import type { LifecycleHook } from 'packages/core/src/api/API';
-import DatePickerInput from 'packages/core/src/fields/inputFields/fields/DatePicker/DatePicker.svelte';
+import type { LifecycleHook } from 'meta-bind-core/src/api/API';
 import type {
 	ImageSuggesterLikeIPF,
 	SuggesterLikeIFP,
 	SuggesterOption,
-} from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
-import type { IModal } from 'packages/core/src/modals/IModal';
-import type { ModalContent } from 'packages/core/src/modals/ModalContent';
-import type { ButtonBuilderModalOptions } from 'packages/core/src/modals/modalContents/buttonBuilder/ButtonBuilderModal';
-import { ButtonBuilderModal } from 'packages/core/src/modals/modalContents/buttonBuilder/ButtonBuilderModal';
-import ImageSuggesterModalComponent from 'packages/core/src/modals/modalContents/ImageSuggesterModalComponent.svelte';
-import { SvelteModalContent } from 'packages/core/src/modals/modalContents/SvelteModalContent';
-import TextPromptModalContent from 'packages/core/src/modals/modalContents/TextPromptModalContent.svelte';
-import type { SelectModalContent } from 'packages/core/src/modals/SelectModalContent';
-import { CommandSelectModal } from 'packages/core/src/modals/selectModalContents/CommandSelectModal';
-import { FileSelectModal } from 'packages/core/src/modals/selectModalContents/FileSelectModal';
-import { FolderSelectModal } from 'packages/core/src/modals/selectModalContents/FolderSelectModal';
-import { SuggesterSelectModal } from 'packages/core/src/modals/selectModalContents/SuggesterSelectModal';
-import type { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import ErrorCollectionComponent from 'packages/core/src/utils/errors/ErrorCollectionComponent.svelte';
-import ErrorIndicatorComponent from 'packages/core/src/utils/errors/ErrorIndicatorComponent.svelte';
-import type { ContextMenuItemDefinition, IContextMenu } from 'packages/core/src/utils/IContextMenu';
-import type { IFuzzySearch } from 'packages/core/src/utils/IFuzzySearch';
-import type { IJsRenderer } from 'packages/core/src/utils/IJsRenderer';
-import type { MBLiteral } from 'packages/core/src/utils/Literal';
+} from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
+import type { IModal } from 'meta-bind-core/src/modals/IModal';
+import type { ModalContent } from 'meta-bind-core/src/modals/ModalContent';
+import type { ButtonBuilderModalOptions } from 'meta-bind-core/src/modals/modalContents/buttonBuilder/ButtonBuilderModal';
+import { ButtonBuilderModal } from 'meta-bind-core/src/modals/modalContents/buttonBuilder/ButtonBuilderModal';
+import { SvelteModalContent } from 'meta-bind-core/src/modals/modalContents/SvelteModalContent';
+import type { SelectModalContent } from 'meta-bind-core/src/modals/SelectModalContent';
+import { CommandSelectModal } from 'meta-bind-core/src/modals/selectModalContents/CommandSelectModal';
+import { FileSelectModal } from 'meta-bind-core/src/modals/selectModalContents/FileSelectModal';
+import { FolderSelectModal } from 'meta-bind-core/src/modals/selectModalContents/FolderSelectModal';
+import { SuggesterSelectModal } from 'meta-bind-core/src/modals/selectModalContents/SuggesterSelectModal';
+import type { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import type { ContextMenuItemDefinition, IContextMenu } from 'meta-bind-core/src/utils/IContextMenu';
+import type { IFuzzySearch } from 'meta-bind-core/src/utils/IFuzzySearch';
+import type { IJsRenderer } from 'meta-bind-core/src/utils/IJsRenderer';
+import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
+import type { Moment } from 'moment';
 import { mount, unmount } from 'svelte';
 import type { z } from 'zod';
 import type { MB_Comps, MetaBind } from '..';
+import DatePickerInput from 'meta-bind-core/src/fields/inputFields/fields/DatePicker/DatePicker.svelte';
+import ImageSuggesterModalComponent from 'meta-bind-core/src/modals/modalContents/ImageSuggesterModalComponent.svelte';
+import TextPromptModalContent from 'meta-bind-core/src/modals/modalContents/TextPromptModalContent.svelte';
+import ErrorCollectionComponent from 'meta-bind-core/src/utils/errors/ErrorCollectionComponent.svelte';
+import ErrorIndicatorComponent from 'meta-bind-core/src/utils/errors/ErrorIndicatorComponent.svelte';
 
 export interface ErrorIndicatorProps {
 	errorCollection: ErrorCollection;

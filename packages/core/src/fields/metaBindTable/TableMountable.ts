@@ -1,18 +1,18 @@
-import type { MetaBind } from 'packages/core/src';
-import { RenderChildType } from 'packages/core/src/config/APIConfigs';
-import { FieldMountable } from 'packages/core/src/fields/FieldMountable';
-import MetaBindTableComponent from 'packages/core/src/fields/metaBindTable/MetaBindTableComponent.svelte';
-import { BindTargetScope } from 'packages/core/src/metadata/BindTargetScope';
-import type { MetadataSubscription } from 'packages/core/src/metadata/MetadataSubscription';
-import type { BindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import type { SimpleInputFieldDeclaration } from 'packages/core/src/parsers/inputFieldParser/InputFieldDeclaration';
-import type { SimpleViewFieldDeclaration } from 'packages/core/src/parsers/viewFieldParser/ViewFieldDeclaration';
-import type { MBExtendedLiteral } from 'packages/core/src/utils/Literal';
-import { parsePropPath } from 'packages/core/src/utils/prop/PropParser';
-import { Signal } from 'packages/core/src/utils/Signal';
-import { showUnloadedMessage } from 'packages/core/src/utils/Utils';
+import type { MetaBind } from 'meta-bind-core/src';
+import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+import { FieldMountable } from 'meta-bind-core/src/fields/FieldMountable';
+import { BindTargetScope } from 'meta-bind-core/src/metadata/BindTargetScope';
+import type { MetadataSubscription } from 'meta-bind-core/src/metadata/MetadataSubscription';
+import type { BindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { SimpleInputFieldDeclaration } from 'meta-bind-core/src/parsers/inputFieldParser/InputFieldDeclaration';
+import type { SimpleViewFieldDeclaration } from 'meta-bind-core/src/parsers/viewFieldParser/ViewFieldDeclaration';
+import type { MBExtendedLiteral } from 'meta-bind-core/src/utils/Literal';
+import { parsePropPath } from 'meta-bind-core/src/utils/prop/PropParser';
+import { Signal } from 'meta-bind-core/src/utils/Signal';
+import { showUnloadedMessage } from 'meta-bind-core/src/utils/Utils';
 import type { Component as SvelteComponent } from 'svelte';
 import { mount, unmount } from 'svelte';
+import MetaBindTableComponent from 'meta-bind-core/src/fields/metaBindTable/MetaBindTableComponent.svelte';
 
 export type MetaBindColumnDeclaration = SimpleInputFieldDeclaration | SimpleViewFieldDeclaration | string;
 

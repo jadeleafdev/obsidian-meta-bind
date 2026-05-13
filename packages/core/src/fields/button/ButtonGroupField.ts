@@ -1,14 +1,14 @@
-import type { MetaBind } from 'packages/core/src';
-import type { NotePosition } from 'packages/core/src/config/APIConfigs';
-import { RenderChildType } from 'packages/core/src/config/APIConfigs';
-import type { ButtonConfig } from 'packages/core/src/config/ButtonConfig';
-import { ButtonStyleType } from 'packages/core/src/config/ButtonConfig';
-import { ButtonField } from 'packages/core/src/fields/button/ButtonField';
-import ButtonComponent from 'packages/core/src/utils/components/ButtonComponent.svelte';
-import { Mountable } from 'packages/core/src/utils/Mountable';
-import { DomHelpers } from 'packages/core/src/utils/Utils';
+import type { MetaBind } from 'meta-bind-core/src';
+import type { NotePosition } from 'meta-bind-core/src/config/APIConfigs';
+import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+import type { ButtonConfig } from 'meta-bind-core/src/config/ButtonConfig';
+import { ButtonStyleType } from 'meta-bind-core/src/config/ButtonConfig';
+import { ButtonField } from 'meta-bind-core/src/fields/button/ButtonField';
+import { Mountable } from 'meta-bind-core/src/utils/Mountable';
+import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
 import type { Component as SvelteComponent } from 'svelte';
 import { mount, unmount } from 'svelte';
+import ButtonComponent from 'meta-bind-core/src/utils/components/ButtonComponent.svelte';
 
 export class ButtonGroupField extends Mountable {
 	mb: MetaBind;

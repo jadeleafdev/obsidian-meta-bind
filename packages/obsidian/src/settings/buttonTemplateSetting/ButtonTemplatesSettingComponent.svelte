@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { Notice, parseYaml } from 'obsidian';
-	import type { ButtonConfig } from 'packages/core/src/config/ButtonConfig';
-	import { ButtonStyleType } from 'packages/core/src/config/ButtonConfig';
-	import { V_ButtonConfig } from 'packages/core/src/config/validators/ButtonConfigValidators';
-	import Button from 'packages/core/src/utils/components/Button.svelte';
-	import ModalButtonGroup from 'packages/core/src/utils/components/ModalButtonGroup.svelte';
-	import { DocsUtils } from 'packages/core/src/utils/DocsUtils';
-	import type { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-	import ErrorCollectionComponent from 'packages/core/src/utils/errors/ErrorCollectionComponent.svelte';
-	import { ErrorLevel, MetaBindButtonError } from 'packages/core/src/utils/errors/MetaBindErrors';
-	import { toReadableError } from 'packages/core/src/utils/ZodUtils';
-	import ButtonTemplateSettingComponent from 'packages/obsidian/src/settings/buttonTemplateSetting/ButtonTemplateSettingComponent.svelte';
-	import type { ButtonTemplatesSettingModal } from 'packages/obsidian/src/settings/buttonTemplateSetting/ButtonTemplatesSettingModal';
+	import type { ButtonConfig } from 'meta-bind-core/src/config/ButtonConfig';
+	import { ButtonStyleType } from 'meta-bind-core/src/config/ButtonConfig';
+	import { V_ButtonConfig } from 'meta-bind-core/src/config/validators/ButtonConfigValidators';
+	import Button from 'meta-bind-core/src/utils/components/Button.svelte';
+	import ModalButtonGroup from 'meta-bind-core/src/utils/components/ModalButtonGroup.svelte';
+	import { DocsUtils } from 'meta-bind-core/src/utils/DocsUtils';
+	import type { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+	import ErrorCollectionComponent from 'meta-bind-core/src/utils/errors/ErrorCollectionComponent.svelte';
+	import { ErrorLevel, MetaBindButtonError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+	import { toReadableError } from 'meta-bind-core/src/utils/ZodUtils';
+	import ButtonTemplateSettingComponent from 'meta-bind-obsidian/src/settings/buttonTemplateSetting/ButtonTemplateSettingComponent.svelte';
+	import type { ButtonTemplatesSettingModal } from 'meta-bind-obsidian/src/settings/buttonTemplateSetting/ButtonTemplatesSettingModal';
 
 	let {
 		modal,

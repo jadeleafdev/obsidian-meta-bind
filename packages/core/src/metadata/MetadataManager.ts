@@ -1,20 +1,20 @@
-import type { DeriveFunction } from 'packages/core/src/metadata/DerivedMetadataSubscription';
-import { DerivedMetadataSubscription } from 'packages/core/src/metadata/DerivedMetadataSubscription';
-import type { EffectFunction } from 'packages/core/src/metadata/EffectMetadataSubscription';
-import { EffectMetadataSubscription } from 'packages/core/src/metadata/EffectMetadataSubscription';
-import type { IMetadataSubscription } from 'packages/core/src/metadata/IMetadataSubscription';
-import type { IMetadataCacheItem } from 'packages/core/src/metadata/MetadataCacheItem';
-import type { IMetadataSource, Metadata } from 'packages/core/src/metadata/MetadataSource';
-import { MetadataSubscription } from 'packages/core/src/metadata/MetadataSubscription';
-import type { BindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { DeriveFunction } from 'meta-bind-core/src/metadata/DerivedMetadataSubscription';
+import { DerivedMetadataSubscription } from 'meta-bind-core/src/metadata/DerivedMetadataSubscription';
+import type { EffectFunction } from 'meta-bind-core/src/metadata/EffectMetadataSubscription';
+import { EffectMetadataSubscription } from 'meta-bind-core/src/metadata/EffectMetadataSubscription';
+import type { IMetadataSubscription } from 'meta-bind-core/src/metadata/IMetadataSubscription';
+import type { IMetadataCacheItem } from 'meta-bind-core/src/metadata/MetadataCacheItem';
+import type { IMetadataSource, Metadata } from 'meta-bind-core/src/metadata/MetadataSource';
+import { MetadataSubscription } from 'meta-bind-core/src/metadata/MetadataSubscription';
+import type { BindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
 import {
 	ErrorLevel,
 	MetaBindBindTargetError,
 	MetaBindInternalError,
-} from 'packages/core/src/utils/errors/MetaBindErrors';
-import type { PropPath } from 'packages/core/src/utils/prop/PropPath';
-import { PropUtils } from 'packages/core/src/utils/prop/PropUtils';
-import type { Signal, Writable } from 'packages/core/src/utils/Signal';
+} from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import type { PropPath } from 'meta-bind-core/src/utils/prop/PropPath';
+import { PropUtils } from 'meta-bind-core/src/utils/prop/PropUtils';
+import type { Signal, Writable } from 'meta-bind-core/src/utils/Signal';
 
 export const METADATA_CACHE_EXTERNAL_WRITE_LOCK_DURATION = 5; // {syncInterval (200)} * 5 = 1s
 export const METADATA_CACHE_INACTIVE_CYCLE_THRESHOLD = 5 * 60; // {syncInterval (200)} * 5 * 60 = 1 minute

@@ -1,7 +1,7 @@
+import type { Weekday } from 'meta-bind-core/src/Settings';
+import { monthNames, weekdays } from 'meta-bind-core/src/Settings';
+import { mod } from 'meta-bind-core/src/utils/Utils';
 import Moment from 'moment/moment';
-import type { Weekday } from 'packages/core/src/Settings';
-import { monthNames, weekdays } from 'packages/core/src/Settings';
-import { mod } from 'packages/core/src/utils/Utils';
 
 export let firstWeekday: Weekday = weekdays[1];
 

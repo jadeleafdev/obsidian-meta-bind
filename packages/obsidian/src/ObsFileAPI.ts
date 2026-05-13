@@ -1,7 +1,7 @@
+import { FileAPI } from 'meta-bind-core/src/api/FileAPI';
+import type { ObsComponents, ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import type { App } from 'obsidian';
 import { normalizePath, TFile, TFolder } from 'obsidian';
-import { FileAPI } from 'packages/core/src/api/FileAPI';
-import type { ObsComponents, ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 export class ObsFileAPI extends FileAPI<ObsComponents> {
 	readonly app: App;

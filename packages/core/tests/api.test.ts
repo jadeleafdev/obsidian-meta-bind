@@ -1,16 +1,16 @@
-import { beforeEach, describe, expect, mock, type Mock, spyOn, test } from 'bun:test';
+import { beforeEach, describe, expect, mock, test } from 'bun:test';
 import { TestMetaBind } from './__mocks__/TestPlugin';
-import { InputFieldMountable } from 'packages/core/src/fields/inputFields/InputFieldMountable';
-import { ViewFieldMountable } from 'packages/core/src/fields/viewFields/ViewFieldMountable';
-import { JsViewFieldMountable } from 'packages/core/src/fields/viewFields/JsViewFieldMountable';
-import { TableMountable } from 'packages/core/src/fields/metaBindTable/TableMountable';
-import { ButtonGroupMountable } from 'packages/core/src/fields/button/ButtonGroupMountable';
-import { ButtonMountable } from 'packages/core/src/fields/button/ButtonMountable';
-import { EmbedMountable } from 'packages/core/src/fields/embed/EmbedMountable';
-import { ExcludedMountable } from 'packages/core/src/fields/excluded/ExcludedMountable';
-import { FieldType, RenderChildType } from 'packages/core/src/config/APIConfigs';
-import { PropPath } from 'packages/core/src/utils/prop/PropPath';
-import { PropAccess, PropAccessType } from 'packages/core/src/utils/prop/PropAccess';
+import { InputFieldMountable } from 'meta-bind-core/src/fields/inputFields/InputFieldMountable';
+import { ViewFieldMountable } from 'meta-bind-core/src/fields/viewFields/ViewFieldMountable';
+import { JsViewFieldMountable } from 'meta-bind-core/src/fields/viewFields/JsViewFieldMountable';
+import { TableMountable } from 'meta-bind-core/src/fields/metaBindTable/TableMountable';
+import { ButtonGroupMountable } from 'meta-bind-core/src/fields/button/ButtonGroupMountable';
+import { ButtonMountable } from 'meta-bind-core/src/fields/button/ButtonMountable';
+import { EmbedMountable } from 'meta-bind-core/src/fields/embed/EmbedMountable';
+import { ExcludedMountable } from 'meta-bind-core/src/fields/excluded/ExcludedMountable';
+import { FieldType, RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+import { PropPath } from 'meta-bind-core/src/utils/prop/PropPath';
+import { PropAccess, PropAccessType } from 'meta-bind-core/src/utils/prop/PropAccess';
 import { TestComponent } from './__mocks__/TestComponent';
 
 describe('api', () => {

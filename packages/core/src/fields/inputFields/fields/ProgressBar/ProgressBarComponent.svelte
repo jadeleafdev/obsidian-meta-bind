@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { InputFieldSvelteProps } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-	import { clamp, remapRange } from 'packages/core/src/utils/Utils';
+	import type { InputFieldSvelteProps } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+	import { clamp, remapRange } from 'meta-bind-core/src/utils/Utils';
 
 	const props: InputFieldSvelteProps<number> & {
 		minValue: number;

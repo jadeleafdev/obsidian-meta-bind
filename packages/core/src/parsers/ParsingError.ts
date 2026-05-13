@@ -1,6 +1,6 @@
 import type { ParseFailure, Parser, ParsingRange } from '@lemons_dev/parsinom';
 import { mapIndexToLineColumn } from '@lemons_dev/parsinom';
-import { ErrorLevel, ErrorType, MetaBindError } from 'packages/core/src/utils/errors/MetaBindErrors';
+import { ErrorLevel, ErrorType, MetaBindError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
 
 export function runParser<T>(parser: Parser<T>, str: string): T {
 	const result = parser.thenEof().tryParse(str);

@@ -1,6 +1,6 @@
 import type { Parser } from '@lemons_dev/parsinom';
 import { P_UTILS, P } from '@lemons_dev/parsinom';
-import { runParser } from 'packages/core/src/parsers/ParsingError';
+import { runParser } from 'meta-bind-core/src/parsers/ParsingError';
 
 const versionParser: Parser<Version> = P.sequenceMap(
 	(a, b, c, d) => {

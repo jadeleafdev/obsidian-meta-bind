@@ -1,5 +1,5 @@
-import type { IMetadataSubscription } from 'packages/core/src/metadata/IMetadataSubscription';
-import type { Metadata } from 'packages/core/src/metadata/MetadataSource';
+import type { IMetadataSubscription } from 'meta-bind-core/src/metadata/IMetadataSubscription';
+import type { Metadata } from 'meta-bind-core/src/metadata/MetadataSource';
 
 export interface IMetadataCacheItem {
 	subscriptions: IMetadataSubscription[];

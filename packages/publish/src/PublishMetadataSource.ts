@@ -1,8 +1,8 @@
-import type { FilePathMetadataCacheItem } from 'packages/core/src/metadata/MetadataCacheItem';
-import type { MetadataManager } from 'packages/core/src/metadata/MetadataManager';
-import type { Metadata } from 'packages/core/src/metadata/MetadataSource';
-import { FilePathMetadataSource } from 'packages/core/src/metadata/MetadataSource';
-import type { PublishMetaBind } from 'packages/publish/src/main';
+import type { FilePathMetadataCacheItem } from 'meta-bind-core/src/metadata/MetadataCacheItem';
+import type { MetadataManager } from 'meta-bind-core/src/metadata/MetadataManager';
+import type { Metadata } from 'meta-bind-core/src/metadata/MetadataSource';
+import { FilePathMetadataSource } from 'meta-bind-core/src/metadata/MetadataSource';
+import type { PublishMetaBind } from 'meta-bind-publish/src/main';
 
 export class PublishMetadataSource extends FilePathMetadataSource<FilePathMetadataCacheItem> {
 	public readonly mb: PublishMetaBind;

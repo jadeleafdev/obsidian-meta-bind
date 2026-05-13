@@ -2,9 +2,9 @@ import type {
 	InputFieldArgumentConfig,
 	InputFieldArgumentType,
 	InputFieldType,
-} from 'packages/core/src/config/FieldConfigs';
-import { AbstractFieldArgumentContainer } from 'packages/core/src/fields/fieldArguments/AbstractFieldArgumentContainer';
-import type { InputFieldArgumentMapType } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/InputFieldArgumentFactory';
+} from 'meta-bind-core/src/config/FieldConfigs';
+import { AbstractFieldArgumentContainer } from 'meta-bind-core/src/fields/fieldArguments/AbstractFieldArgumentContainer';
+import type { InputFieldArgumentMapType } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/InputFieldArgumentFactory';
 
 export class InputFieldArgumentContainer extends AbstractFieldArgumentContainer<
 	InputFieldType,

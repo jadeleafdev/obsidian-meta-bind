@@ -1,6 +1,6 @@
-import type { ParsingError } from 'packages/core/src/parsers/ParsingError';
-import { Highlight } from 'packages/core/src/parsers/syntaxHighlighting/Highlight';
-import { MB_TokenClass } from 'packages/core/src/parsers/syntaxHighlighting/HLPUtils';
+import type { ParsingError } from 'meta-bind-core/src/parsers/ParsingError';
+import { Highlight } from 'meta-bind-core/src/parsers/syntaxHighlighting/Highlight';
+import { MB_TokenClass } from 'meta-bind-core/src/parsers/syntaxHighlighting/HLPUtils';
 
 export class SyntaxHighlighting {
 	str: string;

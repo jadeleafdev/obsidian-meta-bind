@@ -1,14 +1,14 @@
+import { IMAGE_FILE_EXTENSIONS } from 'meta-bind-core/src/api/InternalAPI';
+import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
+import type { OptionInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
+import type { OptionQueryInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionQueryInputFieldArgument';
+import type { ImageSuggesterLikeIPF } from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
+import { SuggesterOption } from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
+import { ErrorLevel, MetaBindArgumentError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import { stringifyLiteral } from 'meta-bind-core/src/utils/Literal';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import type { TAbstractFile } from 'obsidian';
 import { Notice, TFile, TFolder } from 'obsidian';
-import { IMAGE_FILE_EXTENSIONS } from 'packages/core/src/api/InternalAPI';
-import { InputFieldArgumentType } from 'packages/core/src/config/FieldConfigs';
-import type { OptionInputFieldArgument } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
-import type { OptionQueryInputFieldArgument } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionQueryInputFieldArgument';
-import type { ImageSuggesterLikeIPF } from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
-import { SuggesterOption } from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
-import { ErrorLevel, MetaBindArgumentError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import { stringifyLiteral } from 'packages/core/src/utils/Literal';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 function recSearchFolder(folder: TFolder): SuggesterOption<string>[] {
 	const ret = [];

@@ -1,22 +1,22 @@
 import { beforeEach, describe, expect, type Mock, spyOn, test } from 'bun:test';
-import { TestMetadataSource } from '../../packages/core/src/metadata/InternalMetadataSources';
+import { TestMetadataSource } from 'meta-bind-core/src/metadata/InternalMetadataSources';
 import {
 	METADATA_CACHE_EXTERNAL_WRITE_LOCK_DURATION,
 	METADATA_CACHE_INACTIVE_CYCLE_THRESHOLD,
 	hasUpdateOverlap,
 	metadataPathHasUpdateOverlap,
 	MetadataManager,
-} from '../../packages/core/src/metadata/MetadataManager';
-import { type Metadata } from '../../packages/core/src/metadata/MetadataSource';
-import { MetadataSubscription } from '../../packages/core/src/metadata/MetadataSubscription';
+} from 'meta-bind-core/src/metadata/MetadataManager';
+import { type Metadata } from 'meta-bind-core/src/metadata/MetadataSource';
+import { MetadataSubscription } from 'meta-bind-core/src/metadata/MetadataSubscription';
 import {
 	type BindTargetDeclaration,
 	BindTargetStorageType,
-} from '../../packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import { MetaBindBindTargetError } from '../../packages/core/src/utils/errors/MetaBindErrors';
-import { parsePropPath } from '../../packages/core/src/utils/prop/PropParser';
-import { type ListenerCallback, Signal } from '../../packages/core/src/utils/Signal';
-import { getUUID } from '../../packages/core/src/utils/Utils';
+} from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import { MetaBindBindTargetError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import { parsePropPath } from 'meta-bind-core/src/utils/prop/PropParser';
+import { type ListenerCallback, Signal } from 'meta-bind-core/src/utils/Signal';
+import { getUUID } from 'meta-bind-core/src/utils/Utils';
 
 const testFilePath = 'testFile';
 const otherFilePath = 'otherFile';

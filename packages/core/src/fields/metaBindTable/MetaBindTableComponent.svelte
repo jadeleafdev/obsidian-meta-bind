@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { TableMountable } from 'packages/core/src/fields/metaBindTable/TableMountable';
-	import type { MetaBindTableRow } from 'packages/core/src/fields/metaBindTable/TableMountable';
-	import Button from 'packages/core/src/utils/components/Button.svelte';
-	import Icon from 'packages/core/src/utils/components/Icon.svelte';
-	import MountableComponent from 'packages/core/src/utils/components/MountableComponent.svelte';
+	import type { TableMountable } from 'meta-bind-core/src/fields/metaBindTable/TableMountable';
+	import type { MetaBindTableRow } from 'meta-bind-core/src/fields/metaBindTable/TableMountable';
+	import Button from 'meta-bind-core/src/utils/components/Button.svelte';
+	import Icon from 'meta-bind-core/src/utils/components/Icon.svelte';
+	import MountableComponent from 'meta-bind-core/src/utils/components/MountableComponent.svelte';
 
 	const {
 		table,

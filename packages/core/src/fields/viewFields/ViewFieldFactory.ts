@@ -1,11 +1,11 @@
-import type { MetaBind } from 'packages/core/src';
-import { ViewFieldType } from 'packages/core/src/config/FieldConfigs';
-import { ImageVF } from 'packages/core/src/fields/viewFields/fields/ImageVF';
-import { LinkVF } from 'packages/core/src/fields/viewFields/fields/LinkVF';
-import { MathVF } from 'packages/core/src/fields/viewFields/fields/MathVF';
-import { TextVF } from 'packages/core/src/fields/viewFields/fields/TextVF';
-import type { ViewFieldMountable } from 'packages/core/src/fields/viewFields/ViewFieldMountable';
-import { expectType } from 'packages/core/src/utils/Utils';
+import type { MetaBind } from 'meta-bind-core/src';
+import { ViewFieldType } from 'meta-bind-core/src/config/FieldConfigs';
+import { ImageVF } from 'meta-bind-core/src/fields/viewFields/fields/ImageVF';
+import { LinkVF } from 'meta-bind-core/src/fields/viewFields/fields/LinkVF';
+import { MathVF } from 'meta-bind-core/src/fields/viewFields/fields/MathVF';
+import { TextVF } from 'meta-bind-core/src/fields/viewFields/fields/TextVF';
+import type { ViewFieldMountable } from 'meta-bind-core/src/fields/viewFields/ViewFieldMountable';
+import { expectType } from 'meta-bind-core/src/utils/Utils';
 
 export type ViewField = MathVF | TextVF | LinkVF | ImageVF;
 

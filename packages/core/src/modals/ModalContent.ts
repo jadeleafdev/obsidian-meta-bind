@@ -1,6 +1,6 @@
-import type { IModal } from 'packages/core/src/modals/IModal';
-import { ErrorLevel, MetaBindInternalError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import { Mountable } from 'packages/core/src/utils/Mountable';
+import type { IModal } from 'meta-bind-core/src/modals/IModal';
+import { ErrorLevel, MetaBindInternalError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import { Mountable } from 'meta-bind-core/src/utils/Mountable';
 
 export abstract class ModalContent extends Mountable {
 	private modal: IModal | undefined;

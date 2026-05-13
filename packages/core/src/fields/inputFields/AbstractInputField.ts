@@ -1,11 +1,11 @@
-import type { MetaBind } from 'packages/core/src';
-import { InputFieldArgumentType } from 'packages/core/src/config/FieldConfigs';
-import type { InputFieldMountable } from 'packages/core/src/fields/inputFields/InputFieldMountable';
-import type { InputFieldSvelteComponent } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-import { InputFieldSvelteWrapper } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-import type { MetadataSubscription } from 'packages/core/src/metadata/MetadataSubscription';
-import { Mountable } from 'packages/core/src/utils/Mountable';
-import { MappedSignal } from 'packages/core/src/utils/Signal';
+import type { MetaBind } from 'meta-bind-core/src';
+import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
+import type { InputFieldMountable } from 'meta-bind-core/src/fields/inputFields/InputFieldMountable';
+import type { InputFieldSvelteComponent } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+import { InputFieldSvelteWrapper } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+import type { MetadataSubscription } from 'meta-bind-core/src/metadata/MetadataSubscription';
+import { Mountable } from 'meta-bind-core/src/utils/Mountable';
+import { MappedSignal } from 'meta-bind-core/src/utils/Signal';
 
 export abstract class AbstractInputField<
 	MetadataValueType,

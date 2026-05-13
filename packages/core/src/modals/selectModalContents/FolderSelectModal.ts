@@ -1,4 +1,4 @@
-import { SelectModalContent } from 'packages/core/src/modals/SelectModalContent';
+import { SelectModalContent } from 'meta-bind-core/src/modals/SelectModalContent';
 
 export class FolderSelectModal extends SelectModalContent<string> {
 	public getItemText(item: string): string {

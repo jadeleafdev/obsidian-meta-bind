@@ -1,10 +1,10 @@
+import type { FilePathMetadataCacheItem } from 'meta-bind-core/src/metadata/MetadataCacheItem';
+import type { MetadataManager } from 'meta-bind-core/src/metadata/MetadataManager';
+import type { Metadata } from 'meta-bind-core/src/metadata/MetadataSource';
+import { FilePathMetadataSource } from 'meta-bind-core/src/metadata/MetadataSource';
+import { ErrorLevel, MetaBindInternalError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import { TFile } from 'obsidian';
-import type { FilePathMetadataCacheItem } from 'packages/core/src/metadata/MetadataCacheItem';
-import type { MetadataManager } from 'packages/core/src/metadata/MetadataManager';
-import type { Metadata } from 'packages/core/src/metadata/MetadataSource';
-import { FilePathMetadataSource } from 'packages/core/src/metadata/MetadataSource';
-import { ErrorLevel, MetaBindInternalError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 interface ObsMetadataCacheItem extends FilePathMetadataCacheItem {
 	file: TFile;

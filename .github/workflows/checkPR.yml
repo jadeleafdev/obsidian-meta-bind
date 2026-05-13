@@ -19,7 +19,6 @@ jobs:
               id: build
               run: |
                   bun install
-                  bun run pack:i
 
             - name: Run Checks
               run: |

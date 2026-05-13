@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { RenderChildType } from 'packages/core/src/config/APIConfigs';
-	import { InputFieldMountable } from 'packages/core/src/fields/inputFields/InputFieldMountable';
+	import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+	import { InputFieldMountable } from 'meta-bind-core/src/fields/inputFields/InputFieldMountable';
 
-	import type { InputFieldDeclaration } from 'packages/core/src/parsers/inputFieldParser/InputFieldDeclaration';
-	import MountableComponent from 'packages/core/src/utils/components/MountableComponent.svelte';
-	import { getUUID } from 'packages/core/src/utils/Utils';
+	import type { InputFieldDeclaration } from 'meta-bind-core/src/parsers/inputFieldParser/InputFieldDeclaration';
+	import MountableComponent from 'meta-bind-core/src/utils/components/MountableComponent.svelte';
+	import { getUUID } from 'meta-bind-core/src/utils/Utils';
 	import type { MetaBind } from '../..';
 
 	const {

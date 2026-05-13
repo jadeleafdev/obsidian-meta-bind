@@ -7,37 +7,37 @@ import type {
 	JsViewFieldOptions,
 	TableOptions,
 	ViewFieldOptions,
-} from 'packages/core/src/config/APIConfigs';
-import { FieldType, NotePosition, RenderChildType } from 'packages/core/src/config/APIConfigs';
-import { InputFieldType } from 'packages/core/src/config/FieldConfigs';
-import { V_ButtonConfig } from 'packages/core/src/config/validators/ButtonConfigValidators';
-import { FieldMountable } from 'packages/core/src/fields/FieldMountable';
-import { BindTargetScope } from 'packages/core/src/metadata/BindTargetScope';
+} from 'meta-bind-core/src/config/APIConfigs';
+import { FieldType, NotePosition, RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+import { InputFieldType } from 'meta-bind-core/src/config/FieldConfigs';
+import { V_ButtonConfig } from 'meta-bind-core/src/config/validators/ButtonConfigValidators';
+import { FieldMountable } from 'meta-bind-core/src/fields/FieldMountable';
+import { BindTargetScope } from 'meta-bind-core/src/metadata/BindTargetScope';
 import type {
 	BindTargetDeclaration,
 	SimplePropAccess,
 	UnvalidatedBindTargetDeclaration,
 	UnvalidatedPropAccess,
-} from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import type { SimpleButtonGroupDeclaration } from 'packages/core/src/parsers/ButtonParser';
-import type { SimpleFieldArgument, UnvalidatedFieldArgument } from 'packages/core/src/parsers/FieldDeclaration';
+} from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { SimpleButtonGroupDeclaration } from 'meta-bind-core/src/parsers/ButtonParser';
+import type { SimpleFieldArgument, UnvalidatedFieldArgument } from 'meta-bind-core/src/parsers/FieldDeclaration';
 import type {
 	SimpleInputFieldDeclaration,
 	UnvalidatedInputFieldDeclaration,
-} from 'packages/core/src/parsers/inputFieldParser/InputFieldDeclaration';
-import type { ParsingResultNode } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
+} from 'meta-bind-core/src/parsers/inputFieldParser/InputFieldDeclaration';
+import type { ParsingResultNode } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
 import type {
 	SimpleJsViewFieldBindTargetMapping,
 	SimpleJsViewFieldDeclaration,
 	SimpleViewFieldDeclaration,
 	UnvalidatedViewFieldDeclaration,
-} from 'packages/core/src/parsers/viewFieldParser/ViewFieldDeclaration';
-import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import { Mountable } from 'packages/core/src/utils/Mountable';
-import { PropAccessType } from 'packages/core/src/utils/prop/PropAccess';
-import { PropPath } from 'packages/core/src/utils/prop/PropPath';
-import { Signal } from 'packages/core/src/utils/Signal';
-import { schemaForType, zodFunction } from 'packages/core/src/utils/ZodUtils';
+} from 'meta-bind-core/src/parsers/viewFieldParser/ViewFieldDeclaration';
+import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import { Mountable } from 'meta-bind-core/src/utils/Mountable';
+import { PropAccessType } from 'meta-bind-core/src/utils/prop/PropAccess';
+import { PropPath } from 'meta-bind-core/src/utils/prop/PropPath';
+import { Signal } from 'meta-bind-core/src/utils/Signal';
+import { schemaForType, zodFunction } from 'meta-bind-core/src/utils/ZodUtils';
 import { z } from 'zod';
 
 export const V_FilePath = schemaForType<string>()(z.string());

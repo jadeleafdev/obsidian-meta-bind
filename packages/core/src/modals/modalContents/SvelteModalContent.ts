@@ -1,5 +1,5 @@
-import { ModalContent } from 'packages/core/src/modals/ModalContent';
-import { DomHelpers } from 'packages/core/src/utils/Utils';
+import { ModalContent } from 'meta-bind-core/src/modals/ModalContent';
+import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
 import type { Component as SvelteComponent } from 'svelte';
 import { unmount } from 'svelte';
 

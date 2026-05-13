@@ -1,11 +1,11 @@
+import type { InputFieldTemplate } from 'meta-bind-core/src/Settings';
+import type { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import type { App } from 'obsidian';
 import { Modal } from 'obsidian';
-import type { InputFieldTemplate } from 'packages/core/src/Settings';
-import type { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
-import InputFieldTemplatesSettingComponent from 'packages/obsidian/src/settings/inputFieldTemplateSetting/InputFieldTemplatesSettingComponent.svelte';
 import type { Component as SvelteComponent } from 'svelte';
 import { mount, unmount } from 'svelte';
+import InputFieldTemplatesSettingComponent from 'meta-bind-obsidian/src/settings/inputFieldTemplateSetting/InputFieldTemplatesSettingComponent.svelte';
 
 export class InputFieldTemplatesSettingModal extends Modal {
 	readonly mb: ObsMetaBind;

@@ -1,8 +1,8 @@
-import type { UnvalidatedPropAccess } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import { toResultNode } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
-import { P_int } from 'packages/core/src/parsers/nomParsers/MiscNomParsers';
-import { PropAccess, PropAccessType } from 'packages/core/src/utils/prop/PropAccess';
-import { PropPath } from 'packages/core/src/utils/prop/PropPath';
+import type { UnvalidatedPropAccess } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import { toResultNode } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
+import { P_int } from 'meta-bind-core/src/parsers/nomParsers/MiscNomParsers';
+import { PropAccess, PropAccessType } from 'meta-bind-core/src/utils/prop/PropAccess';
+import { PropPath } from 'meta-bind-core/src/utils/prop/PropPath';
 
 export function parsePropPath(arr: string[]): PropPath {
 	return new PropPath(

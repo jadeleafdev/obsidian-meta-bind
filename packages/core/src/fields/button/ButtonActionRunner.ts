@@ -1,26 +1,26 @@
-import type { MetaBind } from 'packages/core/src';
+import type { MetaBind } from 'meta-bind-core/src';
 import type {
 	ButtonActionMap,
 	ButtonClickContext,
 	ButtonConfig,
 	ButtonContext,
-} from 'packages/core/src/config/ButtonConfig';
-import { ButtonActionType, ButtonStyleType } from 'packages/core/src/config/ButtonConfig';
-import type { AbstractButtonActionConfig } from 'packages/core/src/fields/button/AbstractButtonActionConfig';
-import { CommandButtonActionConfig } from 'packages/core/src/fields/button/actions/CommandButtonActionConfig';
-import { CreateNoteButtonActionConfig } from 'packages/core/src/fields/button/actions/CreateNoteButtonActionConfig';
-import { InlineJSButtonActionConfig } from 'packages/core/src/fields/button/actions/InlineJSButtonActionConfig';
-import { InputButtonActionConfig } from 'packages/core/src/fields/button/actions/InputButtonActionConfig';
-import { InsertIntoNoteButtonActionConfig } from 'packages/core/src/fields/button/actions/InsertIntoNoteButtonActionConfig';
-import { JSButtonActionConfig } from 'packages/core/src/fields/button/actions/JSButtonActionConfig';
-import { OpenButtonActionConfig } from 'packages/core/src/fields/button/actions/OpenButtonActionConfig';
-import { RegexpReplaceInNoteButtonActionConfig } from 'packages/core/src/fields/button/actions/RegexpReplaceInNoteButtonActionConfig';
-import { ReplaceInNoteButtonActionConfig } from 'packages/core/src/fields/button/actions/ReplaceInNoteButtonActionConfig';
-import { ReplaceSelfButtonActionConfig } from 'packages/core/src/fields/button/actions/ReplaceSelfButtonActionConfig';
-import { RunTemplaterFileButtonActionConfig } from 'packages/core/src/fields/button/actions/RunTemplaterFileButtonActionConfig';
-import { SleepButtonActionConfig } from 'packages/core/src/fields/button/actions/SleepButtonActionConfig';
-import { TemplaterCreateNoteButtonActionConfig } from 'packages/core/src/fields/button/actions/TemplaterCreateNoteButtonActionConfig';
-import { UpdateMetadataButtonActionConfig } from 'packages/core/src/fields/button/actions/UpdateMetadataButtonActionConfig';
+} from 'meta-bind-core/src/config/ButtonConfig';
+import { ButtonActionType, ButtonStyleType } from 'meta-bind-core/src/config/ButtonConfig';
+import type { AbstractButtonActionConfig } from 'meta-bind-core/src/fields/button/AbstractButtonActionConfig';
+import { CommandButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/CommandButtonActionConfig';
+import { CreateNoteButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/CreateNoteButtonActionConfig';
+import { InlineJSButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/InlineJSButtonActionConfig';
+import { InputButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/InputButtonActionConfig';
+import { InsertIntoNoteButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/InsertIntoNoteButtonActionConfig';
+import { JSButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/JSButtonActionConfig';
+import { OpenButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/OpenButtonActionConfig';
+import { RegexpReplaceInNoteButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/RegexpReplaceInNoteButtonActionConfig';
+import { ReplaceInNoteButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/ReplaceInNoteButtonActionConfig';
+import { ReplaceSelfButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/ReplaceSelfButtonActionConfig';
+import { RunTemplaterFileButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/RunTemplaterFileButtonActionConfig';
+import { SleepButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/SleepButtonActionConfig';
+import { TemplaterCreateNoteButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/TemplaterCreateNoteButtonActionConfig';
+import { UpdateMetadataButtonActionConfig } from 'meta-bind-core/src/fields/button/actions/UpdateMetadataButtonActionConfig';
 
 type ActionContexts = {
 	[key in ButtonActionType]: AbstractButtonActionConfig<ButtonActionMap[key]>;

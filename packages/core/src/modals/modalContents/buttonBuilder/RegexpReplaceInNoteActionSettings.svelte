@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { MetaBind } from 'packages/core/src';
-	import type { RegexpReplaceInNoteButtonAction } from 'packages/core/src/config/ButtonConfig';
+	import type { MetaBind } from 'meta-bind-core/src';
+	import type { RegexpReplaceInNoteButtonAction } from 'meta-bind-core/src/config/ButtonConfig';
 
-	import SettingComponent from 'packages/core/src/utils/components/SettingComponent.svelte';
+	import SettingComponent from 'meta-bind-core/src/utils/components/SettingComponent.svelte';
 
 	const {
 		mb,

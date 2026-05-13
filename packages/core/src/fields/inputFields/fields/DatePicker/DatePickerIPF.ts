@@ -1,11 +1,11 @@
+import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
+import type { OptionInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
+import { AbstractInputField } from 'meta-bind-core/src/fields/inputFields/AbstractInputField';
+import type { InputFieldMountable } from 'meta-bind-core/src/fields/inputFields/InputFieldMountable';
+import type { InputFieldSvelteComponent } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+import { DateParser } from 'meta-bind-core/src/parsers/DateParser';
 import type { Moment } from 'moment';
-import { InputFieldArgumentType } from 'packages/core/src/config/FieldConfigs';
-import type { OptionInputFieldArgument } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
-import { AbstractInputField } from 'packages/core/src/fields/inputFields/AbstractInputField';
-import DatePickerComponent from 'packages/core/src/fields/inputFields/fields/DatePicker/DatePickerComponent.svelte';
-import type { InputFieldMountable } from 'packages/core/src/fields/inputFields/InputFieldMountable';
-import type { InputFieldSvelteComponent } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-import { DateParser } from 'packages/core/src/parsers/DateParser';
+import DatePickerComponent from 'meta-bind-core/src/fields/inputFields/fields/DatePicker/DatePickerComponent.svelte';
 
 export class DatePickerIPF extends AbstractInputField<string | null, Moment | null> {
 	options: OptionInputFieldArgument[];

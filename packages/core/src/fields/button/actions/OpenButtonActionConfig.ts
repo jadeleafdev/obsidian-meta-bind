@@ -1,13 +1,13 @@
-import type { MetaBind } from 'packages/core/src';
+import type { MetaBind } from 'meta-bind-core/src';
 import type {
 	ButtonClickContext,
 	ButtonConfig,
 	ButtonContext,
 	OpenButtonAction,
-} from 'packages/core/src/config/ButtonConfig';
-import { ButtonActionType } from 'packages/core/src/config/ButtonConfig';
-import { AbstractButtonActionConfig } from 'packages/core/src/fields/button/AbstractButtonActionConfig';
-import { MDLinkParser } from 'packages/core/src/parsers/MarkdownLinkParser';
+} from 'meta-bind-core/src/config/ButtonConfig';
+import { ButtonActionType } from 'meta-bind-core/src/config/ButtonConfig';
+import { AbstractButtonActionConfig } from 'meta-bind-core/src/fields/button/AbstractButtonActionConfig';
+import { MDLinkParser } from 'meta-bind-core/src/parsers/MarkdownLinkParser';
 
 export class OpenButtonActionConfig extends AbstractButtonActionConfig<OpenButtonAction> {
 	constructor(mb: MetaBind) {

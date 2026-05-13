@@ -1,9 +1,9 @@
+import { ErrorLevel, MetaBindDependencyError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import type { Dependency } from 'meta-bind-obsidian/src/dependencies/Dependency';
+import { Version } from 'meta-bind-obsidian/src/dependencies/Version';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import type { Plugin } from 'obsidian';
 import { Notice } from 'obsidian';
-import { ErrorLevel, MetaBindDependencyError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import type { Dependency } from 'packages/obsidian/src/dependencies/Dependency';
-import { Version } from 'packages/obsidian/src/dependencies/Version';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 export class DependencyManager {
 	readonly mb: ObsMetaBind;

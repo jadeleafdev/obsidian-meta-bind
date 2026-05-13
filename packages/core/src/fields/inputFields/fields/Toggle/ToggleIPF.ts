@@ -1,10 +1,10 @@
-import { InputFieldArgumentType } from 'packages/core/src/config/FieldConfigs';
-import { AbstractInputField } from 'packages/core/src/fields/inputFields/AbstractInputField';
-import ToggleComponent from 'packages/core/src/fields/inputFields/fields/Toggle/ToggleComponent.svelte';
-import type { InputFieldMountable } from 'packages/core/src/fields/inputFields/InputFieldMountable';
-import type { InputFieldSvelteComponent } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-import type { MBLiteral } from 'packages/core/src/utils/Literal';
-import { parseUnknownToLiteral } from 'packages/core/src/utils/Literal';
+import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
+import { AbstractInputField } from 'meta-bind-core/src/fields/inputFields/AbstractInputField';
+import type { InputFieldMountable } from 'meta-bind-core/src/fields/inputFields/InputFieldMountable';
+import type { InputFieldSvelteComponent } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
+import { parseUnknownToLiteral } from 'meta-bind-core/src/utils/Literal';
+import ToggleComponent from 'meta-bind-core/src/fields/inputFields/fields/Toggle/ToggleComponent.svelte';
 
 export class ToggleIPF extends AbstractInputField<MBLiteral, boolean> {
 	onValue: MBLiteral;

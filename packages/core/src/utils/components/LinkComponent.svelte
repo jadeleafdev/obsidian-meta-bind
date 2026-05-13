@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { MarkdownLink } from 'packages/core/src/parsers/MarkdownLinkParser';
+	import type { MarkdownLink } from 'meta-bind-core/src/parsers/MarkdownLinkParser';
 
 	const {
 		mdLink,

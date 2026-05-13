@@ -3,8 +3,8 @@ import type {
 	InputFieldType,
 	ViewFieldArgumentType,
 	ViewFieldType,
-} from 'packages/core/src/config/FieldConfigs';
-import { openURL } from 'packages/core/src/utils/Utils';
+} from 'meta-bind-core/src/config/FieldConfigs';
+import { openURL } from 'meta-bind-core/src/utils/Utils';
 
 export class DocsUtils {
 	static linkToInputField(type: InputFieldType): string {

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import ImageSuggesterCard from 'packages/core/src/modals/modalContents/ImageSuggesterModalCard.svelte';
-	import type { SuggesterOption } from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
+	import ImageSuggesterCard from 'meta-bind-core/src/modals/modalContents/ImageSuggesterModalCard.svelte';
+	import type { SuggesterOption } from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
 
 	import Button from '../../utils/components/Button.svelte';
 	import { ButtonStyleType } from '../../config/ButtonConfig';

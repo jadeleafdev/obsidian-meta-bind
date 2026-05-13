@@ -1,8 +1,12 @@
 {
 	"compilerOptions": {
 		"paths": {
-			"packages/*": ["./packages/*"],
-			"tests/*": ["./tests/*"]
+			"meta-bind-core": ["./packages/core/src/index.ts"],
+			"meta-bind-core/*": ["./packages/core/*"],
+			"meta-bind-obsidian": ["./packages/obsidian/src/main.ts"],
+			"meta-bind-obsidian/*": ["./packages/obsidian/*"],
+			"meta-bind-publish": ["./packages/publish/src/main.ts"],
+			"meta-bind-publish/*": ["./packages/publish/*"]
 		},
 		"module": "ESNext",
 		"target": "ES2022",
@@ -22,8 +26,7 @@
 		"moduleDetection": "force",
 		"sourceMap": true,
 		"lib": ["DOM", "ESNext"],
-		"allowSyntheticDefaultImports": true,
-		"types": ["svelte"]
+		"allowSyntheticDefaultImports": true
 	},
 	"include": [
 		"packages/core/**/*.ts",
@@ -32,7 +35,6 @@
 		"packages/obsidian/**/*.svelte",
 		"packages/publish/**/*.ts",
 		"packages/publish/**/*.svelte",
-		"tests/**/*.ts",
 		"node_modules/obsidian/publish.d.ts",
 		"packages/type-ex.d.ts"
 	]

@@ -1,7 +1,7 @@
 <!-- Inspired by https://github.com/marcusolsson/obsidian-svelte -->
 
 <script lang="ts">
-	import { ButtonStyleType } from 'packages/core/src/config/ButtonConfig';
+	import { ButtonStyleType } from 'meta-bind-core/src/config/ButtonConfig';
 	import type { Snippet } from 'svelte';
 
 	const {

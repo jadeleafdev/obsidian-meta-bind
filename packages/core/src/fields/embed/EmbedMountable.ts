@@ -1,9 +1,9 @@
-import type { MetaBind } from 'packages/core/src';
-import { EMBED_MAX_DEPTH } from 'packages/core/src/config/FieldConfigs';
-import { FieldMountable } from 'packages/core/src/fields/FieldMountable';
-import { MDLinkParser } from 'packages/core/src/parsers/MarkdownLinkParser';
-import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import { showUnloadedMessage } from 'packages/core/src/utils/Utils';
+import type { MetaBind } from 'meta-bind-core/src';
+import { EMBED_MAX_DEPTH } from 'meta-bind-core/src/config/FieldConfigs';
+import { FieldMountable } from 'meta-bind-core/src/fields/FieldMountable';
+import { MDLinkParser } from 'meta-bind-core/src/parsers/MarkdownLinkParser';
+import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import { DomHelpers, showUnloadedMessage } from 'meta-bind-core/src/utils/Utils';
 
 export class EmbedMountable extends FieldMountable {
 	depth: number;
@@ -47,7 +47,10 @@ export class EmbedMountable extends FieldMountable {
 	}
 
 	createEmbedMessage(target: HTMLElement, message: string): void {
-		target.createSpan({ text: message, cls: 'mb-embed-message' });
+		DomHelpers.createElement(target, 'span', {
+			text: message,
+			class: 'mb-embed-message',
+		});
 	}
 
 	async renderContent(target: HTMLElement): Promise<void> {
@@ -91,7 +94,7 @@ export class EmbedMountable extends FieldMountable {
 		MB_DEBUG && console.debug('meta-bind | EmbedMountable >> mount', this.content);
 		super.onMount(targetEl);
 
-		targetEl.addClass('mb-embed');
+		DomHelpers.addClass(targetEl, 'mb-embed');
 
 		void this.renderContent(targetEl);
 	}
@@ -100,7 +103,7 @@ export class EmbedMountable extends FieldMountable {
 		MB_DEBUG && console.debug('meta-bind | EmbedMountable >> unmount', this.content);
 		super.onUnmount(targetEl);
 
-		targetEl.removeClass('mb-embed');
+		DomHelpers.removeClass(targetEl, 'mb-embed');
 
 		this.markdownUnloadCallback?.();
 

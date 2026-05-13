@@ -1,8 +1,8 @@
-import { InputFieldArgumentType } from 'packages/core/src/config/FieldConfigs';
-import { AbstractInputField } from 'packages/core/src/fields/inputFields/AbstractInputField';
-import NumberComponent from 'packages/core/src/fields/inputFields/fields/Number/NumberComponent.svelte';
-import type { InputFieldSvelteComponent } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-import { parseUnknownToFloat } from 'packages/core/src/utils/Literal';
+import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
+import { AbstractInputField } from 'meta-bind-core/src/fields/inputFields/AbstractInputField';
+import type { InputFieldSvelteComponent } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+import { parseUnknownToFloat } from 'meta-bind-core/src/utils/Literal';
+import NumberComponent from 'meta-bind-core/src/fields/inputFields/fields/Number/NumberComponent.svelte';
 
 export class NumberIPF extends AbstractInputField<number | null, number | null> {
 	protected filterValue(value: unknown): number | null | undefined {

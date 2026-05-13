@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, type Mock, spyOn, test } from 'bun:test';
-import { type Listener, type ListenerCallback, Notifier, Signal } from '../../packages/core/src/utils/Signal';
+import { type Listener, type ListenerCallback, Notifier, Signal } from 'meta-bind-core/src/utils/Signal';
 
 describe('notifier', () => {
 	let notifier: Notifier<number, Listener<number>>;

@@ -1,10 +1,10 @@
-import type { MetaBind } from 'packages/core/src';
+import type { MetaBind } from 'meta-bind-core/src';
 import type {
 	SuggesterLikeIFP,
 	SuggesterOption,
-} from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
-import { SelectModalContent } from 'packages/core/src/modals/SelectModalContent';
-import type { MBLiteral } from 'packages/core/src/utils/Literal';
+} from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
+import { SelectModalContent } from 'meta-bind-core/src/modals/SelectModalContent';
+import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
 
 export class SuggesterSelectModal extends SelectModalContent<SuggesterOption<MBLiteral>> {
 	ipf: SuggesterLikeIFP;

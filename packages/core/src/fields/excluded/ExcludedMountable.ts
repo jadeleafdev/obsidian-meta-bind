@@ -1,6 +1,6 @@
-import type { MetaBind } from 'packages/core/src';
-import { FieldMountable } from 'packages/core/src/fields/FieldMountable';
-import { DomHelpers, showUnloadedMessage } from 'packages/core/src/utils/Utils';
+import type { MetaBind } from 'meta-bind-core/src';
+import { FieldMountable } from 'meta-bind-core/src/fields/FieldMountable';
+import { DomHelpers, showUnloadedMessage } from 'meta-bind-core/src/utils/Utils';
 
 export class ExcludedMountable extends FieldMountable {
 	constructor(mb: MetaBind, uuid: string, filePath: string) {

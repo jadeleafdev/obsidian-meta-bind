@@ -1,6 +1,6 @@
 <script lang="ts">
-	import MarkdownRenderComponent from 'packages/core/src/fields/inputFields/fields/Editor/MarkdownRenderComponent.svelte';
-	import type { InputFieldSvelteProps } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
+	import MarkdownRenderComponent from 'meta-bind-core/src/fields/inputFields/fields/Editor/MarkdownRenderComponent.svelte';
+	import type { InputFieldSvelteProps } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
 
 	const props: InputFieldSvelteProps<string> & {
 		render: (el: HTMLElement, value: string) => void;

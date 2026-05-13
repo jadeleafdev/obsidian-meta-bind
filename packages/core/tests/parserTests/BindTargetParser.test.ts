@@ -1,12 +1,12 @@
 import { describe, expect, test } from 'bun:test';
 import { set } from 'itertools-ts/es';
-import { BindTargetScope } from '../../packages/core/src/metadata/BindTargetScope';
+import { BindTargetScope } from 'meta-bind-core/src/metadata/BindTargetScope';
 import {
 	type BindTargetDeclaration,
 	BindTargetStorageType,
-} from '../../packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import { parsePropPath } from '../../packages/core/src/utils/prop/PropParser';
-import { PropPath } from '../../packages/core/src/utils/prop/PropPath';
+} from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import { parsePropPath } from 'meta-bind-core/src/utils/prop/PropParser';
+import { PropPath } from 'meta-bind-core/src/utils/prop/PropPath';
 import { TestMetaBind } from '../__mocks__/TestPlugin';
 
 const mb = new TestMetaBind();

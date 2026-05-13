@@ -1,8 +1,8 @@
-import { AbstractInputField } from 'packages/core/src/fields/inputFields/AbstractInputField';
-import DateTimeComponent from 'packages/core/src/fields/inputFields/fields/DateTime/DateTimeComponent.svelte';
-import type { InputFieldSvelteComponent } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-import { DateParser } from 'packages/core/src/parsers/DateParser';
-import { parseUnknownToString } from 'packages/core/src/utils/Literal';
+import { AbstractInputField } from 'meta-bind-core/src/fields/inputFields/AbstractInputField';
+import type { InputFieldSvelteComponent } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+import { DateParser } from 'meta-bind-core/src/parsers/DateParser';
+import { parseUnknownToString } from 'meta-bind-core/src/utils/Literal';
+import DateTimeComponent from 'meta-bind-core/src/fields/inputFields/fields/DateTime/DateTimeComponent.svelte';
 
 export class DateTimeIPF extends AbstractInputField<string, string> {
 	protected filterValue(value: unknown): string | undefined {

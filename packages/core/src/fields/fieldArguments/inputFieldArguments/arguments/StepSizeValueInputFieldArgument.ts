@@ -1,9 +1,9 @@
-import type { InputFieldArgumentConfig } from 'packages/core/src/config/FieldConfigs';
-import { InputFieldArgumentConfigs } from 'packages/core/src/config/FieldConfigs';
-import { AbstractInputFieldArgument } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/AbstractInputFieldArgument';
-import type { ParsingResultNode } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
-import { DocsUtils } from 'packages/core/src/utils/DocsUtils';
-import { ErrorLevel, MetaBindArgumentError } from 'packages/core/src/utils/errors/MetaBindErrors';
+import type { InputFieldArgumentConfig } from 'meta-bind-core/src/config/FieldConfigs';
+import { InputFieldArgumentConfigs } from 'meta-bind-core/src/config/FieldConfigs';
+import { AbstractInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/AbstractInputFieldArgument';
+import type { ParsingResultNode } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
+import { DocsUtils } from 'meta-bind-core/src/utils/DocsUtils';
+import { ErrorLevel, MetaBindArgumentError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
 
 export class StepSizeValueInputFieldArgument extends AbstractInputFieldArgument {
 	value: number = 0;

@@ -1,4 +1,4 @@
-import type { MetaBind } from 'packages/core/src';
+import type { MetaBind } from 'meta-bind-core/src';
 import type { Component as SvelteComponent } from 'svelte';
 import { mount, unmount } from 'svelte';
 

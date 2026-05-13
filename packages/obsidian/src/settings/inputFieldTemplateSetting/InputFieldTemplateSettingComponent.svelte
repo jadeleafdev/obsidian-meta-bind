@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { MetaBind } from 'packages/core/src';
-	import { ButtonStyleType } from 'packages/core/src/config/ButtonConfig';
-	import type { InputFieldTemplate } from 'packages/core/src/Settings';
-	import Button from 'packages/core/src/utils/components/Button.svelte';
-	import FlexRow from 'packages/core/src/utils/components/FlexRow.svelte';
-	import Icon from 'packages/core/src/utils/components/Icon.svelte';
+	import type { MetaBind } from 'meta-bind-core/src';
+	import { ButtonStyleType } from 'meta-bind-core/src/config/ButtonConfig';
+	import type { InputFieldTemplate } from 'meta-bind-core/src/Settings';
+	import Button from 'meta-bind-core/src/utils/components/Button.svelte';
+	import FlexRow from 'meta-bind-core/src/utils/components/FlexRow.svelte';
+	import Icon from 'meta-bind-core/src/utils/components/Icon.svelte';
 
 	let {
 		mb,

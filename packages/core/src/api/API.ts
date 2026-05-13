@@ -9,13 +9,13 @@ import type {
 	JsViewFieldOptions,
 	TableOptions,
 	ViewFieldOptions,
-} from 'packages/core/src/config/APIConfigs';
+} from 'meta-bind-core/src/config/APIConfigs';
 import {
 	FieldType,
 	isFieldTypeAllowedInline,
 	NotePosition,
 	RenderChildType,
-} from 'packages/core/src/config/APIConfigs';
+} from 'meta-bind-core/src/config/APIConfigs';
 import {
 	V_BindTargetDeclaration,
 	V_BindTargetScope,
@@ -29,29 +29,29 @@ import {
 	V_RenderChildType,
 	V_TableFieldOptions,
 	V_ViewFieldOptions,
-} from 'packages/core/src/config/validators/Validators';
-import { ButtonGroupMountable } from 'packages/core/src/fields/button/ButtonGroupMountable';
-import { ButtonMountable } from 'packages/core/src/fields/button/ButtonMountable';
-import { EmbedMountable } from 'packages/core/src/fields/embed/EmbedMountable';
-import { ExcludedMountable } from 'packages/core/src/fields/excluded/ExcludedMountable';
-import type { FieldMountable } from 'packages/core/src/fields/FieldMountable';
-import { InputFieldMountable } from 'packages/core/src/fields/inputFields/InputFieldMountable';
-import { TableMountable } from 'packages/core/src/fields/metaBindTable/TableMountable';
-import { JsViewFieldMountable } from 'packages/core/src/fields/viewFields/JsViewFieldMountable';
-import { ViewFieldMountable } from 'packages/core/src/fields/viewFields/ViewFieldMountable';
-import type { BindTargetScope } from 'packages/core/src/metadata/BindTargetScope';
-import type { BindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import type { ButtonDeclaration, ButtonGroupDeclaration } from 'packages/core/src/parsers/ButtonParser';
-import type { InputFieldDeclaration } from 'packages/core/src/parsers/inputFieldParser/InputFieldDeclaration';
+} from 'meta-bind-core/src/config/validators/Validators';
+import { ButtonGroupMountable } from 'meta-bind-core/src/fields/button/ButtonGroupMountable';
+import { ButtonMountable } from 'meta-bind-core/src/fields/button/ButtonMountable';
+import { EmbedMountable } from 'meta-bind-core/src/fields/embed/EmbedMountable';
+import { ExcludedMountable } from 'meta-bind-core/src/fields/excluded/ExcludedMountable';
+import type { FieldMountable } from 'meta-bind-core/src/fields/FieldMountable';
+import { InputFieldMountable } from 'meta-bind-core/src/fields/inputFields/InputFieldMountable';
+import { TableMountable } from 'meta-bind-core/src/fields/metaBindTable/TableMountable';
+import { JsViewFieldMountable } from 'meta-bind-core/src/fields/viewFields/JsViewFieldMountable';
+import { ViewFieldMountable } from 'meta-bind-core/src/fields/viewFields/ViewFieldMountable';
+import type { BindTargetScope } from 'meta-bind-core/src/metadata/BindTargetScope';
+import type { BindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { ButtonDeclaration, ButtonGroupDeclaration } from 'meta-bind-core/src/parsers/ButtonParser';
+import type { InputFieldDeclaration } from 'meta-bind-core/src/parsers/inputFieldParser/InputFieldDeclaration';
 import type {
 	JsViewFieldDeclaration,
 	ViewFieldDeclaration,
-} from 'packages/core/src/parsers/viewFieldParser/ViewFieldDeclaration';
-import { ErrorLevel, MetaBindInternalError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import { parsePropPath } from 'packages/core/src/utils/prop/PropParser';
-import { Signal } from 'packages/core/src/utils/Signal';
-import { expectType, getUUID } from 'packages/core/src/utils/Utils';
-import { validateAPIArgs, zodFunction } from 'packages/core/src/utils/ZodUtils';
+} from 'meta-bind-core/src/parsers/viewFieldParser/ViewFieldDeclaration';
+import { ErrorLevel, MetaBindInternalError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import { parsePropPath } from 'meta-bind-core/src/utils/prop/PropParser';
+import { Signal } from 'meta-bind-core/src/utils/Signal';
+import { expectType, getUUID } from 'meta-bind-core/src/utils/Utils';
+import { validateAPIArgs, zodFunction } from 'meta-bind-core/src/utils/ZodUtils';
 import { z } from 'zod';
 import type { MB_Comps, MetaBind } from '..';
 

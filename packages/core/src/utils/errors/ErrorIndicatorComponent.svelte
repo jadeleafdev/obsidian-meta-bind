@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ErrorIndicatorProps } from 'packages/core/src/api/InternalAPI';
+	import type { ErrorIndicatorProps } from 'meta-bind-core/src/api/InternalAPI';
 	import type { MetaBind } from '../..';
 
 	const {

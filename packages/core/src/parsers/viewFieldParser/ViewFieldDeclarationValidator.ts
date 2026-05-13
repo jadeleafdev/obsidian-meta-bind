@@ -1,18 +1,18 @@
-import type { MetaBind } from 'packages/core/src';
-import { ViewFieldArgumentType, ViewFieldType } from 'packages/core/src/config/FieldConfigs';
-import type { AbstractViewFieldArgument } from 'packages/core/src/fields/fieldArguments/viewFieldArguments/AbstractViewFieldArgument';
-import { ViewFieldArgumentContainer } from 'packages/core/src/fields/fieldArguments/viewFieldArguments/ViewFieldArgumentContainer';
-import { ViewFieldArgumentFactory } from 'packages/core/src/fields/fieldArguments/viewFieldArguments/ViewFieldArgumentFactory';
-import type { BindTargetScope } from 'packages/core/src/metadata/BindTargetScope';
-import type { BindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import type { ParsingResultNode } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
-import { ParsingValidationError } from 'packages/core/src/parsers/ParsingError';
+import type { MetaBind } from 'meta-bind-core/src';
+import { ViewFieldArgumentType, ViewFieldType } from 'meta-bind-core/src/config/FieldConfigs';
+import type { AbstractViewFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/viewFieldArguments/AbstractViewFieldArgument';
+import { ViewFieldArgumentContainer } from 'meta-bind-core/src/fields/fieldArguments/viewFieldArguments/ViewFieldArgumentContainer';
+import { ViewFieldArgumentFactory } from 'meta-bind-core/src/fields/fieldArguments/viewFieldArguments/ViewFieldArgumentFactory';
+import type { BindTargetScope } from 'meta-bind-core/src/metadata/BindTargetScope';
+import type { BindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { ParsingResultNode } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
+import { ParsingValidationError } from 'meta-bind-core/src/parsers/ParsingError';
 import type {
 	UnvalidatedViewFieldDeclaration,
 	ViewFieldDeclaration,
-} from 'packages/core/src/parsers/viewFieldParser/ViewFieldDeclaration';
-import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import { ErrorLevel } from 'packages/core/src/utils/errors/MetaBindErrors';
+} from 'meta-bind-core/src/parsers/viewFieldParser/ViewFieldDeclaration';
+import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import { ErrorLevel } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
 
 export class ViewFieldDeclarationValidator {
 	unvalidatedDeclaration: UnvalidatedViewFieldDeclaration;

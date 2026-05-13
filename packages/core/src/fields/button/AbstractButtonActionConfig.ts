@@ -1,10 +1,10 @@
-import type { MetaBind } from 'packages/core/src';
+import type { MetaBind } from 'meta-bind-core/src';
 import type {
 	ButtonActionType,
 	ButtonClickContext,
 	ButtonConfig,
 	ButtonContext,
-} from 'packages/core/src/config/ButtonConfig';
+} from 'meta-bind-core/src/config/ButtonConfig';
 
 export abstract class AbstractButtonActionConfig<T> {
 	actionType: ButtonActionType;

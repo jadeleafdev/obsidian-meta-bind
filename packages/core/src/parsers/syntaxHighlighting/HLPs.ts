@@ -1,11 +1,11 @@
 import type { Parser } from '@lemons_dev/parsinom';
 import { P_UTILS, P } from '@lemons_dev/parsinom';
-import { P_MetadataPath } from 'packages/core/src/parsers/nomParsers/BindTargetNomParsers';
-import { P_NonStringArgumentValue } from 'packages/core/src/parsers/nomParsers/FieldArgumentNomParsers';
-import { P_FilePath, P_Ident, P_SingleQuotedString } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
-import { P_ViewFieldTemplateString } from 'packages/core/src/parsers/nomParsers/ViewFieldNomParsers';
-import type { Highlight } from 'packages/core/src/parsers/syntaxHighlighting/Highlight';
-import { HLPUtils, MB_TokenClass } from 'packages/core/src/parsers/syntaxHighlighting/HLPUtils';
+import { P_MetadataPath } from 'meta-bind-core/src/parsers/nomParsers/BindTargetNomParsers';
+import { P_NonStringArgumentValue } from 'meta-bind-core/src/parsers/nomParsers/FieldArgumentNomParsers';
+import { P_FilePath, P_Ident, P_SingleQuotedString } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
+import { P_ViewFieldTemplateString } from 'meta-bind-core/src/parsers/nomParsers/ViewFieldNomParsers';
+import type { Highlight } from 'meta-bind-core/src/parsers/syntaxHighlighting/Highlight';
+import { HLPUtils, MB_TokenClass } from 'meta-bind-core/src/parsers/syntaxHighlighting/HLPUtils';
 
 const HLP_Ident = HLPUtils.highlight(P_Ident, MB_TokenClass.IDENT);
 const HLP_Keyword = HLPUtils.highlight(P_Ident, MB_TokenClass.KEYWORD);

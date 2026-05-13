@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { MetaBind } from 'packages/core/src';
-	import type { UpdateMetadataButtonAction } from 'packages/core/src/config/ButtonConfig';
+	import type { MetaBind } from 'meta-bind-core/src';
+	import type { UpdateMetadataButtonAction } from 'meta-bind-core/src/config/ButtonConfig';
 
-	import SettingComponent from 'packages/core/src/utils/components/SettingComponent.svelte';
-	import Toggle from 'packages/core/src/utils/components/Toggle.svelte';
+	import SettingComponent from 'meta-bind-core/src/utils/components/SettingComponent.svelte';
+	import Toggle from 'meta-bind-core/src/utils/components/Toggle.svelte';
 
 	const {
 		mb,

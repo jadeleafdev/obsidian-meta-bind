@@ -1,14 +1,14 @@
-import type { MetaBind } from 'packages/core/src';
+import type { MetaBind } from 'meta-bind-core/src';
 import type {
 	ButtonClickContext,
 	ButtonConfig,
 	ButtonContext,
 	InsertIntoNoteButtonAction,
-} from 'packages/core/src/config/ButtonConfig';
-import { ButtonActionType } from 'packages/core/src/config/ButtonConfig';
-import { AbstractButtonActionConfig } from 'packages/core/src/fields/button/AbstractButtonActionConfig';
-import { P_lineNumberExpression } from 'packages/core/src/parsers/nomParsers/MiscNomParsers';
-import { runParser } from 'packages/core/src/parsers/ParsingError';
+} from 'meta-bind-core/src/config/ButtonConfig';
+import { ButtonActionType } from 'meta-bind-core/src/config/ButtonConfig';
+import { AbstractButtonActionConfig } from 'meta-bind-core/src/fields/button/AbstractButtonActionConfig';
+import { P_lineNumberExpression } from 'meta-bind-core/src/parsers/nomParsers/MiscNomParsers';
+import { runParser } from 'meta-bind-core/src/parsers/ParsingError';
 
 export class InsertIntoNoteButtonActionConfig extends AbstractButtonActionConfig<InsertIntoNoteButtonAction> {
 	constructor(mb: MetaBind) {

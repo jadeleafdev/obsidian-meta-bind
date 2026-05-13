@@ -4,8 +4,8 @@ import {
 	ButtonActionType,
 	ButtonClickContext,
 	ButtonClickType,
-} from 'packages/core/src/config/ButtonConfig';
-import { TestMetaBind } from 'tests/__mocks__/TestPlugin';
+} from 'meta-bind-core/src/config/ButtonConfig';
+import { TestMetaBind } from '../__mocks__/TestPlugin';
 
 let testPlugin: TestMetaBind;
 const testFilePath = 'test/file.md';

@@ -15,9 +15,9 @@ import type {
 	SleepButtonAction,
 	TemplaterCreateNoteButtonAction,
 	UpdateMetadataButtonAction,
-} from 'packages/core/src/config/ButtonConfig';
-import { ButtonActionType, ButtonStyleType } from 'packages/core/src/config/ButtonConfig';
-import { oneOf, schemaForType } from 'packages/core/src/utils/ZodUtils';
+} from 'meta-bind-core/src/config/ButtonConfig';
+import { ButtonActionType, ButtonStyleType } from 'meta-bind-core/src/config/ButtonConfig';
+import { oneOf, schemaForType } from 'meta-bind-core/src/utils/ZodUtils';
 import { z } from 'zod';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type

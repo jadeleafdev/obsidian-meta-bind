@@ -1,5 +1,5 @@
-import type { MetaBind } from 'packages/core/src';
-import { SelectModalContent } from 'packages/core/src/modals/SelectModalContent';
+import type { MetaBind } from 'meta-bind-core/src';
+import { SelectModalContent } from 'meta-bind-core/src/modals/SelectModalContent';
 
 export class FileSelectModal extends SelectModalContent<string> {
 	readonly filterFunction?: (filePath: string) => boolean;

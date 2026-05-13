@@ -1,32 +1,32 @@
 import {
 	METADATA_CACHE_EXTERNAL_WRITE_LOCK_DURATION,
 	MetadataManager,
-} from 'packages/core/src/metadata/MetadataManager';
+} from 'meta-bind-core/src/metadata/MetadataManager';
 
-import { DEFAULT_SETTINGS, type MetaBindPluginSettings } from 'packages/core/src/Settings';
+import { DEFAULT_SETTINGS, type MetaBindPluginSettings } from 'meta-bind-core/src/Settings';
 import {
 	GlobalMetadataSource,
 	InternalMetadataSource,
 	ScopeMetadataSource,
-} from 'packages/core/src/metadata/InternalMetadataSources';
-import { DateParser } from 'packages/core/src/parsers/DateParser';
+} from 'meta-bind-core/src/metadata/InternalMetadataSources';
+import { DateParser } from 'meta-bind-core/src/parsers/DateParser';
 import {
 	type BindTargetDeclaration,
 	BindTargetStorageType,
-} from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import { setFirstWeekday } from 'packages/core/src/utils/DatePickerUtils';
+} from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import { setFirstWeekday } from 'meta-bind-core/src/utils/DatePickerUtils';
 import { TestAPI } from './TestAPI';
 import { TestInternalAPI } from './TestInternalAPI';
-import { InputFieldMountable } from 'packages/core/src/fields/inputFields/InputFieldMountable';
-import type { InputField } from 'packages/core/src/fields/inputFields/InputFieldFactory';
+import { InputFieldMountable } from 'meta-bind-core/src/fields/inputFields/InputFieldMountable';
+import type { InputField } from 'meta-bind-core/src/fields/inputFields/InputFieldFactory';
 import { expect, type Mock, spyOn } from 'bun:test';
-import { getUUID } from 'packages/core/src/utils/Utils';
-import type { Metadata } from 'packages/core/src/metadata/MetadataSource';
-import { Signal } from 'packages/core/src/utils/Signal';
-import { parsePropPath } from 'packages/core/src/utils/prop/PropParser';
-import { MountableManager } from 'packages/core/src/MountableManager';
-import { RenderChildType } from 'packages/core/src/config/APIConfigs';
-import { MetaBind } from 'packages/core/src';
+import { getUUID } from 'meta-bind-core/src/utils/Utils';
+import type { Metadata } from 'meta-bind-core/src/metadata/MetadataSource';
+import { Signal } from 'meta-bind-core/src/utils/Signal';
+import { parsePropPath } from 'meta-bind-core/src/utils/prop/PropParser';
+import { MountableManager } from 'meta-bind-core/src/MountableManager';
+import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+import { MetaBind } from 'meta-bind-core/src';
 import { TestFileAPI } from './TestFileAPI';
 
 /**

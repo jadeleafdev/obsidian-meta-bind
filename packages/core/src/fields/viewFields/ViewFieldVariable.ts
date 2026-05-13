@@ -1,5 +1,5 @@
-import type { BindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import type { Signal } from 'packages/core/src/utils/Signal';
+import type { BindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { Signal } from 'meta-bind-core/src/utils/Signal';
 
 export interface ViewFieldVariable {
 	bindTargetDeclaration: BindTargetDeclaration;

@@ -1,20 +1,20 @@
-import { Notice, parseYaml, stringifyYaml, setIcon, Component } from 'obsidian/publish';
-import type { LifecycleHook } from 'packages/core/src/api/API';
-import type { Command, ModalOptions } from 'packages/core/src/api/InternalAPI';
-import { InternalAPI } from 'packages/core/src/api/InternalAPI';
-import type { ImageSuggesterIPF } from 'packages/core/src/fields/inputFields/fields/ImageSuggester/ImageSuggesterIPF';
+import type { LifecycleHook } from 'meta-bind-core/src/api/API';
+import type { Command, ModalOptions } from 'meta-bind-core/src/api/InternalAPI';
+import { InternalAPI } from 'meta-bind-core/src/api/InternalAPI';
+import type { ImageSuggesterIPF } from 'meta-bind-core/src/fields/inputFields/fields/ImageSuggester/ImageSuggesterIPF';
 import type {
 	SuggesterLikeIFP,
 	SuggesterOption,
-} from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
-import type { IModal } from 'packages/core/src/modals/IModal';
-import type { ModalContent } from 'packages/core/src/modals/ModalContent';
-import type { SelectModalContent } from 'packages/core/src/modals/SelectModalContent';
-import type { ContextMenuItemDefinition, IContextMenu } from 'packages/core/src/utils/IContextMenu';
-import type { IFuzzySearch } from 'packages/core/src/utils/IFuzzySearch';
-import type { IJsRenderer } from 'packages/core/src/utils/IJsRenderer';
-import type { MBLiteral } from 'packages/core/src/utils/Literal';
-import type { PublishComponents, PublishMetaBind } from 'packages/publish/src/main';
+} from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
+import type { IModal } from 'meta-bind-core/src/modals/IModal';
+import type { ModalContent } from 'meta-bind-core/src/modals/ModalContent';
+import type { SelectModalContent } from 'meta-bind-core/src/modals/SelectModalContent';
+import type { ContextMenuItemDefinition, IContextMenu } from 'meta-bind-core/src/utils/IContextMenu';
+import type { IFuzzySearch } from 'meta-bind-core/src/utils/IFuzzySearch';
+import type { IJsRenderer } from 'meta-bind-core/src/utils/IJsRenderer';
+import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
+import type { PublishComponents, PublishMetaBind } from 'meta-bind-publish/src/main';
+import { Notice, parseYaml, stringifyYaml, setIcon, Component } from 'obsidian/publish';
 import type { ZodType } from 'zod';
 import { z } from 'zod';
 

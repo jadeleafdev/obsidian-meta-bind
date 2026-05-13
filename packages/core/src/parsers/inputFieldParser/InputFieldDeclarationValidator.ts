@@ -1,18 +1,18 @@
-import type { MetaBind } from 'packages/core/src';
-import { InputFieldArgumentType, InputFieldType } from 'packages/core/src/config/FieldConfigs';
-import type { AbstractInputFieldArgument } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/AbstractInputFieldArgument';
-import { InputFieldArgumentContainer } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/InputFieldArgumentContainer';
-import { InputFieldArgumentFactory } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/InputFieldArgumentFactory';
-import type { BindTargetScope } from 'packages/core/src/metadata/BindTargetScope';
-import type { BindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { MetaBind } from 'meta-bind-core/src';
+import { InputFieldArgumentType, InputFieldType } from 'meta-bind-core/src/config/FieldConfigs';
+import type { AbstractInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/AbstractInputFieldArgument';
+import { InputFieldArgumentContainer } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/InputFieldArgumentContainer';
+import { InputFieldArgumentFactory } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/InputFieldArgumentFactory';
+import type { BindTargetScope } from 'meta-bind-core/src/metadata/BindTargetScope';
+import type { BindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
 import type {
 	InputFieldDeclaration,
 	UnvalidatedInputFieldDeclaration,
-} from 'packages/core/src/parsers/inputFieldParser/InputFieldDeclaration';
-import type { ParsingResultNode } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
-import { ParsingValidationError } from 'packages/core/src/parsers/ParsingError';
-import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import { ErrorLevel } from 'packages/core/src/utils/errors/MetaBindErrors';
+} from 'meta-bind-core/src/parsers/inputFieldParser/InputFieldDeclaration';
+import type { ParsingResultNode } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
+import { ParsingValidationError } from 'meta-bind-core/src/parsers/ParsingError';
+import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import { ErrorLevel } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
 
 export class InputFieldDeclarationValidator {
 	unvalidatedDeclaration: UnvalidatedInputFieldDeclaration;

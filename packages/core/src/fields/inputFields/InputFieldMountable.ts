@@ -1,15 +1,15 @@
-import type { MetaBind } from 'packages/core/src';
-import { RenderChildType } from 'packages/core/src/config/APIConfigs';
-import { InputFieldArgumentType, InputFieldType } from 'packages/core/src/config/FieldConfigs';
-import type { InputFieldArgumentMapType } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/InputFieldArgumentFactory';
-import { FieldMountable } from 'packages/core/src/fields/FieldMountable';
-import type { InputField } from 'packages/core/src/fields/inputFields/InputFieldFactory';
-import type { BindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import type { InputFieldDeclaration } from 'packages/core/src/parsers/inputFieldParser/InputFieldDeclaration';
-import { DocsUtils } from 'packages/core/src/utils/DocsUtils';
-import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import { ErrorLevel, MetaBindInternalError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import { DomHelpers, showUnloadedMessage } from 'packages/core/src/utils/Utils';
+import type { MetaBind } from 'meta-bind-core/src';
+import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+import { InputFieldArgumentType, InputFieldType } from 'meta-bind-core/src/config/FieldConfigs';
+import type { InputFieldArgumentMapType } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/InputFieldArgumentFactory';
+import { FieldMountable } from 'meta-bind-core/src/fields/FieldMountable';
+import type { InputField } from 'meta-bind-core/src/fields/inputFields/InputFieldFactory';
+import type { BindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { InputFieldDeclaration } from 'meta-bind-core/src/parsers/inputFieldParser/InputFieldDeclaration';
+import { DocsUtils } from 'meta-bind-core/src/utils/DocsUtils';
+import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import { ErrorLevel, MetaBindInternalError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import { DomHelpers, showUnloadedMessage } from 'meta-bind-core/src/utils/Utils';
 
 export class InputFieldMountable extends FieldMountable {
 	renderChildType: RenderChildType;

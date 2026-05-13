@@ -1,8 +1,8 @@
 import { mapIndexToLineColumn } from '@lemons_dev/parsinom';
 import type { Mode, StringStream } from 'codemirror';
-import type { InlineFieldType } from 'packages/core/src/config/APIConfigs';
-import { SyntaxHighlighting } from 'packages/core/src/parsers/syntaxHighlighting/SyntaxHighlighting';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
+import type { InlineFieldType } from 'meta-bind-core/src/config/APIConfigs';
+import { SyntaxHighlighting } from 'meta-bind-core/src/parsers/syntaxHighlighting/SyntaxHighlighting';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 
 export function registerCm5HLModes(mb: ObsMetaBind): void {
 	if (!mb.getSettings().enableSyntaxHighlighting) {

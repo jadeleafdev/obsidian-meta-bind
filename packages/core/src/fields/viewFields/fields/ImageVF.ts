@@ -1,14 +1,14 @@
-import { AbstractViewField } from 'packages/core/src/fields/viewFields/AbstractViewField';
-import type { ViewFieldMountable } from 'packages/core/src/fields/viewFields/ViewFieldMountable';
-import type { ViewFieldVariable } from 'packages/core/src/fields/viewFields/ViewFieldVariable';
-import type { BindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import type { MarkdownLink } from 'packages/core/src/parsers/MarkdownLinkParser';
-import { MDLinkParser } from 'packages/core/src/parsers/MarkdownLinkParser';
-import ImageGrid from 'packages/core/src/utils/components/ImageGrid.svelte';
-import { ErrorLevel, MetaBindValidationError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import { Signal } from 'packages/core/src/utils/Signal';
-import { getUUID, toArray } from 'packages/core/src/utils/Utils';
+import { AbstractViewField } from 'meta-bind-core/src/fields/viewFields/AbstractViewField';
+import type { ViewFieldMountable } from 'meta-bind-core/src/fields/viewFields/ViewFieldMountable';
+import type { ViewFieldVariable } from 'meta-bind-core/src/fields/viewFields/ViewFieldVariable';
+import type { BindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { MarkdownLink } from 'meta-bind-core/src/parsers/MarkdownLinkParser';
+import { MDLinkParser } from 'meta-bind-core/src/parsers/MarkdownLinkParser';
+import { ErrorLevel, MetaBindValidationError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import { Signal } from 'meta-bind-core/src/utils/Signal';
+import { getUUID, toArray } from 'meta-bind-core/src/utils/Utils';
 import { mount, unmount } from 'svelte';
+import ImageGrid from 'meta-bind-core/src/utils/components/ImageGrid.svelte';
 
 export class ImageVF extends AbstractViewField<MarkdownLink | MarkdownLink[] | undefined> {
 	component?: ReturnType<typeof ImageGrid>;

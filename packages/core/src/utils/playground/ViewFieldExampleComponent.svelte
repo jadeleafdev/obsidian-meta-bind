@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { RenderChildType } from 'packages/core/src/config/APIConfigs';
-	import type { FieldMountable } from 'packages/core/src/fields/FieldMountable';
-	import MountableComponent from 'packages/core/src/utils/components/MountableComponent.svelte';
-	import type { ViewFieldExampleDeclaration } from 'packages/core/src/utils/InputFieldExamples';
+	import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+	import type { FieldMountable } from 'meta-bind-core/src/fields/FieldMountable';
+	import MountableComponent from 'meta-bind-core/src/utils/components/MountableComponent.svelte';
+	import type { ViewFieldExampleDeclaration } from 'meta-bind-core/src/utils/InputFieldExamples';
 	import type { MetaBind } from '../..';
 
 	const {

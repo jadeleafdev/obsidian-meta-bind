@@ -1,23 +1,23 @@
 import type { MathJsInstance } from 'mathjs';
-import type { API } from 'packages/core/src/api/API';
-import type { FileAPI } from 'packages/core/src/api/FileAPI';
-import type { InternalAPI } from 'packages/core/src/api/InternalAPI';
-import { SyntaxHighlightingAPI } from 'packages/core/src/api/SyntaxHighlightingAPI';
-import { ButtonActionRunner } from 'packages/core/src/fields/button/ButtonActionRunner';
-import { ButtonManager } from 'packages/core/src/fields/button/ButtonManager';
-import { InputFieldFactory } from 'packages/core/src/fields/inputFields/InputFieldFactory';
-import { ViewFieldFactory } from 'packages/core/src/fields/viewFields/ViewFieldFactory';
-import { MetadataManager } from 'packages/core/src/metadata/MetadataManager';
-import { MountableManager } from 'packages/core/src/MountableManager';
-import { BindTargetParser } from 'packages/core/src/parsers/bindTargetParser/BindTargetParser';
-import { ButtonParser } from 'packages/core/src/parsers/ButtonParser';
-import { DateParser } from 'packages/core/src/parsers/DateParser';
-import { InputFieldParser } from 'packages/core/src/parsers/inputFieldParser/InputFieldParser';
-import { JsViewFieldParser } from 'packages/core/src/parsers/viewFieldParser/JsViewFieldParser';
-import { ViewFieldParser } from 'packages/core/src/parsers/viewFieldParser/ViewFieldParser';
-import type { MetaBindPluginSettings as MetaBindSettings } from 'packages/core/src/Settings';
-import { setFirstWeekday } from 'packages/core/src/utils/DatePickerUtils';
-import { createMathJS } from 'packages/core/src/utils/MathJS';
+import type { API } from 'meta-bind-core/src/api/API';
+import type { FileAPI } from 'meta-bind-core/src/api/FileAPI';
+import type { InternalAPI } from 'meta-bind-core/src/api/InternalAPI';
+import { SyntaxHighlightingAPI } from 'meta-bind-core/src/api/SyntaxHighlightingAPI';
+import { ButtonActionRunner } from 'meta-bind-core/src/fields/button/ButtonActionRunner';
+import { ButtonManager } from 'meta-bind-core/src/fields/button/ButtonManager';
+import { InputFieldFactory } from 'meta-bind-core/src/fields/inputFields/InputFieldFactory';
+import { ViewFieldFactory } from 'meta-bind-core/src/fields/viewFields/ViewFieldFactory';
+import { MetadataManager } from 'meta-bind-core/src/metadata/MetadataManager';
+import { MountableManager } from 'meta-bind-core/src/MountableManager';
+import { BindTargetParser } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetParser';
+import { ButtonParser } from 'meta-bind-core/src/parsers/ButtonParser';
+import { DateParser } from 'meta-bind-core/src/parsers/DateParser';
+import { InputFieldParser } from 'meta-bind-core/src/parsers/inputFieldParser/InputFieldParser';
+import { JsViewFieldParser } from 'meta-bind-core/src/parsers/viewFieldParser/JsViewFieldParser';
+import { ViewFieldParser } from 'meta-bind-core/src/parsers/viewFieldParser/ViewFieldParser';
+import type { MetaBindPluginSettings as MetaBindSettings } from 'meta-bind-core/src/Settings';
+import { setFirstWeekday } from 'meta-bind-core/src/utils/DatePickerUtils';
+import { createMathJS } from 'meta-bind-core/src/utils/MathJS';
 
 export enum MetaBindBuild {
 	DEV = 'dev',

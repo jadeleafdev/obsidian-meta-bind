@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { MetaBind } from 'packages/core/src';
-	import type { CreateNoteButtonAction } from 'packages/core/src/config/ButtonConfig';
-	import { ButtonStyleType } from 'packages/core/src/config/ButtonConfig';
+	import type { MetaBind } from 'meta-bind-core/src';
+	import type { CreateNoteButtonAction } from 'meta-bind-core/src/config/ButtonConfig';
+	import { ButtonStyleType } from 'meta-bind-core/src/config/ButtonConfig';
 
-	import Button from 'packages/core/src/utils/components/Button.svelte';
-	import SettingComponent from 'packages/core/src/utils/components/SettingComponent.svelte';
-	import Toggle from 'packages/core/src/utils/components/Toggle.svelte';
+	import Button from 'meta-bind-core/src/utils/components/Button.svelte';
+	import SettingComponent from 'meta-bind-core/src/utils/components/SettingComponent.svelte';
+	import Toggle from 'meta-bind-core/src/utils/components/Toggle.svelte';
 
 	const {
 		mb,

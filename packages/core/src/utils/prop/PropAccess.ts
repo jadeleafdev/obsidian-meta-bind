@@ -1,4 +1,4 @@
-import type { UnvalidatedPropAccess } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { UnvalidatedPropAccess } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
 
 export enum PropAccessType {
 	OBJECT = 'object',

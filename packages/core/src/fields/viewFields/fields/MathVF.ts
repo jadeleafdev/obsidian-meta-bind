@@ -1,11 +1,11 @@
 import type { EvalFunction } from 'mathjs';
-import { AbstractViewField } from 'packages/core/src/fields/viewFields/AbstractViewField';
-import type { ViewFieldMountable } from 'packages/core/src/fields/viewFields/ViewFieldMountable';
-import type { ViewFieldVariable } from 'packages/core/src/fields/viewFields/ViewFieldVariable';
-import { ErrorLevel, MetaBindExpressionError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import { parseLiteral, stringifyUnknown } from 'packages/core/src/utils/Literal';
-import { Signal } from 'packages/core/src/utils/Signal';
-import { DomHelpers, getUUID } from 'packages/core/src/utils/Utils';
+import { AbstractViewField } from 'meta-bind-core/src/fields/viewFields/AbstractViewField';
+import type { ViewFieldMountable } from 'meta-bind-core/src/fields/viewFields/ViewFieldMountable';
+import type { ViewFieldVariable } from 'meta-bind-core/src/fields/viewFields/ViewFieldVariable';
+import { ErrorLevel, MetaBindExpressionError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import { parseLiteral, stringifyUnknown } from 'meta-bind-core/src/utils/Literal';
+import { Signal } from 'meta-bind-core/src/utils/Signal';
+import { DomHelpers, getUUID } from 'meta-bind-core/src/utils/Utils';
 
 interface MathVFResult {
 	value: unknown;

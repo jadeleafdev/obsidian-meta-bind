@@ -1,6 +1,6 @@
 import type { Parser } from '@lemons_dev/parsinom';
 import { P } from '@lemons_dev/parsinom';
-import { Highlight } from 'packages/core/src/parsers/syntaxHighlighting/Highlight';
+import { Highlight } from 'meta-bind-core/src/parsers/syntaxHighlighting/Highlight';
 
 export enum MB_TokenClass {
 	IDENT = 'ident',

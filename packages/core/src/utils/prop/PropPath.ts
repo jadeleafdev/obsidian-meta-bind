@@ -1,5 +1,5 @@
-import type { PropAccess, PropAccessResult } from 'packages/core/src/utils/prop/PropAccess';
-import { PropAccessType } from 'packages/core/src/utils/prop/PropAccess';
+import type { PropAccess, PropAccessResult } from 'meta-bind-core/src/utils/prop/PropAccess';
+import { PropAccessType } from 'meta-bind-core/src/utils/prop/PropAccess';
 
 export class PropPath {
 	path: PropAccess[];

@@ -1,7 +1,7 @@
-import type { MarkdownLink } from 'packages/core/src/parsers/MarkdownLinkParser';
-import { MDLinkParser } from 'packages/core/src/parsers/MarkdownLinkParser';
-import { P_float, P_int } from 'packages/core/src/parsers/nomParsers/MiscNomParsers';
-import { isUrl } from 'packages/core/src/utils/Utils';
+import type { MarkdownLink } from 'meta-bind-core/src/parsers/MarkdownLinkParser';
+import { MDLinkParser } from 'meta-bind-core/src/parsers/MarkdownLinkParser';
+import { P_float, P_int } from 'meta-bind-core/src/parsers/nomParsers/MiscNomParsers';
+import { isUrl } from 'meta-bind-core/src/utils/Utils';
 
 export type MBLiteral = string | number | boolean | null;
 export type MBExtendedLiteral = MBLiteral | MBLiteral[];

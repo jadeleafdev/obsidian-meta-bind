@@ -1,17 +1,17 @@
-import type { MetaBind } from 'packages/core/src';
-import type { BindTargetScope } from 'packages/core/src/metadata/BindTargetScope';
+import type { MetaBind } from 'meta-bind-core/src';
+import type { BindTargetScope } from 'meta-bind-core/src/metadata/BindTargetScope';
 import type {
 	BindTargetDeclaration,
 	UnvalidatedBindTargetDeclaration,
-} from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import { BindTargetStorageType } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import { P_BindTarget } from 'packages/core/src/parsers/nomParsers/BindTargetNomParsers';
-import type { ParsingResultNode } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
-import { toResultNode } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
-import { ParsingValidationError, runParser } from 'packages/core/src/parsers/ParsingError';
-import { ErrorLevel, MetaBindInternalError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import { PropAccess } from 'packages/core/src/utils/prop/PropAccess';
-import { PropPath } from 'packages/core/src/utils/prop/PropPath';
+} from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import { BindTargetStorageType } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import { P_BindTarget } from 'meta-bind-core/src/parsers/nomParsers/BindTargetNomParsers';
+import type { ParsingResultNode } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
+import { toResultNode } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
+import { ParsingValidationError, runParser } from 'meta-bind-core/src/parsers/ParsingError';
+import { ErrorLevel, MetaBindInternalError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import { PropAccess } from 'meta-bind-core/src/utils/prop/PropAccess';
+import { PropPath } from 'meta-bind-core/src/utils/prop/PropPath';
 
 export class BindTargetParser {
 	mb: MetaBind;

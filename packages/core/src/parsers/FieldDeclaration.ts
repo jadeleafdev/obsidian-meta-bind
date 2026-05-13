@@ -1,5 +1,5 @@
-import type { ParsingResultNode } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
-import type { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
+import type { ParsingResultNode } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
+import type { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
 
 export interface FieldDeclaration {
 	declarationString?: string | undefined;

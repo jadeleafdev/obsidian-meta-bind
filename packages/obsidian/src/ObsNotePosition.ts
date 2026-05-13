@@ -1,6 +1,6 @@
+import type { LinePosition } from 'meta-bind-core/src/config/APIConfigs';
+import { NotePosition } from 'meta-bind-core/src/config/APIConfigs';
 import type { MarkdownPostProcessorContext } from 'obsidian';
-import type { LinePosition } from 'packages/core/src/config/APIConfigs';
-import { NotePosition } from 'packages/core/src/config/APIConfigs';
 
 export class ObsNotePosition extends NotePosition {
 	ctx: MarkdownPostProcessorContext;

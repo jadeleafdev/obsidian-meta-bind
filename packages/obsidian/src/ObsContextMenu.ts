@@ -1,5 +1,5 @@
+import type { ContextMenuItemDefinition, IContextMenu } from 'meta-bind-core/src/utils/IContextMenu';
 import { Menu } from 'obsidian';
-import type { ContextMenuItemDefinition, IContextMenu } from 'packages/core/src/utils/IContextMenu';
 
 export class ObsContextMenu implements IContextMenu {
 	menu: Menu;

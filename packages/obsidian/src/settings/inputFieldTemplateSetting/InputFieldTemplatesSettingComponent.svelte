@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { ButtonStyleType } from 'packages/core/src/config/ButtonConfig';
-	import type { InputFieldTemplate } from 'packages/core/src/Settings';
-	import Button from 'packages/core/src/utils/components/Button.svelte';
-	import ModalButtonGroup from 'packages/core/src/utils/components/ModalButtonGroup.svelte';
-	import type { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-	import ErrorCollectionComponent from 'packages/core/src/utils/errors/ErrorCollectionComponent.svelte';
-	import InputFieldTemplateSettingComponent from 'packages/obsidian/src/settings/inputFieldTemplateSetting/InputFieldTemplateSettingComponent.svelte';
-	import type { InputFieldTemplatesSettingModal } from 'packages/obsidian/src/settings/inputFieldTemplateSetting/InputFieldTemplatesSettingModal';
+	import { ButtonStyleType } from 'meta-bind-core/src/config/ButtonConfig';
+	import type { InputFieldTemplate } from 'meta-bind-core/src/Settings';
+	import Button from 'meta-bind-core/src/utils/components/Button.svelte';
+	import ModalButtonGroup from 'meta-bind-core/src/utils/components/ModalButtonGroup.svelte';
+	import type { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+	import ErrorCollectionComponent from 'meta-bind-core/src/utils/errors/ErrorCollectionComponent.svelte';
+	import InputFieldTemplateSettingComponent from 'meta-bind-obsidian/src/settings/inputFieldTemplateSetting/InputFieldTemplateSettingComponent.svelte';
+	import type { InputFieldTemplatesSettingModal } from 'meta-bind-obsidian/src/settings/inputFieldTemplateSetting/InputFieldTemplatesSettingModal';
 
 	let {
 		modal,

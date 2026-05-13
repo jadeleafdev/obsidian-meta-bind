@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { Notice, stringifyYaml } from 'obsidian';
-	import type { MetaBind } from 'packages/core/src';
-	import type { ButtonConfig } from 'packages/core/src/config/ButtonConfig';
-	import { ButtonStyleType } from 'packages/core/src/config/ButtonConfig';
-	import Button from 'packages/core/src/utils/components/Button.svelte';
-	import FlexRow from 'packages/core/src/utils/components/FlexRow.svelte';
-	import Icon from 'packages/core/src/utils/components/Icon.svelte';
+	import type { MetaBind } from 'meta-bind-core/src';
+	import type { ButtonConfig } from 'meta-bind-core/src/config/ButtonConfig';
+	import { ButtonStyleType } from 'meta-bind-core/src/config/ButtonConfig';
+	import Button from 'meta-bind-core/src/utils/components/Button.svelte';
+	import FlexRow from 'meta-bind-core/src/utils/components/FlexRow.svelte';
+	import Icon from 'meta-bind-core/src/utils/components/Icon.svelte';
 
 	let {
 		mb,

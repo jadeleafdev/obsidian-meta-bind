@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { MetaBind } from 'packages/core/src';
-	import { DomHelpers } from 'packages/core/src/utils/Utils';
+	import type { MetaBind } from 'meta-bind-core/src';
+	import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
 	import { onDestroy } from 'svelte';
 
 	let element: HTMLElement;

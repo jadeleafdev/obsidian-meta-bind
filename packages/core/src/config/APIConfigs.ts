@@ -1,13 +1,13 @@
-import type { ButtonConfig } from 'packages/core/src/config/ButtonConfig';
-import type { MetaBindColumnDeclaration } from 'packages/core/src/fields/metaBindTable/TableMountable';
-import type { BindTargetScope } from 'packages/core/src/metadata/BindTargetScope';
-import type { BindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import type { SimpleButtonGroupDeclaration } from 'packages/core/src/parsers/ButtonParser';
-import type { SimpleInputFieldDeclaration } from 'packages/core/src/parsers/inputFieldParser/InputFieldDeclaration';
+import type { ButtonConfig } from 'meta-bind-core/src/config/ButtonConfig';
+import type { MetaBindColumnDeclaration } from 'meta-bind-core/src/fields/metaBindTable/TableMountable';
+import type { BindTargetScope } from 'meta-bind-core/src/metadata/BindTargetScope';
+import type { BindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { SimpleButtonGroupDeclaration } from 'meta-bind-core/src/parsers/ButtonParser';
+import type { SimpleInputFieldDeclaration } from 'meta-bind-core/src/parsers/inputFieldParser/InputFieldDeclaration';
 import type {
 	SimpleJsViewFieldDeclaration,
 	SimpleViewFieldDeclaration,
-} from 'packages/core/src/parsers/viewFieldParser/ViewFieldDeclaration';
+} from 'meta-bind-core/src/parsers/viewFieldParser/ViewFieldDeclaration';
 
 export enum RenderChildType {
 	INLINE = 'inline',

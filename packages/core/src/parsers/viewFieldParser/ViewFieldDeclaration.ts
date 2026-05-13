@@ -1,15 +1,15 @@
-import type { ViewFieldType } from 'packages/core/src/config/FieldConfigs';
-import type { ViewFieldArgumentContainer } from 'packages/core/src/fields/fieldArguments/viewFieldArguments/ViewFieldArgumentContainer';
+import type { ViewFieldType } from 'meta-bind-core/src/config/FieldConfigs';
+import type { ViewFieldArgumentContainer } from 'meta-bind-core/src/fields/fieldArguments/viewFieldArguments/ViewFieldArgumentContainer';
 import type {
 	BindTargetDeclaration,
 	UnvalidatedBindTargetDeclaration,
-} from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
+} from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
 import type {
 	FieldDeclaration,
 	SimpleFieldArgument,
 	UnvalidatedFieldArgument,
-} from 'packages/core/src/parsers/FieldDeclaration';
-import type { ParsingResultNode } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
+} from 'meta-bind-core/src/parsers/FieldDeclaration';
+import type { ParsingResultNode } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
 
 export interface ViewFieldDeclaration extends FieldDeclaration {
 	templateDeclaration: (string | BindTargetDeclaration)[];

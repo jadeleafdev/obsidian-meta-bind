@@ -1,17 +1,17 @@
 import type { Parser } from '@lemons_dev/parsinom';
 import { P_UTILS } from '@lemons_dev/parsinom';
-import type { InlineFieldType } from 'packages/core/src/config/APIConfigs';
-import { FieldType } from 'packages/core/src/config/APIConfigs';
-import { ParsingError, runParser } from 'packages/core/src/parsers/ParsingError';
-import type { Highlight } from 'packages/core/src/parsers/syntaxHighlighting/Highlight';
+import type { InlineFieldType } from 'meta-bind-core/src/config/APIConfigs';
+import { FieldType } from 'meta-bind-core/src/config/APIConfigs';
+import { ParsingError, runParser } from 'meta-bind-core/src/parsers/ParsingError';
+import type { Highlight } from 'meta-bind-core/src/parsers/syntaxHighlighting/Highlight';
 import {
 	HLP_BindTarget,
 	HLP_ButtonGroupDeclaration,
 	HLP_InputFieldDeclaration,
 	HLP_ViewFieldDeclaration,
-} from 'packages/core/src/parsers/syntaxHighlighting/HLPs';
-import { SyntaxHighlighting } from 'packages/core/src/parsers/syntaxHighlighting/SyntaxHighlighting';
-import { expectType } from 'packages/core/src/utils/Utils';
+} from 'meta-bind-core/src/parsers/syntaxHighlighting/HLPs';
+import { SyntaxHighlighting } from 'meta-bind-core/src/parsers/syntaxHighlighting/SyntaxHighlighting';
+import { expectType } from 'meta-bind-core/src/utils/Utils';
 import type { MetaBind } from '..';
 
 export class SyntaxHighlightingAPI {

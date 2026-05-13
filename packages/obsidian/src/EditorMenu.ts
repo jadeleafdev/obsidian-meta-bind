@@ -1,10 +1,10 @@
-import type { Editor, Menu } from 'obsidian';
-import { stringifyYaml } from 'obsidian';
 import {
 	createInputFieldInsertExamples,
 	createViewFieldInsertExamples,
-} from 'packages/core/src/utils/InputFieldExamples';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
+} from 'meta-bind-core/src/utils/InputFieldExamples';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
+import type { Editor, Menu } from 'obsidian';
+import { stringifyYaml } from 'obsidian';
 
 export function createEditorMenu(menu: Menu, editor: Editor, mb: ObsMetaBind): void {
 	const inputFieldExamples = createInputFieldInsertExamples(mb);

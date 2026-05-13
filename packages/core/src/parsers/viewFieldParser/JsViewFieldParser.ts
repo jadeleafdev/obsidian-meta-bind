@@ -1,13 +1,13 @@
-import type { MetaBind } from 'packages/core/src';
-import { P_JsViewFieldDeclaration } from 'packages/core/src/parsers/nomParsers/ViewFieldNomParsers';
-import { runParser } from 'packages/core/src/parsers/ParsingError';
+import type { MetaBind } from 'meta-bind-core/src';
+import { P_JsViewFieldDeclaration } from 'meta-bind-core/src/parsers/nomParsers/ViewFieldNomParsers';
+import { runParser } from 'meta-bind-core/src/parsers/ParsingError';
 import type {
 	JsViewFieldDeclaration,
 	PartialUnvalidatedJsViewFieldDeclaration,
 	SimpleJsViewFieldDeclaration,
 	UnvalidatedJsViewFieldDeclaration,
-} from 'packages/core/src/parsers/viewFieldParser/ViewFieldDeclaration';
-import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
+} from 'meta-bind-core/src/parsers/viewFieldParser/ViewFieldDeclaration';
+import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
 
 export class JsViewFieldParser {
 	mb: MetaBind;

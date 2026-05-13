@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ImageCard from 'packages/core/src/utils/components/ImageCard.svelte';
+	import ImageCard from 'meta-bind-core/src/utils/components/ImageCard.svelte';
 	import type { MetaBind } from '../..';
 
 	let {

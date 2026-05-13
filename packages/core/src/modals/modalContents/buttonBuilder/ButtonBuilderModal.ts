@@ -1,10 +1,10 @@
-import type { MetaBind } from 'packages/core/src';
-import type { ButtonConfig } from 'packages/core/src/config/ButtonConfig';
-import { ModalContent } from 'packages/core/src/modals/ModalContent';
-import ButtonBuilderModalComponent from 'packages/core/src/modals/modalContents/buttonBuilder/ButtonBuilderModalComponent.svelte';
-import { DomHelpers } from 'packages/core/src/utils/Utils';
+import type { MetaBind } from 'meta-bind-core/src';
+import type { ButtonConfig } from 'meta-bind-core/src/config/ButtonConfig';
+import { ModalContent } from 'meta-bind-core/src/modals/ModalContent';
+import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
 import type { Component as SvelteComponent } from 'svelte';
 import { mount, unmount } from 'svelte';
+import ButtonBuilderModalComponent from 'meta-bind-core/src/modals/modalContents/buttonBuilder/ButtonBuilderModalComponent.svelte';
 
 export interface ButtonBuilderModalOptions {
 	onOkay: (config: ButtonConfig) => void;

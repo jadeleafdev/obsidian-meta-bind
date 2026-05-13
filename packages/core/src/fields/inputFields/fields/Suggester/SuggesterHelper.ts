@@ -1,8 +1,8 @@
-import type { ImageListSuggesterIPF } from 'packages/core/src/fields/inputFields/fields/ImageListSuggester/ImageListSuggesterIPF';
-import type { ImageSuggesterIPF } from 'packages/core/src/fields/inputFields/fields/ImageSuggester/ImageSuggesterIPF';
-import type { InlineListSuggesterIPF } from 'packages/core/src/fields/inputFields/fields/InlineListSuggester/InlineListSuggesterIPF';
-import type { ListSuggesterIPF } from 'packages/core/src/fields/inputFields/fields/ListSuggester/ListSuggesterIPF';
-import type { SuggesterIPF } from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterIPF';
+import type { ImageListSuggesterIPF } from 'meta-bind-core/src/fields/inputFields/fields/ImageListSuggester/ImageListSuggesterIPF';
+import type { ImageSuggesterIPF } from 'meta-bind-core/src/fields/inputFields/fields/ImageSuggester/ImageSuggesterIPF';
+import type { InlineListSuggesterIPF } from 'meta-bind-core/src/fields/inputFields/fields/InlineListSuggester/InlineListSuggesterIPF';
+import type { ListSuggesterIPF } from 'meta-bind-core/src/fields/inputFields/fields/ListSuggester/ListSuggesterIPF';
+import type { SuggesterIPF } from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterIPF';
 
 export type SuggesterLikeIFP = SuggesterIPF | ListSuggesterIPF | InlineListSuggesterIPF;
 

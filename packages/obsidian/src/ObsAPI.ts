@@ -1,20 +1,20 @@
 import type { ReactiveComponent } from 'jsEngine/src/api/reactive/ReactiveComponent';
+import type { LifecycleHook } from 'meta-bind-core/src/api/API.js';
+import { API } from 'meta-bind-core/src/api/API.js';
+import type { InlineFieldType } from 'meta-bind-core/src/config/APIConfigs';
+import { isFieldTypeAllowedInline } from 'meta-bind-core/src/config/APIConfigs';
+import { V_BindTargetDeclaration, V_HTMLElement, V_Mountable } from 'meta-bind-core/src/config/validators/Validators';
+import type { BindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import { ErrorLevel, MetaBindInternalError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import type { Mountable } from 'meta-bind-core/src/utils/Mountable';
+import { Signal } from 'meta-bind-core/src/utils/Signal';
+import { getUUID } from 'meta-bind-core/src/utils/Utils';
+import { validateAPIArgs, zodFunction } from 'meta-bind-core/src/utils/ZodUtils';
+import { MarkdownRenderChildWidget } from 'meta-bind-obsidian/src/cm6/Cm6_Widgets';
+import { MountableMDRC } from 'meta-bind-obsidian/src/MountableMDRC';
+import type { ObsComponents, ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
+import { getJsEnginePluginAPI } from 'meta-bind-obsidian/src/ObsUtils';
 import type { Component } from 'obsidian';
-import type { LifecycleHook } from 'packages/core/src/api/API.js';
-import { API } from 'packages/core/src/api/API.js';
-import type { InlineFieldType } from 'packages/core/src/config/APIConfigs';
-import { isFieldTypeAllowedInline } from 'packages/core/src/config/APIConfigs';
-import { V_BindTargetDeclaration, V_HTMLElement, V_Mountable } from 'packages/core/src/config/validators/Validators';
-import type { BindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import { ErrorLevel, MetaBindInternalError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import type { Mountable } from 'packages/core/src/utils/Mountable';
-import { Signal } from 'packages/core/src/utils/Signal';
-import { getUUID } from 'packages/core/src/utils/Utils';
-import { validateAPIArgs, zodFunction } from 'packages/core/src/utils/ZodUtils';
-import { MarkdownRenderChildWidget } from 'packages/obsidian/src/cm6/Cm6_Widgets';
-import { MountableMDRC } from 'packages/obsidian/src/MountableMDRC';
-import type { ObsComponents, ObsMetaBind } from 'packages/obsidian/src/ObsMB';
-import { getJsEnginePluginAPI } from 'packages/obsidian/src/ObsUtils';
 import { z } from 'zod';
 
 /**

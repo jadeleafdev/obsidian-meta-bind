@@ -1,5 +1,17 @@
 {
 	"name": "meta-bind-core",
+	"private": true,
 	"main": "src/index.ts",
-	"dependencies": {}
+	"exports": {
+		".": "./src/index.ts",
+		"./src/*": "./src/*"
+	},
+	"dependencies": {
+		"@lemons_dev/parsinom": "^0.2.1",
+		"itertools-ts": "^2.5.0",
+		"mathjs": "^15.2.0",
+		"moment": "^2.30.1",
+		"svelte": "^5.55.5",
+		"zod": "^4.3.6"
+	}
 }

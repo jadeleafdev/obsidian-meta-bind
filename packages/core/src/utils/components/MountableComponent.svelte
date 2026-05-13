@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Mountable } from 'packages/core/src/utils/Mountable';
+	import type { Mountable } from 'meta-bind-core/src/utils/Mountable';
 	import { onDestroy } from 'svelte';
 
 	let {

@@ -3,14 +3,14 @@ import { P_UTILS, P } from '@lemons_dev/parsinom';
 import type {
 	UnvalidatedBindTargetDeclaration,
 	UnvalidatedPropAccess,
-} from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
+} from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
 import {
 	createResultNode,
 	P_DoubleQuotedString,
 	P_FilePath,
 	P_Ident,
-} from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
-import { PropAccessType } from 'packages/core/src/utils/prop/PropAccess';
+} from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
+import { PropAccessType } from 'meta-bind-core/src/utils/prop/PropAccess';
 
 const P_MetadataPathPartIdent: Parser<UnvalidatedPropAccess> = P_Ident.node((node, range) => {
 	return {

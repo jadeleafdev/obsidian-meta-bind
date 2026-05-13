@@ -1,9 +1,9 @@
-import { InputFieldArgumentType } from 'packages/core/src/config/FieldConfigs';
-import { AbstractInputField } from 'packages/core/src/fields/inputFields/AbstractInputField';
-import InlineListSuggesterComponent from 'packages/core/src/fields/inputFields/fields/InlineListSuggester/InlineListSuggesterComponent.svelte';
-import type { InputFieldSvelteComponent } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-import type { MBLiteral } from 'packages/core/src/utils/Literal';
-import { parseUnknownToLiteralArray } from 'packages/core/src/utils/Literal';
+import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
+import { AbstractInputField } from 'meta-bind-core/src/fields/inputFields/AbstractInputField';
+import type { InputFieldSvelteComponent } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
+import { parseUnknownToLiteralArray } from 'meta-bind-core/src/utils/Literal';
+import InlineListSuggesterComponent from 'meta-bind-core/src/fields/inputFields/fields/InlineListSuggester/InlineListSuggesterComponent.svelte';
 
 interface SvelteExports {
 	pushValue: (value: MBLiteral) => void;

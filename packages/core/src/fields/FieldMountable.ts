@@ -1,4 +1,4 @@
-import { Mountable } from 'packages/core/src/utils/Mountable';
+import { Mountable } from 'meta-bind-core/src/utils/Mountable';
 import type { MetaBind } from '..';
 
 export abstract class FieldMountable extends Mountable {

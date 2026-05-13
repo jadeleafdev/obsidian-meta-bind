@@ -1,6 +1,6 @@
-import type { InputFieldType, ViewFieldType } from 'packages/core/src/config/FieldConfigs';
-import { InputFieldArgumentType, InputFieldConfigs } from 'packages/core/src/config/FieldConfigs';
-import type { InputFieldDeclaration } from 'packages/core/src/parsers/inputFieldParser/InputFieldDeclaration';
+import type { InputFieldType, ViewFieldType } from 'meta-bind-core/src/config/FieldConfigs';
+import { InputFieldArgumentType, InputFieldConfigs } from 'meta-bind-core/src/config/FieldConfigs';
+import type { InputFieldDeclaration } from 'meta-bind-core/src/parsers/inputFieldParser/InputFieldDeclaration';
 import type { MetaBind } from '..';
 
 export const INPUT_FIELD_EXAMPLE_DECLARATIONS: Record<InputFieldType, string> = {

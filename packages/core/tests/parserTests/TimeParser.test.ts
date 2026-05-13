@@ -1,5 +1,5 @@
 // import { beforeEach, describe, expect, test } from 'bun:test';
-// import { Time, TimeParser } from '../../packages/core/src/parsers/TimeParser';
+// import { Time, TimeParser } from 'meta-bind-core/src/parsers/TimeParser';
 //
 // describe('time stringify', () => {
 // 	describe('should stringify time', () => {

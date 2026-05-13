@@ -1,21 +1,21 @@
-import { type Command, InternalAPI, type ModalOptions } from 'packages/core/src/api/InternalAPI';
-import { ImageSuggesterIPF } from 'packages/core/src/fields/inputFields/fields/ImageSuggester/ImageSuggesterIPF';
+import { type Command, InternalAPI, type ModalOptions } from 'meta-bind-core/src/api/InternalAPI';
+import { ImageSuggesterIPF } from 'meta-bind-core/src/fields/inputFields/fields/ImageSuggester/ImageSuggesterIPF';
 import {
 	type SuggesterLikeIFP,
 	SuggesterOption,
-} from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
-import type { IJsRenderer } from 'packages/core/src/utils/IJsRenderer';
-import type { MBLiteral } from 'packages/core/src/utils/Literal';
+} from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
+import type { IJsRenderer } from 'meta-bind-core/src/utils/IJsRenderer';
+import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
 import { TestMetaBind, type TestComponents } from './TestPlugin';
-import type { IFuzzySearch } from 'packages/core/src/utils/IFuzzySearch';
-import { ModalContent } from 'packages/core/src/modals/ModalContent';
-import type { IModal } from 'packages/core/src/modals/IModal';
-import { SelectModalContent } from 'packages/core/src/modals/SelectModalContent';
-import type { ContextMenuItemDefinition, IContextMenu } from 'packages/core/src/utils/IContextMenu';
+import type { IFuzzySearch } from 'meta-bind-core/src/utils/IFuzzySearch';
+import { ModalContent } from 'meta-bind-core/src/modals/ModalContent';
+import type { IModal } from 'meta-bind-core/src/modals/IModal';
+import { SelectModalContent } from 'meta-bind-core/src/modals/SelectModalContent';
+import type { ContextMenuItemDefinition, IContextMenu } from 'meta-bind-core/src/utils/IContextMenu';
 import YAML from 'yaml';
 import { z, ZodType } from 'zod';
-import type { LifecycleHook } from 'packages/core/src/api/API';
-import { zodFunction } from 'packages/core/src/utils/ZodUtils';
+import type { LifecycleHook } from 'meta-bind-core/src/api/API';
+import { zodFunction } from 'meta-bind-core/src/utils/ZodUtils';
 
 export class TestInternalAPI extends InternalAPI<TestComponents> {
 	constructor(mb: TestMetaBind) {

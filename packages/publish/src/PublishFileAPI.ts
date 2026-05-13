@@ -1,5 +1,5 @@
-import { FileAPI } from 'packages/core/src/api/FileAPI';
-import type { PublishComponents } from 'packages/publish/src/main';
+import { FileAPI } from 'meta-bind-core/src/api/FileAPI';
+import type { PublishComponents } from 'meta-bind-publish/src/main';
 
 export class PublishFileAPI extends FileAPI<PublishComponents> {
 	public read(_filePath: string): Promise<string> {

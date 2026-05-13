@@ -1,4 +1,4 @@
-import { API } from 'packages/core/src/api/API';
+import { API } from 'meta-bind-core/src/api/API';
 import { TestMetaBind, type TestComponents } from './TestPlugin';
 
 export class TestAPI extends API<TestComponents> {

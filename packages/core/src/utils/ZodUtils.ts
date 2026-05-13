@@ -1,6 +1,6 @@
 import type { Parser } from '@lemons_dev/parsinom';
-import { ParsingError } from 'packages/core/src/parsers/ParsingError';
-import { ErrorLevel, MetaBindInternalError } from 'packages/core/src/utils/errors/MetaBindErrors';
+import { ParsingError } from 'meta-bind-core/src/parsers/ParsingError';
+import { ErrorLevel, MetaBindInternalError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
 import type { ZodError } from 'zod';
 import { z } from 'zod';
 

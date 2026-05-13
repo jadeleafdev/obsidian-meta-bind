@@ -1,9 +1,9 @@
+import type { ModalOptions } from 'meta-bind-core/src/api/InternalAPI';
+import type { IModal } from 'meta-bind-core/src/modals/IModal';
+import type { ModalContent } from 'meta-bind-core/src/modals/ModalContent';
+import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import { Modal } from 'obsidian';
-import type { ModalOptions } from 'packages/core/src/api/InternalAPI';
-import type { IModal } from 'packages/core/src/modals/IModal';
-import type { ModalContent } from 'packages/core/src/modals/ModalContent';
-import { DomHelpers } from 'packages/core/src/utils/Utils';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 export class ObsModal extends Modal implements IModal {
 	content: ModalContent;

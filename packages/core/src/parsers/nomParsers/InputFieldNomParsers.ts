@@ -1,10 +1,10 @@
 import type { Parser } from '@lemons_dev/parsinom';
 import { P_UTILS, P } from '@lemons_dev/parsinom';
-import type { UnvalidatedFieldArgument } from 'packages/core/src/parsers/FieldDeclaration';
-import type { PartialUnvalidatedInputFieldDeclaration } from 'packages/core/src/parsers/inputFieldParser/InputFieldDeclaration';
-import { P_BindTarget } from 'packages/core/src/parsers/nomParsers/BindTargetNomParsers';
-import { P_FieldArguments } from 'packages/core/src/parsers/nomParsers/FieldArgumentNomParsers';
-import { createResultNode, P_Ident, P_IdentWithSpaces } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
+import type { UnvalidatedFieldArgument } from 'meta-bind-core/src/parsers/FieldDeclaration';
+import type { PartialUnvalidatedInputFieldDeclaration } from 'meta-bind-core/src/parsers/inputFieldParser/InputFieldDeclaration';
+import { P_BindTarget } from 'meta-bind-core/src/parsers/nomParsers/BindTargetNomParsers';
+import { P_FieldArguments } from 'meta-bind-core/src/parsers/nomParsers/FieldArgumentNomParsers';
+import { createResultNode, P_Ident, P_IdentWithSpaces } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
 
 export const P_InnerInputFieldDeclaration: Parser<PartialUnvalidatedInputFieldDeclaration> = P.sequenceMap(
 	(type, args, b) => {

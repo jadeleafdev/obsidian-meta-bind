@@ -1,8 +1,8 @@
+import type { IModal } from 'meta-bind-core/src/modals/IModal';
+import type { SelectModalContent } from 'meta-bind-core/src/modals/SelectModalContent';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import type { FuzzyMatch } from 'obsidian';
 import { FuzzySuggestModal, renderResults } from 'obsidian';
-import type { IModal } from 'packages/core/src/modals/IModal';
-import type { SelectModalContent } from 'packages/core/src/modals/SelectModalContent';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
 
 export class ObsSearchModal<T> extends FuzzySuggestModal<T> implements IModal {
 	private content: SelectModalContent<T>;

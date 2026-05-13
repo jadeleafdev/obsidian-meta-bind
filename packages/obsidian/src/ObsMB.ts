@@ -1,29 +1,29 @@
-import type { App, MarkdownPostProcessorContext, WorkspaceLeaf } from 'obsidian';
-import { loadPrism, stringifyYaml } from 'obsidian';
-import { MetaBind, MetaBindBuild } from 'packages/core/src';
-import { RenderChildType } from 'packages/core/src/config/APIConfigs';
-import { EMBED_MAX_DEPTH } from 'packages/core/src/config/FieldConfigs';
+import { MetaBind, MetaBindBuild } from 'meta-bind-core/src';
+import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+import { EMBED_MAX_DEPTH } from 'meta-bind-core/src/config/FieldConfigs';
 import {
 	GlobalMetadataSource,
 	InternalMetadataSource,
 	ScopeMetadataSource,
-} from 'packages/core/src/metadata/InternalMetadataSources';
-import { MetadataManager } from 'packages/core/src/metadata/MetadataManager';
-import { BindTargetStorageType } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import type { MetaBindPluginSettings } from 'packages/core/src/Settings';
-import { registerCm5HLModes } from 'packages/obsidian/src/cm6/Cm5_Modes';
-import { createMarkdownRenderChildWidgetEditorPlugin } from 'packages/obsidian/src/cm6/Cm6_ViewPlugin';
-import { DependencyManager } from 'packages/obsidian/src/dependencies/DependencyManager';
-import { Version } from 'packages/obsidian/src/dependencies/Version';
-import { createEditorMenu } from 'packages/obsidian/src/EditorMenu';
-import type ObsMetaBindPlugin from 'packages/obsidian/src/main';
-import { ObsAPI } from 'packages/obsidian/src/ObsAPI';
-import { ObsFileAPI } from 'packages/obsidian/src/ObsFileAPI';
-import { ObsInternalAPI } from 'packages/obsidian/src/ObsInternalAPI';
-import { ObsMetadataSource } from 'packages/obsidian/src/ObsMetadataSource';
-import { ObsNotePosition } from 'packages/obsidian/src/ObsNotePosition';
-import { PlaygroundView, MB_PLAYGROUND_VIEW_TYPE } from 'packages/obsidian/src/playground/PlaygroundView';
-import { MetaBindSettingTab } from 'packages/obsidian/src/settings/SettingsTab';
+} from 'meta-bind-core/src/metadata/InternalMetadataSources';
+import { MetadataManager } from 'meta-bind-core/src/metadata/MetadataManager';
+import { BindTargetStorageType } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { MetaBindPluginSettings } from 'meta-bind-core/src/Settings';
+import { registerCm5HLModes } from 'meta-bind-obsidian/src/cm6/Cm5_Modes';
+import { createMarkdownRenderChildWidgetEditorPlugin } from 'meta-bind-obsidian/src/cm6/Cm6_ViewPlugin';
+import { DependencyManager } from 'meta-bind-obsidian/src/dependencies/DependencyManager';
+import { Version } from 'meta-bind-obsidian/src/dependencies/Version';
+import { createEditorMenu } from 'meta-bind-obsidian/src/EditorMenu';
+import type ObsMetaBindPlugin from 'meta-bind-obsidian/src/main';
+import { ObsAPI } from 'meta-bind-obsidian/src/ObsAPI';
+import { ObsFileAPI } from 'meta-bind-obsidian/src/ObsFileAPI';
+import { ObsInternalAPI } from 'meta-bind-obsidian/src/ObsInternalAPI';
+import { ObsMetadataSource } from 'meta-bind-obsidian/src/ObsMetadataSource';
+import { ObsNotePosition } from 'meta-bind-obsidian/src/ObsNotePosition';
+import { PlaygroundView, MB_PLAYGROUND_VIEW_TYPE } from 'meta-bind-obsidian/src/playground/PlaygroundView';
+import { MetaBindSettingTab } from 'meta-bind-obsidian/src/settings/SettingsTab';
+import type { App, MarkdownPostProcessorContext, WorkspaceLeaf } from 'obsidian';
+import { loadPrism, stringifyYaml } from 'obsidian';
 
 export interface ObsComponents {
 	api: ObsAPI;

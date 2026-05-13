@@ -1,19 +1,19 @@
+import { MetaBind } from 'meta-bind-core/src';
+import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+import { EMBED_MAX_DEPTH } from 'meta-bind-core/src/config/FieldConfigs';
+import { GlobalMetadataSource, InternalMetadataSource } from 'meta-bind-core/src/metadata/InternalMetadataSources';
+import { MetadataManager } from 'meta-bind-core/src/metadata/MetadataManager';
+import { MountableManager } from 'meta-bind-core/src/MountableManager';
+import { BindTargetStorageType } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import { DateParser } from 'meta-bind-core/src/parsers/DateParser';
+import type { MetaBindPluginSettings } from 'meta-bind-core/src/Settings';
+import { setFirstWeekday } from 'meta-bind-core/src/utils/DatePickerUtils';
+import { PublishAPI } from 'meta-bind-publish/src/PublishAPI';
+import { PublishFileAPI } from 'meta-bind-publish/src/PublishFileAPI';
+import { PublishInternalAPI } from 'meta-bind-publish/src/PublishInternalAPI';
+import { PublishMetadataSource } from 'meta-bind-publish/src/PublishMetadataSource';
+import { PublishNotePosition } from 'meta-bind-publish/src/PublishNotePosition';
 import type { MarkdownPostProcessorContext } from 'obsidian/publish';
-import { MetaBind } from 'packages/core/src';
-import { RenderChildType } from 'packages/core/src/config/APIConfigs';
-import { EMBED_MAX_DEPTH } from 'packages/core/src/config/FieldConfigs';
-import { GlobalMetadataSource, InternalMetadataSource } from 'packages/core/src/metadata/InternalMetadataSources';
-import { MetadataManager } from 'packages/core/src/metadata/MetadataManager';
-import { MountableManager } from 'packages/core/src/MountableManager';
-import { BindTargetStorageType } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import { DateParser } from 'packages/core/src/parsers/DateParser';
-import type { MetaBindPluginSettings } from 'packages/core/src/Settings';
-import { setFirstWeekday } from 'packages/core/src/utils/DatePickerUtils';
-import { PublishAPI } from 'packages/publish/src/PublishAPI';
-import { PublishFileAPI } from 'packages/publish/src/PublishFileAPI';
-import { PublishInternalAPI } from 'packages/publish/src/PublishInternalAPI';
-import { PublishMetadataSource } from 'packages/publish/src/PublishMetadataSource';
-import { PublishNotePosition } from 'packages/publish/src/PublishNotePosition';
 
 export interface PublishComponents {
 	api: PublishAPI;

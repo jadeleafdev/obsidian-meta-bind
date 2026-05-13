@@ -1,8 +1,8 @@
 import type { Parser } from '@lemons_dev/parsinom';
 import { P_UTILS, P } from '@lemons_dev/parsinom';
-import { P_FilePath } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
-import { runParser } from 'packages/core/src/parsers/ParsingError';
-import { isUrl, openURL } from 'packages/core/src/utils/Utils';
+import { P_FilePath } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
+import { runParser } from 'meta-bind-core/src/parsers/ParsingError';
+import { isUrl, openURL } from 'meta-bind-core/src/utils/Utils';
 import type { MetaBind } from '..';
 
 const P_MDLinkInner: Parser<[string, string | undefined, string | undefined]> = P.sequence(

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { OptionInputFieldArgument } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
-	import type { InputFieldSvelteProps } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-	import LiteralRenderComponent from 'packages/core/src/utils/components/LiteralRenderComponent.svelte';
-	import { stringifyLiteral, type MBLiteral } from 'packages/core/src/utils/Literal';
+	import type { OptionInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
+	import type { InputFieldSvelteProps } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+	import LiteralRenderComponent from 'meta-bind-core/src/utils/components/LiteralRenderComponent.svelte';
+	import { stringifyLiteral, type MBLiteral } from 'meta-bind-core/src/utils/Literal';
 
 	const props: InputFieldSvelteProps<MBLiteral[]> & {
 		options: OptionInputFieldArgument[];

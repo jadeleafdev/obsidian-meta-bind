@@ -1,9 +1,9 @@
-import type { IMetadataSubscription } from 'packages/core/src/metadata/IMetadataSubscription';
-import type { MetadataManager } from 'packages/core/src/metadata/MetadataManager';
-import type { BindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import { ErrorLevel, MetaBindInternalError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import type { Writable } from 'packages/core/src/utils/Signal';
-import { areObjectsEqual } from 'packages/core/src/utils/Utils';
+import type { IMetadataSubscription } from 'meta-bind-core/src/metadata/IMetadataSubscription';
+import type { MetadataManager } from 'meta-bind-core/src/metadata/MetadataManager';
+import type { BindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import { ErrorLevel, MetaBindInternalError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import type { Writable } from 'meta-bind-core/src/utils/Signal';
+import { areObjectsEqual } from 'meta-bind-core/src/utils/Utils';
 
 export class MetadataSubscription implements IMetadataSubscription {
 	readonly uuid: string;

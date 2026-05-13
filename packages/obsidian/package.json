@@ -1,6 +1,18 @@
 {
 	"name": "meta-bind-obsidian",
-	"devDependencies": {
+	"private": true,
+	"main": "src/main.ts",
+	"exports": {
+		".": "./src/main.ts",
+		"./src/*": "./src/*",
+		"./extraTypes/*": "./extraTypes/*"
+	},
+	"dependencies": {
+		"@lemons_dev/parsinom": "^0.2.1",
+		"itertools-ts": "^2.5.0",
+		"meta-bind-core": "workspace:*",
+		"svelte": "^5.55.5",
+		"zod": "^4.3.6",
 		"@lezer/common": "^1.5.2",
 		"@types/codemirror": "^5.60.17",
 		"@codemirror/legacy-modes": "^6.5.2",

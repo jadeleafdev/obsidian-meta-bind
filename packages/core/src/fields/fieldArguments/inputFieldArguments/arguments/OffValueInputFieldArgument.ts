@@ -1,9 +1,9 @@
-import type { InputFieldArgumentConfig } from 'packages/core/src/config/FieldConfigs';
-import { InputFieldArgumentConfigs } from 'packages/core/src/config/FieldConfigs';
-import { AbstractInputFieldArgument } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/AbstractInputFieldArgument';
-import type { ParsingResultNode } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
-import type { MBLiteral } from 'packages/core/src/utils/Literal';
-import { parseLiteral } from 'packages/core/src/utils/Literal';
+import type { InputFieldArgumentConfig } from 'meta-bind-core/src/config/FieldConfigs';
+import { InputFieldArgumentConfigs } from 'meta-bind-core/src/config/FieldConfigs';
+import { AbstractInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/AbstractInputFieldArgument';
+import type { ParsingResultNode } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
+import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
+import { parseLiteral } from 'meta-bind-core/src/utils/Literal';
 
 export class OffValueInputFieldArgument extends AbstractInputFieldArgument {
 	value: MBLiteral = false;

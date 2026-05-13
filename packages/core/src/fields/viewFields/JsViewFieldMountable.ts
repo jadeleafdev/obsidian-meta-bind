@@ -1,13 +1,13 @@
-import type { MetaBind } from 'packages/core/src';
-import { FieldMountable } from 'packages/core/src/fields/FieldMountable';
-import type { ViewFieldVariable } from 'packages/core/src/fields/viewFields/ViewFieldVariable';
-import type { DerivedMetadataSubscription } from 'packages/core/src/metadata/DerivedMetadataSubscription';
-import type { JsViewFieldDeclaration } from 'packages/core/src/parsers/viewFieldParser/ViewFieldDeclaration';
-import { ErrorCollection } from 'packages/core/src/utils/errors/ErrorCollection';
-import { ErrorLevel, MetaBindJsError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import type { IJsRenderer } from 'packages/core/src/utils/IJsRenderer';
-import { Signal } from 'packages/core/src/utils/Signal';
-import { DomHelpers, getUUID, showUnloadedMessage } from 'packages/core/src/utils/Utils';
+import type { MetaBind } from 'meta-bind-core/src';
+import { FieldMountable } from 'meta-bind-core/src/fields/FieldMountable';
+import type { ViewFieldVariable } from 'meta-bind-core/src/fields/viewFields/ViewFieldVariable';
+import type { DerivedMetadataSubscription } from 'meta-bind-core/src/metadata/DerivedMetadataSubscription';
+import type { JsViewFieldDeclaration } from 'meta-bind-core/src/parsers/viewFieldParser/ViewFieldDeclaration';
+import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
+import { ErrorLevel, MetaBindJsError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import type { IJsRenderer } from 'meta-bind-core/src/utils/IJsRenderer';
+import { Signal } from 'meta-bind-core/src/utils/Signal';
+import { DomHelpers, getUUID, showUnloadedMessage } from 'meta-bind-core/src/utils/Utils';
 
 export class JsViewFieldMountable extends FieldMountable {
 	errorCollection: ErrorCollection;

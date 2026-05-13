@@ -1,4 +1,4 @@
-import type { LinePosition } from 'packages/core/src/config/APIConfigs';
+import type { LinePosition } from 'meta-bind-core/src/config/APIConfigs';
 
 export enum ButtonStyleType {
 	/**

@@ -11,8 +11,8 @@ import {
 	remapRange,
 	toArray,
 	toEnumeration,
-} from 'packages/core/src/utils/Utils';
-import { areObjectsEqual } from 'packages/core/src/utils/Utils';
+} from 'meta-bind-core/src/utils/Utils';
+import { areObjectsEqual } from 'meta-bind-core/src/utils/Utils';
 
 describe('utils', () => {
 	describe('clamp function', () => {

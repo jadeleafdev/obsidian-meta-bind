@@ -1,10 +1,10 @@
-import type { MetaBind } from 'packages/core/src';
-import { ViewFieldArgumentType } from 'packages/core/src/config/FieldConfigs';
-import type { ViewFieldMountable } from 'packages/core/src/fields/viewFields/ViewFieldMountable';
-import type { ViewFieldVariable } from 'packages/core/src/fields/viewFields/ViewFieldVariable';
-import type { DerivedMetadataSubscription } from 'packages/core/src/metadata/DerivedMetadataSubscription';
-import { Mountable } from 'packages/core/src/utils/Mountable';
-import { DomHelpers } from 'packages/core/src/utils/Utils';
+import type { MetaBind } from 'meta-bind-core/src';
+import { ViewFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
+import type { ViewFieldMountable } from 'meta-bind-core/src/fields/viewFields/ViewFieldMountable';
+import type { ViewFieldVariable } from 'meta-bind-core/src/fields/viewFields/ViewFieldVariable';
+import type { DerivedMetadataSubscription } from 'meta-bind-core/src/metadata/DerivedMetadataSubscription';
+import { Mountable } from 'meta-bind-core/src/utils/Mountable';
+import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
 
 export abstract class AbstractViewField<T> extends Mountable {
 	readonly mb: MetaBind;

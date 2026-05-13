@@ -1,7 +1,7 @@
-import type { ViewFieldArgumentConfig } from 'packages/core/src/config/FieldConfigs';
-import { ViewFieldArgumentConfigs } from 'packages/core/src/config/FieldConfigs';
-import { AbstractViewFieldArgument } from 'packages/core/src/fields/fieldArguments/viewFieldArguments/AbstractViewFieldArgument';
-import type { ParsingResultNode } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
+import type { ViewFieldArgumentConfig } from 'meta-bind-core/src/config/FieldConfigs';
+import { ViewFieldArgumentConfigs } from 'meta-bind-core/src/config/FieldConfigs';
+import { AbstractViewFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/viewFieldArguments/AbstractViewFieldArgument';
+import type { ParsingResultNode } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
 
 export class HiddenViewFieldArgument extends AbstractViewFieldArgument {
 	value: boolean = true;

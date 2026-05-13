@@ -1,10 +1,10 @@
 import type { API } from 'jsEngine/src/api/API';
 import type { JsExecution } from 'jsEngine/src/engine/JsExecution';
+import type { IJsRenderer } from 'meta-bind-core/src/utils/IJsRenderer';
+import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
+import { getJsEnginePluginAPI } from 'meta-bind-obsidian/src/ObsUtils';
 import { Component } from 'obsidian';
-import type { IJsRenderer } from 'packages/core/src/utils/IJsRenderer';
-import { DomHelpers } from 'packages/core/src/utils/Utils';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
-import { getJsEnginePluginAPI } from 'packages/obsidian/src/ObsUtils';
 
 export class ObsJsRenderer implements IJsRenderer {
 	readonly mb: ObsMetaBind;

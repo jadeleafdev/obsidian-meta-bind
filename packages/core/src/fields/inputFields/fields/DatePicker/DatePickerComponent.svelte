@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Moment } from 'moment';
-	import type { InputFieldSvelteProps } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-	import Icon from 'packages/core/src/utils/components/Icon.svelte';
+	import type { InputFieldSvelteProps } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+	import Icon from 'meta-bind-core/src/utils/components/Icon.svelte';
 
 	const props: InputFieldSvelteProps<Moment | null> & {
 		dateFormat: string;

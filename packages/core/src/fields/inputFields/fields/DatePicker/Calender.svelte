@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Moment } from 'moment';
 	import moment from 'moment';
-	import { getDateRows, getWeekDays } from 'packages/core/src/utils/DatePickerUtils.js';
+	import { getDateRows, getWeekDays } from 'meta-bind-core/src/utils/DatePickerUtils.js';
 
 	let {
 		selectedDate,

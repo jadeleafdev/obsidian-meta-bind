@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { RenderChildType } from 'packages/core/src/config/APIConfigs';
+	import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
 	import type {
 		ButtonConfig,
 		CommandButtonAction,
@@ -16,35 +16,35 @@
 		SleepButtonAction,
 		TemplaterCreateNoteButtonAction,
 		UpdateMetadataButtonAction,
-	} from 'packages/core/src/config/ButtonConfig';
-	import { ButtonActionType, ButtonStyleType } from 'packages/core/src/config/ButtonConfig';
-	import { ButtonField } from 'packages/core/src/fields/button/ButtonField';
+	} from 'meta-bind-core/src/config/ButtonConfig';
+	import { ButtonActionType, ButtonStyleType } from 'meta-bind-core/src/config/ButtonConfig';
+	import { ButtonField } from 'meta-bind-core/src/fields/button/ButtonField';
 
-	import type { ButtonBuilderModal } from 'packages/core/src/modals/modalContents/buttonBuilder/ButtonBuilderModal';
-	import CommandActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/CommandActionSettings.svelte';
-	import CreateNoteActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/CreateNoteActionSettings.svelte';
-	import RunTemplaterFileActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/RunTemplaterFileActionSettings.svelte';
-	import InlineJsActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/InlineJsActionSettings.svelte';
-	import InputActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/InputActionSettings.svelte';
-	import InsertIntoNoteActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/InsertIntoNoteActionSettings.svelte';
-	import JSActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/JSActionSettings.svelte';
-	import OpenActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/OpenActionSettings.svelte';
-	import RegexpReplaceInNoteActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/RegexpReplaceInNoteActionSettings.svelte';
-	import ReplaceInNoteActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/ReplaceInNoteActionSettings.svelte';
-	import ReplaceSelfActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/ReplaceSelfActionSettings.svelte';
-	import SleepActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/SleepActionSettings.svelte';
-	import TemplaterCreateNoteActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/TemplaterCreateNoteActionSettings.svelte';
-	import UpdateMetadataActionSettings from 'packages/core/src/modals/modalContents/buttonBuilder/UpdateMetadataActionSettings.svelte';
-	import Button from 'packages/core/src/utils/components/Button.svelte';
-	import FlexRow from 'packages/core/src/utils/components/FlexRow.svelte';
-	import Icon from 'packages/core/src/utils/components/Icon.svelte';
-	import ModalButtonGroup from 'packages/core/src/utils/components/ModalButtonGroup.svelte';
-	import SettingComponent from 'packages/core/src/utils/components/SettingComponent.svelte';
-	import Toggle from 'packages/core/src/utils/components/Toggle.svelte';
-	import type { ContextMenuItemDefinition } from 'packages/core/src/utils/IContextMenu';
-	import { DomHelpers } from 'packages/core/src/utils/Utils';
+	import type { ButtonBuilderModal } from 'meta-bind-core/src/modals/modalContents/buttonBuilder/ButtonBuilderModal';
+	import CommandActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/CommandActionSettings.svelte';
+	import CreateNoteActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/CreateNoteActionSettings.svelte';
+	import RunTemplaterFileActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/RunTemplaterFileActionSettings.svelte';
+	import InlineJsActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/InlineJsActionSettings.svelte';
+	import InputActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/InputActionSettings.svelte';
+	import InsertIntoNoteActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/InsertIntoNoteActionSettings.svelte';
+	import JSActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/JSActionSettings.svelte';
+	import OpenActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/OpenActionSettings.svelte';
+	import RegexpReplaceInNoteActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/RegexpReplaceInNoteActionSettings.svelte';
+	import ReplaceInNoteActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/ReplaceInNoteActionSettings.svelte';
+	import ReplaceSelfActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/ReplaceSelfActionSettings.svelte';
+	import SleepActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/SleepActionSettings.svelte';
+	import TemplaterCreateNoteActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/TemplaterCreateNoteActionSettings.svelte';
+	import UpdateMetadataActionSettings from 'meta-bind-core/src/modals/modalContents/buttonBuilder/UpdateMetadataActionSettings.svelte';
+	import Button from 'meta-bind-core/src/utils/components/Button.svelte';
+	import FlexRow from 'meta-bind-core/src/utils/components/FlexRow.svelte';
+	import Icon from 'meta-bind-core/src/utils/components/Icon.svelte';
+	import ModalButtonGroup from 'meta-bind-core/src/utils/components/ModalButtonGroup.svelte';
+	import SettingComponent from 'meta-bind-core/src/utils/components/SettingComponent.svelte';
+	import Toggle from 'meta-bind-core/src/utils/components/Toggle.svelte';
+	import type { ContextMenuItemDefinition } from 'meta-bind-core/src/utils/IContextMenu';
+	import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
 	import { onDestroy } from 'svelte';
-	import type { MetaBind } from 'packages/core/src';
+	import type { MetaBind } from 'meta-bind-core/src';
 
 	let {
 		mb,

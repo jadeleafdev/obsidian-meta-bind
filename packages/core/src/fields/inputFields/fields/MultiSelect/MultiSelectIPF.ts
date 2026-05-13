@@ -1,11 +1,11 @@
-import { InputFieldArgumentType } from 'packages/core/src/config/FieldConfigs';
-import type { OptionInputFieldArgument } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
-import { AbstractInputField } from 'packages/core/src/fields/inputFields/AbstractInputField';
-import MultiSelectComponent from 'packages/core/src/fields/inputFields/fields/MultiSelect/MultiSelectComponent.svelte';
-import type { InputFieldMountable } from 'packages/core/src/fields/inputFields/InputFieldMountable';
-import type { InputFieldSvelteComponent } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-import type { MBLiteral } from 'packages/core/src/utils/Literal';
-import { parseUnknownToLiteralArray } from 'packages/core/src/utils/Literal';
+import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
+import type { OptionInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
+import { AbstractInputField } from 'meta-bind-core/src/fields/inputFields/AbstractInputField';
+import type { InputFieldMountable } from 'meta-bind-core/src/fields/inputFields/InputFieldMountable';
+import type { InputFieldSvelteComponent } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
+import { parseUnknownToLiteralArray } from 'meta-bind-core/src/utils/Literal';
+import MultiSelectComponent from 'meta-bind-core/src/fields/inputFields/fields/MultiSelect/MultiSelectComponent.svelte';
 
 export class MultiSelectIPF extends AbstractInputField<MBLiteral[], MBLiteral[]> {
 	options: OptionInputFieldArgument[];

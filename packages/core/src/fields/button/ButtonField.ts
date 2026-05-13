@@ -1,13 +1,13 @@
-import type { MetaBind } from 'packages/core/src';
-import type { NotePosition } from 'packages/core/src/config/APIConfigs';
-import { RenderChildType } from 'packages/core/src/config/APIConfigs';
-import type { ButtonConfig, ButtonContext } from 'packages/core/src/config/ButtonConfig';
-import { ButtonClickContext, ButtonClickType } from 'packages/core/src/config/ButtonConfig';
-import ButtonComponent from 'packages/core/src/utils/components/ButtonComponent.svelte';
-import { Mountable } from 'packages/core/src/utils/Mountable';
-import { DomHelpers, isTruthy } from 'packages/core/src/utils/Utils';
+import type { MetaBind } from 'meta-bind-core/src';
+import type { NotePosition } from 'meta-bind-core/src/config/APIConfigs';
+import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+import type { ButtonConfig, ButtonContext } from 'meta-bind-core/src/config/ButtonConfig';
+import { ButtonClickContext, ButtonClickType } from 'meta-bind-core/src/config/ButtonConfig';
+import { Mountable } from 'meta-bind-core/src/utils/Mountable';
+import { DomHelpers, isTruthy } from 'meta-bind-core/src/utils/Utils';
 import type { Component as SvelteComponent } from 'svelte';
 import { mount, unmount } from 'svelte';
+import ButtonComponent from 'meta-bind-core/src/utils/components/ButtonComponent.svelte';
 
 export class ButtonField extends Mountable {
 	mb: MetaBind;

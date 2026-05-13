@@ -1,11 +1,11 @@
 import { zip } from 'itertools-ts/es/multi';
-import type { IMetadataSubscription } from 'packages/core/src/metadata/IMetadataSubscription';
-import type { MetadataManager } from 'packages/core/src/metadata/MetadataManager';
-import type { MetadataSubscription } from 'packages/core/src/metadata/MetadataSubscription';
-import type { BindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import { ErrorLevel, MetaBindInternalError } from 'packages/core/src/utils/errors/MetaBindErrors';
-import type { Signal } from 'packages/core/src/utils/Signal';
-import { getUUID } from 'packages/core/src/utils/Utils';
+import type { IMetadataSubscription } from 'meta-bind-core/src/metadata/IMetadataSubscription';
+import type { MetadataManager } from 'meta-bind-core/src/metadata/MetadataManager';
+import type { MetadataSubscription } from 'meta-bind-core/src/metadata/MetadataSubscription';
+import type { BindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import { ErrorLevel, MetaBindInternalError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
+import type { Signal } from 'meta-bind-core/src/utils/Signal';
+import { getUUID } from 'meta-bind-core/src/utils/Utils';
 
 export type EffectFunction = () => Promise<void> | void;
 

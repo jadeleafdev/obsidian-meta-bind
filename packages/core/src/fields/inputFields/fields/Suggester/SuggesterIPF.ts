@@ -1,9 +1,9 @@
-import { InputFieldArgumentType } from 'packages/core/src/config/FieldConfigs';
-import { AbstractInputField } from 'packages/core/src/fields/inputFields/AbstractInputField';
-import SuggesterComponent from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterComponent.svelte';
-import type { InputFieldSvelteComponent } from 'packages/core/src/fields/inputFields/InputFieldSvelteWrapper';
-import type { MBLiteral } from 'packages/core/src/utils/Literal';
-import { parseUnknownToLiteral } from 'packages/core/src/utils/Literal';
+import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
+import { AbstractInputField } from 'meta-bind-core/src/fields/inputFields/AbstractInputField';
+import type { InputFieldSvelteComponent } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
+import { parseUnknownToLiteral } from 'meta-bind-core/src/utils/Literal';
+import SuggesterComponent from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterComponent.svelte';
 
 export class SuggesterIPF extends AbstractInputField<MBLiteral, MBLiteral> {
 	protected filterValue(value: unknown): MBLiteral | undefined {

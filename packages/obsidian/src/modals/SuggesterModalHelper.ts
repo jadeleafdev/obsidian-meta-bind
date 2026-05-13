@@ -1,14 +1,14 @@
+import { InputFieldArgumentType, UseLinksInputFieldArgumentValue } from 'meta-bind-core/src/config/FieldConfigs';
+import type { OptionInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
+import type { OptionQueryInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionQueryInputFieldArgument';
+import { applyUseLinksArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/UseLinksInputFieldArgument';
+import type { SuggesterLikeIFP } from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
+import { SuggesterOption } from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
+import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
+import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
+import { getDataViewPluginAPI } from 'meta-bind-obsidian/src/ObsUtils';
 import { Notice } from 'obsidian';
 import type { DataArray, DataviewApi, Literal } from 'obsidian-dataview';
-import { InputFieldArgumentType, UseLinksInputFieldArgumentValue } from 'packages/core/src/config/FieldConfigs';
-import type { OptionInputFieldArgument } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
-import type { OptionQueryInputFieldArgument } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionQueryInputFieldArgument';
-import { applyUseLinksArgument } from 'packages/core/src/fields/fieldArguments/inputFieldArguments/arguments/UseLinksInputFieldArgument';
-import type { SuggesterLikeIFP } from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
-import { SuggesterOption } from 'packages/core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
-import type { MBLiteral } from 'packages/core/src/utils/Literal';
-import type { ObsMetaBind } from 'packages/obsidian/src/ObsMB';
-import { getDataViewPluginAPI } from 'packages/obsidian/src/ObsUtils';
 import { z } from 'zod';
 
 export function getSuggesterOptions(

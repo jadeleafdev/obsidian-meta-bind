@@ -1,15 +1,15 @@
 import type { Parser } from '@lemons_dev/parsinom';
 import { P_UTILS, P } from '@lemons_dev/parsinom';
-import type { UnvalidatedBindTargetDeclaration } from 'packages/core/src/parsers/bindTargetParser/BindTargetDeclaration';
-import type { UnvalidatedFieldArgument } from 'packages/core/src/parsers/FieldDeclaration';
-import { P_BindTarget } from 'packages/core/src/parsers/nomParsers/BindTargetNomParsers';
-import { P_FieldArguments } from 'packages/core/src/parsers/nomParsers/FieldArgumentNomParsers';
-import { createResultNode, P_Ident } from 'packages/core/src/parsers/nomParsers/GeneralNomParsers';
+import type { UnvalidatedBindTargetDeclaration } from 'meta-bind-core/src/parsers/bindTargetParser/BindTargetDeclaration';
+import type { UnvalidatedFieldArgument } from 'meta-bind-core/src/parsers/FieldDeclaration';
+import { P_BindTarget } from 'meta-bind-core/src/parsers/nomParsers/BindTargetNomParsers';
+import { P_FieldArguments } from 'meta-bind-core/src/parsers/nomParsers/FieldArgumentNomParsers';
+import { createResultNode, P_Ident } from 'meta-bind-core/src/parsers/nomParsers/GeneralNomParsers';
 import type {
 	PartialUnvalidatedJsViewFieldDeclaration,
 	PartialUnvalidatedViewFieldDeclaration,
 	UnvalidatedJsViewFieldBindTargetMapping,
-} from 'packages/core/src/parsers/viewFieldParser/ViewFieldDeclaration';
+} from 'meta-bind-core/src/parsers/viewFieldParser/ViewFieldDeclaration';
 
 export const P_ViewFieldContentEscapeCharacter = P.string('\\')
 	.then(P_UTILS.any())
