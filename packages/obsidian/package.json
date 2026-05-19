@@ -21,6 +21,6 @@
 		"@codemirror/lint": "^6.9.5",
 		"@codemirror/state": "^6.6.0",
 		"@codemirror/view": "^6.41.1",
-		"obsidian": "latest"
+		"obsidian": "obsidianmd/obsidian-api#2d878c6a67294b13a07908b27003246a8593d469"
 	}
 }
