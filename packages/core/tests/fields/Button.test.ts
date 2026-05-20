@@ -1,10 +1,6 @@
 import { beforeEach, describe, expect, test } from 'bun:test';
-import {
-	type ButtonAction,
-	ButtonActionType,
-	ButtonClickContext,
-	ButtonClickType,
-} from 'meta-bind-core/src/config/ButtonConfig';
+import type { ButtonAction, ButtonConfig } from 'meta-bind-core/src/config/ButtonConfig';
+import { ButtonActionType, ButtonClickContext, ButtonClickType } from 'meta-bind-core/src/config/ButtonConfig';
 import { TestMetaBind } from '../__mocks__/TestPlugin';
 
 let testPlugin: TestMetaBind;
@@ -432,5 +428,54 @@ describe('Button', () => {
 				testFn();
 			});
 		}
+	});
+
+	describe('Button Templates', () => {
+		beforeEach(() => {
+			testPlugin = new TestMetaBind();
+		});
+
+		test('normalizes raw template configs before storing them', async () => {
+			const rawTemplate = {
+				label: 'Raw Update',
+				style: 'default',
+				id: 'raw-update',
+				actions: [
+					{
+						type: ButtonActionType.UPDATE_METADATA,
+						bindTarget: 'testProp',
+						evaluate: true,
+						value: 1,
+					},
+				],
+			} as unknown as ButtonConfig;
+
+			const errors = testPlugin.buttonManager.setButtonTemplates([rawTemplate]);
+
+			expect(errors.hasErrors()).toBe(false);
+
+			const template = testPlugin.buttonManager.getButton(testFilePath, 'raw-update');
+			const action = template?.actions?.[0];
+
+			expect(action).toMatchObject({ value: '1' });
+
+			testPlugin.internal.jsEngineExecuteCustom = async (code): Promise<unknown> => {
+				expect(code).toBe('1');
+				return 7;
+			};
+
+			await testPlugin.buttonActionRunner.runButtonActions(
+				template!,
+				testFilePath,
+				{
+					position: undefined,
+					isInline: false,
+					isInGroup: false,
+				},
+				defaultClick,
+			);
+
+			expect(testPlugin.getCacheMetadata(testFilePath)?.testProp).toBe(7);
+		});
 	});
 });

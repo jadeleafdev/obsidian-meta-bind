@@ -30,25 +30,35 @@ export class ButtonManager {
 		this.buttonTemplates.clear();
 
 		for (const buttonTemplate of buttonTemplates) {
-			if (buttonTemplate.id === undefined || buttonTemplate.id === '') {
+			let validatedButtonTemplate: ButtonConfig;
+
+			try {
+				validatedButtonTemplate = this.mb.buttonParser.validateConfig(buttonTemplate);
+				Object.assign(buttonTemplate, validatedButtonTemplate);
+			} catch (e) {
+				errorCollection.add(e);
+				continue;
+			}
+
+			if (validatedButtonTemplate.id === undefined || validatedButtonTemplate.id === '') {
 				errorCollection.add(
 					new MetaBindButtonError({
 						errorLevel: ErrorLevel.ERROR,
-						cause: `Button with label "${buttonTemplate.label}" has no id, but button templates must have an id.`,
+						cause: `Button with label "${validatedButtonTemplate.label}" has no id, but button templates must have an id.`,
 						effect: 'Button templates could not be saved.',
 					}),
 				);
-			} else if (idSet.has(buttonTemplate.id)) {
+			} else if (idSet.has(validatedButtonTemplate.id)) {
 				errorCollection.add(
 					new MetaBindButtonError({
 						errorLevel: ErrorLevel.ERROR,
-						cause: `Button id "${buttonTemplate.id}" is not unique. The same id is used by multiple buttons.`,
+						cause: `Button id "${validatedButtonTemplate.id}" is not unique. The same id is used by multiple buttons.`,
 						effect: 'Button templates could not be saved.',
 					}),
 				);
 			} else {
-				idSet.add(buttonTemplate.id);
-				this.buttonTemplates.set(buttonTemplate.id, buttonTemplate);
+				idSet.add(validatedButtonTemplate.id);
+				this.buttonTemplates.set(validatedButtonTemplate.id, validatedButtonTemplate);
 			}
 		}
 
