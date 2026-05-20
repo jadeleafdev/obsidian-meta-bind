@@ -132,7 +132,6 @@ export class MetaBindSettingTab extends PluginSettingTab<MetaBindPluginSettings>
 								if (value < MIN_SYNC_INTERVAL || value > MAX_SYNC_INTERVAL) {
 									return `Sync interval must be between ${MIN_SYNC_INTERVAL} and ${MAX_SYNC_INTERVAL}.`;
 								}
-								return undefined;
 							},
 						},
 					},
