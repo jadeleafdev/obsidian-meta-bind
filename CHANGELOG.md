@@ -1,5 +1,16 @@
 # Obsidian Meta Bind Changelog
 
+# 1.4.11
+
+Bug Fixes
+
+- Fixed button templates loading invalid buttons in some cases [#664](https://github.com/mProjectsCode/obsidian-meta-bind-plugin/issues/664)
+
+Misc
+
+- Redid monorepo setup
+- Fix more Obsidian review warnings
+
 # 1.4.10
 
 Misc
