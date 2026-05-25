@@ -128,7 +128,7 @@ export class ObsMetaBind extends MetaBind<ObsComponents> {
 		);
 
 		this.plugin.registerInterval(
-			window.setInterval(() => this.metadataManager.cycle(), this.getSettings().syncInterval),
+			window.setInterval(() => void this.metadataManager.cycle(), this.getSettings().syncInterval),
 		);
 	}
 

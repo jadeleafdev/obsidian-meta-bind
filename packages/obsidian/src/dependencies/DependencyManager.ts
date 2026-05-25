@@ -46,7 +46,7 @@ export class DependencyManager {
 	private checkDependencyVersion(dependency: Dependency, version: Version): void {
 		if (Version.lessThan(version, dependency.minVersion)) {
 			this.throwDependencyError(
-				`Plugin ${dependency.pluginId} is outdated. Required version is at least ${dependency.minVersion}, installed version is ${version}. Please update the plugin.`,
+				`Plugin ${dependency.pluginId} is outdated. Required version is at least ${dependency.minVersion.toString()}, installed version is ${version.toString()}. Please update the plugin.`,
 			);
 		}
 
@@ -55,7 +55,7 @@ export class DependencyManager {
 			(Version.greaterThan(version, dependency.maxVersion) || Version.equals(version, dependency.maxVersion))
 		) {
 			this.throwDependencyError(
-				`Plugin ${dependency.pluginId} is too new. Required version is lower than ${dependency.maxVersion}, installed version is ${version}. Please downgrade the plugin.`,
+				`Plugin ${dependency.pluginId} is too new. Required version is lower than ${dependency.maxVersion.toString()}, installed version is ${version.toString()}. Please downgrade the plugin.`,
 			);
 		}
 	}

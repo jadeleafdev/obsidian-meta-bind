@@ -64,7 +64,7 @@ export class PublishMetaBind extends MetaBind<PublishComponents> {
 		);
 		this.metadataManager.setDefaultSource(BindTargetStorageType.FRONTMATTER);
 
-		window.setInterval(() => this.metadataManager.cycle(), this.settings.syncInterval);
+		window.setInterval(() => void this.metadataManager.cycle(), this.settings.syncInterval);
 	}
 
 	onLoad(): void {
