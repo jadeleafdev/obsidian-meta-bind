@@ -12,9 +12,8 @@ export interface ListSettingGroupOptions<T> {
 
 export function getListSettingGroup<T>(options: ListSettingGroupOptions<T>): SettingDefinitionItem<MetaBindSettingKey> {
 	return {
-		type: 'group',
+		type: 'list',
 		heading: options.heading,
-		cls: 'mod-list',
 		emptyState: options.emptyState,
 		items: options.items.map((item, index) => options.renderItem(item, index)),
 		onDelete: (index: number): void => {

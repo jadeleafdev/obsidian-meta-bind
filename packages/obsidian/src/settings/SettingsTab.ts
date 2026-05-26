@@ -8,14 +8,14 @@ import { ButtonTemplateSettings } from 'meta-bind-obsidian/src/settings/buttonTe
 import { ExcludedFolderSettings } from 'meta-bind-obsidian/src/settings/excludedFoldersSetting/ExcludedFolderSettings';
 import { InputFieldTemplateSettings } from 'meta-bind-obsidian/src/settings/inputFieldTemplateSetting/InputFieldTemplateSettings';
 import type { MetaBindSettingKey } from 'meta-bind-obsidian/src/settings/SettingsTypes';
-import type { App, Setting, SettingControlBinding, SettingDefinitionItem } from 'obsidian';
+import type { App, Setting, SettingDefinitionItem } from 'obsidian';
 import { PluginSettingTab } from 'obsidian';
 
-export class MetaBindSettingTab extends PluginSettingTab<MetaBindPluginSettings> {
+export class MetaBindSettingTab extends PluginSettingTab {
 	mb: ObsMetaBind;
 
 	constructor(app: App, mb: ObsMetaBind) {
-		super(app, mb.plugin, mb.plugin.settings);
+		super(app, mb.plugin);
 		this.mb = mb;
 	}
 
@@ -142,15 +142,14 @@ export class MetaBindSettingTab extends PluginSettingTab<MetaBindPluginSettings>
 		return items;
 	}
 
-	getControlBinding(key: MetaBindSettingKey): SettingControlBinding {
-		return {
-			value: this.mb.getSettings()[key],
-			onChange: (value: unknown): void => {
-				this.mb.updateSettings(settings => {
-					settings[key] = value as never;
-				});
-			},
-		};
+	getControlValue(key: MetaBindSettingKey): unknown {
+		return this.mb.getSettings()[key];
+	}
+
+	setControlValue(key: MetaBindSettingKey, value: unknown): void {
+		this.mb.updateSettings(settings => {
+			settings[key] = value as never;
+		});
 	}
 
 	private addQuickAccessButtons(setting: Setting): void {
