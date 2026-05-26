@@ -131,6 +131,7 @@ export class JsViewFieldMountable extends FieldMountable {
 
 		const wrapperEl: HTMLDivElement = document.createElement('div');
 		DomHelpers.addClass(wrapperEl, 'mb-view-wrapper');
+		DomHelpers.addClass(targetEl, 'mb-view-rendered');
 
 		this.jsRenderer = this.mb.internal.createJsRenderer(
 			wrapperEl,

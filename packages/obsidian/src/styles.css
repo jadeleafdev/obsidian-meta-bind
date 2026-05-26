@@ -35,7 +35,7 @@ body {
 
 /* View Wrappers */
 /* For higher specificity */
-:is(code, span).mb-view:has(> div.mb-view-wrapper) {
+:is(code, span).mb-view.mb-view-rendered {
 	background-color: transparent;
 	border: none;
 	color: inherit;
@@ -130,7 +130,7 @@ div.mb-view-wrapper {
 
 /* Slider Input */
 
-.mb-input-wrapper:has(> .mb-slider-input) {
+.mb-input-wrapper.mb-input-type-slider {
 	display: inline-flex;
 }
 

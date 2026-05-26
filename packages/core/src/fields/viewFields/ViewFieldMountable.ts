@@ -105,6 +105,7 @@ export class ViewFieldMountable extends FieldMountable {
 
 		const wrapperEl = document.createElement('div');
 		DomHelpers.addClass(wrapperEl, 'mb-view-wrapper');
+		DomHelpers.addClass(targetEl, 'mb-view-rendered');
 
 		try {
 			this.viewField?.mount(wrapperEl);
