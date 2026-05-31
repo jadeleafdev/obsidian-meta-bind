@@ -162,7 +162,6 @@ export function createMarkdownRenderChildWidgetEditorPlugin(mb: ObsMetaBind): Vi
 							return true;
 						}
 
-						spec.mb_unload?.();
 						return false;
 					},
 				});
@@ -237,8 +236,8 @@ export function createMarkdownRenderChildWidgetEditorPlugin(mb: ObsMetaBind): Vi
 
 					const hasSelectionOverlap = Cm6_Util.checkSelectionOverlap(
 						view.state.selection,
-						node.from,
-						node.to,
+						node.from - 1,
+						node.to + 1,
 					);
 					const isLivePreview = this.isLivePreview(view.state);
 					// if we are in live preview mode, we only render the widget if there is no selection overlap

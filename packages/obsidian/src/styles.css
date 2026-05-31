@@ -45,6 +45,16 @@ body {
 	margin: 0;
 }
 
+span.cm-inline-code.mb-inline-widget-rendered {
+	background-color: transparent;
+	border: none;
+	color: inherit;
+	font-size: inherit;
+	font-family: inherit;
+	padding: 0;
+	margin: 0;
+}
+
 div.mb-view-wrapper.mb-view-markdown > p {
 	margin: 0;
 	display: inline-block;
