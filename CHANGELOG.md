@@ -4,12 +4,18 @@
 
 - Migrated to the new Settings API. This requires Obsidian version 1.13.0 or higher.
 
-# 1.4.12
+# 1.4.13
 
 Bug Fixes
 
 - Fixed the inline code block styling bleeding through behind the input field with some themes [#665](https://github.com/mProjectsCode/obsidian-meta-bind-plugin/issues/665)
 - Fixed inline fields getting unloaded without switching back the the source text when placing the cursor near them in live preview mode
+
+# 1.4.12
+
+Misc
+
+- Fix Obsidian review warnings concerning `:has()`
 
 # 1.4.11
 
