@@ -4,6 +4,12 @@
 
 - Migrated to the new Settings API. This requires Obsidian version 1.13.0 or higher.
 
+# 1.4.15
+
+Misc
+
+- Update dependencies so the Obsidian review is happy
+
 # 1.4.14
 
 Misc
