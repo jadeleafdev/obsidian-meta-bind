@@ -9,7 +9,7 @@
 	"dependencies": {
 		"meta-bind-core": "workspace:*",
 		"zod": "^4.3.6",
-		"svelte": "^5.55.5",
+		"svelte": "^5.56.0",
 		"obsidian": "latest"
 	}
 }
