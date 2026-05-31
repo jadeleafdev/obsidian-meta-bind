@@ -4,6 +4,12 @@
 
 - Migrated to the new Settings API. This requires Obsidian version 1.13.0 or higher.
 
+# 1.4.14
+
+Misc
+
+- Fix failing release script
+
 # 1.4.13
 
 Bug Fixes
