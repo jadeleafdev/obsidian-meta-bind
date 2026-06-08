@@ -1,5 +1,4 @@
 import { MetaBindBuild } from 'meta-bind-core/src';
-import type { MetaBindPluginSettings } from 'meta-bind-core/src/Settings';
 import { DEFAULT_SETTINGS, MAX_SYNC_INTERVAL, MIN_SYNC_INTERVAL, weekdays } from 'meta-bind-core/src/Settings';
 import { DocsUtils } from 'meta-bind-core/src/utils/DocsUtils';
 import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
@@ -57,6 +56,16 @@ export class MetaBindSettingTab extends PluginSettingTab {
 				control: { type: 'toggle', key: 'enableEditorRightClickMenu' },
 			},
 			{
+				name: 'Enable JavaScript',
+				desc: "Enable features that run user written JavaScript. This is potentially DANGEROUS, thus it's disabled by default. Restart required.",
+				control: { type: 'toggle', key: 'enableJs' },
+			},
+			{
+				name: 'View fields display null as empty',
+				desc: 'Display nothing instead of null, if the frontmatter value is empty, in text view fields.',
+				control: { type: 'toggle', key: 'viewFieldDisplayNullAsEmpty' },
+			},
+			{
 				type: 'page',
 				name: 'Input field templates',
 				desc: 'You can specify input field templates here, and access them using `INPUT[template_name][overrides (optional)]` in your notes.',
@@ -73,16 +82,6 @@ export class MetaBindSettingTab extends PluginSettingTab {
 				name: 'Excluded folders',
 				desc: 'You can specify excluded folders here. The plugin will not work within excluded folders.',
 				items: new ExcludedFolderSettings(this.app, this.mb, () => this.update()).getDefinitions(),
-			},
-			{
-				name: 'View fields display null as empty',
-				desc: 'Display nothing instead of null, if the frontmatter value is empty, in text view fields.',
-				control: { type: 'toggle', key: 'viewFieldDisplayNullAsEmpty' },
-			},
-			{
-				name: 'Enable JavaScript',
-				desc: "Enable features that run user written JavaScript. This is potentially DANGEROUS, thus it's disabled by default. Restart required.",
-				control: { type: 'toggle', key: 'enableJs' },
 			},
 			{
 				type: 'group',
@@ -149,6 +148,14 @@ export class MetaBindSettingTab extends PluginSettingTab {
 	setControlValue(key: MetaBindSettingKey, value: unknown): void {
 		this.mb.updateSettings(settings => {
 			settings[key] = value as never;
+		});
+	}
+
+	display(): void {
+		const { containerEl } = this;
+		containerEl.empty();
+		containerEl.createEl('p', {
+			text: 'Meta Bind settings require Obsidian 1.13.0 or newer. This app appears to be running an older version.',
 		});
 	}
 

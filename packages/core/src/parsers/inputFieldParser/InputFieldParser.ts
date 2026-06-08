@@ -229,7 +229,7 @@ export class InputFieldParser implements ITemplateSupplier<UnvalidatedInputField
 					`Invalid template name. Could not find a template with the name '${declaration.templateName.value}'.`,
 					declaration.declarationString,
 					declaration.templateName.position,
-					['https://mprojectscode.github.io/obsidian-meta-bind-plugin-docs/guides/templates/'],
+					['https://moritzjung.dev/obsidian-meta-bind-plugin-docs/guides/templates/'],
 				),
 			);
 

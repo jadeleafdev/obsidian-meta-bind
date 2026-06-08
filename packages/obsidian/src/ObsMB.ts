@@ -240,7 +240,7 @@ export class ObsMetaBind extends MetaBind<ObsComponents> {
 			id: 'open-docs',
 			name: 'Open docs',
 			callback: () => {
-				window.open('https://mprojectscode.github.io/obsidian-meta-bind-plugin-docs/', '_blank');
+				window.open('https://moritzjung.dev/obsidian-meta-bind-plugin-docs/', '_blank');
 			},
 		});
 

@@ -112,7 +112,7 @@
 
 	<h3>Bind Targets</h3>
 	<p>
-		<a href="https://mprojectscode.github.io/obsidian-meta-bind-plugin-docs/guides/inputfields/#binding-to-metadata"
+		<a href="https://moritzjung.dev/obsidian-meta-bind-plugin-docs/guides/inputfields/#binding-to-metadata"
 			>Bind Targets</a
 		>
 		let the plugin know what frontmatter properties to bind

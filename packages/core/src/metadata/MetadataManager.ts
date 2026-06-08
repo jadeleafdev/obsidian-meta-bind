@@ -289,7 +289,7 @@ export class MetadataManager {
 					.map(x => `"${bindTargetToString(x.bindTarget)}"`)
 					.join(' -> ')}`,
 				docs: [
-					'https://mprojectscode.github.io/obsidian-meta-bind-plugin-docs/guides/viewfields/#circular-dependencies',
+					'https://moritzjung.dev/obsidian-meta-bind-plugin-docs/guides/viewfields/#circular-dependencies',
 				],
 			});
 		}

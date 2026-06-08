@@ -3,7 +3,7 @@ import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import { getListSettingGroup, updateListItems } from 'meta-bind-obsidian/src/settings/ListSettingGroup';
 import type { MetaBindSettingKey } from 'meta-bind-obsidian/src/settings/SettingsTypes';
 import type { Setting, SettingDefinitionItem, SettingGroupItem } from 'obsidian';
-import { Notice, parseYaml, stringifyYaml } from 'obsidian';
+import { Notice, stringifyYaml } from 'obsidian';
 
 export class ButtonTemplateSettings {
 	constructor(
@@ -115,7 +115,7 @@ export class ButtonTemplateSettings {
 	private async addButtonTemplateFromClipboard(): Promise<void> {
 		let template: ButtonConfig;
 		try {
-			template = parseYaml(await navigator.clipboard.readText()) as ButtonConfig;
+			template = this.mb.buttonParser.parseConfig(await navigator.clipboard.readText());
 			if (template.id === undefined || template.id === '') {
 				template.id = this.createUniqueButtonTemplateId();
 			}

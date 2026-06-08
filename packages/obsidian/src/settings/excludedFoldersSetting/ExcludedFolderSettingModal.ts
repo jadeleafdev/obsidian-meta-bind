@@ -1,5 +1,33 @@
-import type { App } from 'obsidian';
-import { Modal, Notice, Setting } from 'obsidian';
+import type { App, TFolder } from 'obsidian';
+import { AbstractInputSuggest, Modal, Notice, Setting } from 'obsidian';
+
+export class FolderSuggest extends AbstractInputSuggest<TFolder> {
+	constructor(
+		app: App,
+		public inputEl: HTMLInputElement,
+	) {
+		super(app, inputEl);
+	}
+
+	getSuggestions(inputStr: string): TFolder[] {
+		const lowerCaseInputStr = inputStr.toLowerCase();
+		const folders = this.app.vault
+			.getAllFolders()
+			.filter(folder => folder.path.toLowerCase().includes(lowerCaseInputStr));
+
+		return folders.slice(0, 1000);
+	}
+
+	renderSuggestion(file: TFolder, el: HTMLElement): void {
+		el.setText(file.path);
+	}
+
+	selectSuggestion(file: TFolder): void {
+		this.setValue(file.path);
+		this.inputEl.trigger('input');
+		this.close();
+	}
+}
 
 export class ExcludedFolderSettingModal extends Modal {
 	private readonly initialFolder: string;
@@ -18,6 +46,7 @@ export class ExcludedFolderSettingModal extends Modal {
 		this.setTitle(this.initialFolder === '' ? 'Add excluded folder' : 'Edit excluded folder');
 
 		new Setting(this.contentEl).setName('Folder path').addText(cb => {
+			new FolderSuggest(this.app, cb.inputEl);
 			cb.setPlaceholder('path/to/folder');
 			cb.setValue(this.draft);
 			cb.onChange(value => {

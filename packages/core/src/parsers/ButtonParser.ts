@@ -66,7 +66,7 @@ export class ButtonParser {
 		let config: ButtonConfig | undefined = undefined;
 
 		try {
-			const parsedYaml = this.mb.internal.parseYaml(input);
+			const parsedYaml = this.mb.internal.parseYaml(this.prepareConfigYaml(input));
 			config = this.validateConfig(parsedYaml);
 		} catch (e) {
 			errorCollection.add(e);
@@ -77,6 +77,17 @@ export class ButtonParser {
 			config: config,
 			errorCollection: errorCollection,
 		};
+	}
+
+	public parseConfig(input: string): ButtonConfig {
+		return this.validateConfig(this.mb.internal.parseYaml(this.prepareConfigYaml(input)));
+	}
+
+	private prepareConfigYaml(input: string): string {
+		const trimmedInput = input.trim();
+		const codeBlockMatch = /^```[^\r\n]*\r?\n([\s\S]*?)\r?\n```$/.exec(trimmedInput);
+
+		return codeBlockMatch?.[1].trim() ?? trimmedInput;
 	}
 
 	public validateConfig(config: unknown): ButtonConfig {

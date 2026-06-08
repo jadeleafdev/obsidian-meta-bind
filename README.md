@@ -9,7 +9,7 @@ This allows you to edit and view your frontmatter properties inside your notes.
 For example, you can create a toggle inside your note, that is bound to a frontmatter property named `done`, with this simple inline code block `INPUT[toggle:done]`.
 When you click the toggle, the `done` property will switch between `true` and `false`.
 
-To learn more, check out the [docs](https://mprojectscode.github.io/obsidian-meta-bind-plugin-docs).
+To learn more, check out the [docs](https://moritzjung.dev/obsidian-meta-bind-plugin-docs).
 
 ## Demo
 
@@ -17,7 +17,7 @@ To learn more, check out the [docs](https://mprojectscode.github.io/obsidian-met
 
 ## Docs
 
-The docs for the plugin are available [here](https://mprojectscode.github.io/obsidian-meta-bind-plugin-docs).
+The docs for the plugin are available [here](https://moritzjung.dev/obsidian-meta-bind-plugin-docs).
 The plugin provides an offline FAQ/Help page as well, which can be accessed via a command or the plugins settings page.
 
 ## Problems, unexpected behavior or improvement suggestions?
