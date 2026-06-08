@@ -1,6 +1,16 @@
-import { beforeEach, describe, expect, test } from 'bun:test';
-import type { ButtonAction, ButtonConfig } from 'meta-bind-core/src/config/ButtonConfig';
-import { ButtonActionType, ButtonClickContext, ButtonClickType } from 'meta-bind-core/src/config/ButtonConfig';
+import { afterEach, beforeEach, describe, expect, spyOn, test } from 'bun:test';
+import {
+	type ButtonAction,
+	ButtonActionType,
+	ButtonClickContext,
+	ButtonClickType,
+	type ButtonConfig,
+	ButtonStyleType,
+} from 'meta-bind-core/src/config/ButtonConfig';
+import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
+import { ButtonField } from 'meta-bind-core/src/fields/button/ButtonField';
+import ButtonComponent from 'meta-bind-core/src/utils/components/ButtonComponent.svelte';
+import { mount, unmount } from 'svelte';
 import { TestMetaBind } from '../__mocks__/TestPlugin';
 
 let testPlugin: TestMetaBind;
@@ -476,6 +486,116 @@ describe('Button', () => {
 			);
 
 			expect(testPlugin.getCacheMetadata(testFilePath)?.testProp).toBe(7);
+		});
+	});
+
+	describe('ButtonClickContext', () => {
+		test('returns true for MIDDLE click', () => {
+			const ctx = new ButtonClickContext(ButtonClickType.MIDDLE, false, false, false);
+			expect(ctx.openInNewTab()).toBe(true);
+		});
+
+		test('returns false for LEFT click without ctrlKey', () => {
+			const ctx = new ButtonClickContext(ButtonClickType.LEFT, false, false, false);
+			expect(ctx.openInNewTab()).toBe(false);
+		});
+
+		test('returns true for LEFT click with ctrlKey', () => {
+			const ctx = new ButtonClickContext(ButtonClickType.LEFT, false, true, false);
+			expect(ctx.openInNewTab()).toBe(true);
+		});
+	});
+
+	describe('ButtonField auxclick', () => {
+		let container: HTMLDivElement;
+		let buttonField: ButtonField;
+
+		beforeEach(() => {
+			testPlugin = new TestMetaBind();
+			container = document.createElement('div');
+			document.body.appendChild(container);
+
+			buttonField = new ButtonField(
+				testPlugin,
+				{ label: 'Test', style: ButtonStyleType.DEFAULT },
+				testFilePath,
+				RenderChildType.BLOCK,
+				undefined,
+				false,
+				false,
+			);
+			buttonField.mount(container);
+		});
+
+		afterEach(() => {
+			buttonField?.unmount();
+			if (container.parentNode) {
+				document.body.removeChild(container);
+			}
+		});
+
+		test('dispatches MIDDLE click type on auxclick', async () => {
+			const spy = spyOn(testPlugin.buttonActionRunner, 'runButtonActions').mockResolvedValue(undefined);
+
+			const buttonEl = container.querySelector('button');
+			expect(buttonEl).not.toBeNull();
+
+			buttonEl!.dispatchEvent(new MouseEvent('auxclick', { bubbles: true }));
+
+			await new Promise(resolve => setTimeout(resolve, 0));
+
+			expect(spy).toHaveBeenCalledTimes(1);
+			const clickContext = spy.mock.calls[0][3] as ButtonClickContext;
+			expect(clickContext.type).toBe(ButtonClickType.MIDDLE);
+		});
+	});
+
+	describe('ButtonComponent', () => {
+		let container: HTMLDivElement;
+		let consoleWarnSpy: ReturnType<typeof spyOn> | undefined;
+
+		beforeEach(() => {
+			testPlugin = new TestMetaBind();
+			container = document.createElement('div');
+			document.body.appendChild(container);
+		});
+
+		afterEach(() => {
+			consoleWarnSpy?.mockRestore();
+			if (container.parentNode) {
+				document.body.removeChild(container);
+			}
+		});
+
+		test('shows a notice when onclick throws', async () => {
+			const showNoticeSpy = spyOn(testPlugin.internal, 'showNotice');
+			consoleWarnSpy = spyOn(console, 'warn').mockImplementation(() => {});
+
+			const component = mount(ButtonComponent, {
+				target: container,
+				props: {
+					mb: testPlugin,
+					label: 'Test',
+					onclick: async () => {
+						throw new Error('intentional test error');
+					},
+				},
+			});
+
+			const buttonEl = container.querySelector('button');
+			expect(buttonEl).not.toBeNull();
+
+			buttonEl!.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+
+			await new Promise(resolve => setTimeout(resolve, 0));
+
+			expect(showNoticeSpy).toHaveBeenCalledTimes(1);
+			expect(showNoticeSpy).toHaveBeenCalledWith(
+				'meta-bind | Error while running button action. Check the console for details.',
+			);
+			expect(consoleWarnSpy).toHaveBeenCalledTimes(1);
+
+			unmount(component);
 		});
 	});
 });
