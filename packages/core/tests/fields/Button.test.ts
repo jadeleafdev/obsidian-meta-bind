@@ -486,10 +486,9 @@ describe('Button', () => {
 			);
 
 			expect(testPlugin.getCacheMetadata(testFilePath)?.testProp).toBe(7);
-
 		});
 	});
-	
+
 	describe('ButtonClickContext', () => {
 		test('returns true for MIDDLE click', () => {
 			const ctx = new ButtonClickContext(ButtonClickType.MIDDLE, false, false, false);
