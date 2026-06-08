@@ -1,13 +1,15 @@
 import { MetaBindBuild } from 'meta-bind-core/src';
+import type { MetaBindPluginSettings } from 'meta-bind-core/src/Settings';
 import { DEFAULT_SETTINGS, MAX_SYNC_INTERVAL, MIN_SYNC_INTERVAL, weekdays } from 'meta-bind-core/src/Settings';
 import { DocsUtils } from 'meta-bind-core/src/utils/DocsUtils';
 import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import { MB_PLAYGROUND_VIEW_TYPE } from 'meta-bind-obsidian/src/playground/PlaygroundView';
-import { ButtonTemplatesSettingModal } from 'meta-bind-obsidian/src/settings/buttonTemplateSetting/ButtonTemplatesSettingModal';
-import { ExcludedFoldersSettingModal } from 'meta-bind-obsidian/src/settings/excludedFoldersSetting/ExcludedFoldersSettingModal';
-import { InputFieldTemplatesSettingModal } from 'meta-bind-obsidian/src/settings/inputFieldTemplateSetting/InputFieldTemplatesSettingModal';
-import type { App } from 'obsidian';
-import { ButtonComponent, PluginSettingTab, Setting } from 'obsidian';
+import { ButtonTemplateSettings } from 'meta-bind-obsidian/src/settings/buttonTemplateSetting/ButtonTemplateSettings';
+import { ExcludedFolderSettings } from 'meta-bind-obsidian/src/settings/excludedFoldersSetting/ExcludedFolderSettings';
+import { InputFieldTemplateSettings } from 'meta-bind-obsidian/src/settings/inputFieldTemplateSetting/InputFieldTemplateSettings';
+import type { MetaBindSettingKey } from 'meta-bind-obsidian/src/settings/SettingsTypes';
+import type { App, Setting, SettingDefinitionItem } from 'obsidian';
+import { PluginSettingTab } from 'obsidian';
 
 export class MetaBindSettingTab extends PluginSettingTab {
 	mb: ObsMetaBind;
@@ -17,26 +19,141 @@ export class MetaBindSettingTab extends PluginSettingTab {
 		this.mb = mb;
 	}
 
-	display(): void {
-		const { containerEl } = this;
-
-		containerEl.empty();
+	getSettingDefinitions(): SettingDefinitionItem<MetaBindSettingKey>[] {
+		const items: SettingDefinitionItem<MetaBindSettingKey>[] = [];
 
 		if (this.mb.build === MetaBindBuild.DEV || this.mb.build === MetaBindBuild.CANARY) {
-			containerEl.createEl('p', {
-				text: `You are using a ${this.mb.build} build (${MB_VERSION}). This build is not intended for production use. Use at your own risk.`,
-				cls: 'mb-error',
-			});
-			const button = new ButtonComponent(containerEl);
-			button.setButtonText('Learn about canary builds');
-			button.setCta();
-			button.onClick(() => {
-				DocsUtils.open(DocsUtils.linkToCanaryBuilds());
+			items.push({
+				name: 'Development build',
+				desc: `You are using a ${this.mb.build} build (${MB_VERSION}). This build is not intended for production use. Use at your own risk.`,
+				render: (setting: Setting): void => {
+					setting.setClass('mb-error');
+					setting.addButton(cb => {
+						cb.setCta();
+						cb.setButtonText('Learn about canary builds');
+						cb.onClick(() => {
+							DocsUtils.open(DocsUtils.linkToCanaryBuilds());
+						});
+					});
+				},
 			});
 		}
 
-		new Setting(containerEl)
-			.setName('Quick access')
+		items.push(
+			{
+				name: 'Quick access',
+				render: (setting: Setting): void => {
+					this.addQuickAccessButtons(setting);
+				},
+			},
+			{
+				name: 'Enable syntax highlighting',
+				desc: 'Enable syntax highlighting for meta bind syntax. Restart required.',
+				control: { type: 'toggle', key: 'enableSyntaxHighlighting' },
+			},
+			{
+				name: 'Enable editor right-click menu',
+				desc: 'Enable a meta bind menu section in the editor right-click menu. Restart required.',
+				control: { type: 'toggle', key: 'enableEditorRightClickMenu' },
+			},
+			{
+				type: 'page',
+				name: 'Input field templates',
+				desc: 'You can specify input field templates here, and access them using `INPUT[template_name][overrides (optional)]` in your notes.',
+				items: new InputFieldTemplateSettings(this.app, this.mb, () => this.update()).getDefinitions(),
+			},
+			{
+				type: 'page',
+				name: 'Button templates',
+				desc: 'You can specify button field templates here, and access them in inline buttons.',
+				items: new ButtonTemplateSettings(this.mb, () => this.update()).getDefinitions(),
+			},
+			{
+				type: 'page',
+				name: 'Excluded folders',
+				desc: 'You can specify excluded folders here. The plugin will not work within excluded folders.',
+				items: new ExcludedFolderSettings(this.app, this.mb, () => this.update()).getDefinitions(),
+			},
+			{
+				name: 'View fields display null as empty',
+				desc: 'Display nothing instead of null, if the frontmatter value is empty, in text view fields.',
+				control: { type: 'toggle', key: 'viewFieldDisplayNullAsEmpty' },
+			},
+			{
+				name: 'Enable JavaScript',
+				desc: "Enable features that run user written JavaScript. This is potentially DANGEROUS, thus it's disabled by default. Restart required.",
+				control: { type: 'toggle', key: 'enableJs' },
+			},
+			{
+				type: 'group',
+				heading: 'Date and time',
+				items: [
+					{
+						name: 'Date format',
+						desc: 'The date format to be used by this plugin. Changing this setting will break the parsing of existing date inputs. Here is a list of all available date tokes https://momentjs.com/docs/#/displaying/.',
+						control: { type: 'text', key: 'preferredDateFormat' },
+					},
+					{
+						name: 'First weekday',
+						desc: 'Specify the first weekday for the datepicker.',
+						control: {
+							type: 'dropdown',
+							key: 'firstWeekday',
+							options: Object.fromEntries(weekdays.map(weekday => [weekday.name, weekday.name])),
+						},
+					},
+				],
+			},
+			{
+				type: 'group',
+				heading: 'Advanced',
+				items: [
+					{
+						name: 'Dev mode',
+						desc: 'Enable dev mode. Not recommended unless you want to debug this plugin.',
+						control: { type: 'toggle', key: 'devMode' },
+					},
+					{
+						name: 'Disable code block restrictions',
+						desc: 'Disable restrictions on which input fields can be created in which code blocks. Not recommended unless you know what you are doing.',
+						control: { type: 'toggle', key: 'ignoreCodeBlockRestrictions' },
+					},
+					{
+						name: 'Sync interval',
+						desc: `The interval in milli-seconds between disk writes. Changing this number is not recommended except if your hard drive is exceptionally slow. Standard: ${DEFAULT_SETTINGS.syncInterval}; Minimum: ${MIN_SYNC_INTERVAL}; Maximum: ${MAX_SYNC_INTERVAL}`,
+						control: {
+							type: 'number',
+							key: 'syncInterval',
+							defaultValue: DEFAULT_SETTINGS.syncInterval,
+							min: MIN_SYNC_INTERVAL,
+							max: MAX_SYNC_INTERVAL,
+							step: 1,
+							validate: (value: number): string | void => {
+								if (value < MIN_SYNC_INTERVAL || value > MAX_SYNC_INTERVAL) {
+									return `Sync interval must be between ${MIN_SYNC_INTERVAL} and ${MAX_SYNC_INTERVAL}.`;
+								}
+							},
+						},
+					},
+				],
+			},
+		);
+
+		return items;
+	}
+
+	getControlValue(key: MetaBindSettingKey): unknown {
+		return this.mb.getSettings()[key];
+	}
+
+	setControlValue(key: MetaBindSettingKey, value: unknown): void {
+		this.mb.updateSettings(settings => {
+			settings[key] = value as never;
+		});
+	}
+
+	private addQuickAccessButtons(setting: Setting): void {
+		setting
 			.addButton(cb => {
 				cb.setCta();
 				cb.setButtonText('Docs');
@@ -60,170 +177,6 @@ export class MetaBindSettingTab extends PluginSettingTab {
 				cb.setButtonText('Report issue');
 				cb.onClick(() => {
 					DocsUtils.open(DocsUtils.linkToIssues());
-				});
-			});
-
-		new Setting(containerEl)
-			.setName('Enable syntax highlighting')
-			.setDesc(`Enable syntax highlighting for meta bind syntax. Restart required.`)
-			.addToggle(cb => {
-				cb.setValue(this.mb.getSettings().enableSyntaxHighlighting);
-				cb.onChange(data => {
-					this.mb.updateSettings(settings => {
-						settings.enableSyntaxHighlighting = data;
-					});
-				});
-			});
-
-		new Setting(containerEl)
-			.setName('Enable editor right-click menu')
-			.setDesc(`Enable a meta bind menu section in the editor right-click menu. Restart required.`)
-			.addToggle(cb => {
-				cb.setValue(this.mb.getSettings().enableEditorRightClickMenu);
-				cb.onChange(data => {
-					this.mb.updateSettings(settings => {
-						settings.enableEditorRightClickMenu = data;
-					});
-				});
-			});
-
-		new Setting(containerEl)
-			.setName('Input field templates')
-			.setDesc(
-				`You can specify input field templates here, and access them using \`INPUT[template_name][overrides (optional)]\` in your notes.`,
-			)
-			.addButton(cb => {
-				cb.setButtonText('Edit templates');
-				cb.onClick(() => {
-					new InputFieldTemplatesSettingModal(this.app, this.mb).open();
-				});
-			});
-
-		new Setting(containerEl)
-			.setName('Button templates')
-			.setDesc(`You can specify button field templates here, and access them in inline buttons.`)
-			.addButton(cb => {
-				cb.setButtonText('Edit templates');
-				cb.onClick(() => {
-					new ButtonTemplatesSettingModal(this.app, this.mb).open();
-				});
-			});
-
-		new Setting(containerEl)
-			.setName('Excluded folders')
-			.setDesc(`You can specify excluded folders here. The plugin will not work within excluded folders.`)
-			.addButton(cb => {
-				cb.setButtonText('Edit excluded folders');
-				cb.onClick(() => {
-					new ExcludedFoldersSettingModal(this.app, this.mb).open();
-				});
-			});
-
-		new Setting(containerEl)
-			.setName('View fields display null as empty')
-			.setDesc('Display nothing instead of null, if the frontmatter value is empty, in text view fields.')
-			.addToggle(cb => {
-				cb.setValue(this.mb.getSettings().viewFieldDisplayNullAsEmpty);
-				cb.onChange(data => {
-					this.mb.updateSettings(settings => {
-						settings.viewFieldDisplayNullAsEmpty = data;
-					});
-				});
-			});
-
-		new Setting(containerEl)
-			.setName('Enable JavaScript')
-			.setDesc(
-				"Enable features that run user written JavaScript. This is potentially DANGEROUS, thus it's disabled by default. Restart required.",
-			)
-			.addToggle(cb => {
-				cb.setValue(this.mb.getSettings().enableJs);
-				cb.onChange(data => {
-					this.mb.updateSettings(settings => {
-						settings.enableJs = data;
-					});
-				});
-			});
-
-		new Setting(containerEl).setName('Date and time').setHeading();
-
-		new Setting(containerEl)
-			.setName('Date format')
-			.setDesc(
-				`The date format to be used by this plugin. Changing this setting will break the parsing of existing date inputs. Here is a list of all available date tokes https://momentjs.com/docs/#/displaying/.`,
-			)
-			.addText(cb => {
-				cb.setValue(this.mb.getSettings().preferredDateFormat);
-				cb.onChange(data => {
-					this.mb.updateSettings(settings => {
-						settings.preferredDateFormat = data;
-					});
-				});
-			});
-
-		new Setting(containerEl)
-			.setName('First weekday')
-			.setDesc(`Specify the first weekday for the datepicker.`)
-			.addDropdown(cb => {
-				for (const weekday of weekdays) {
-					cb.addOption(weekday.name, weekday.name);
-				}
-				cb.setValue(this.mb.getSettings().firstWeekday.name);
-				cb.onChange(data => {
-					this.mb.updateSettings(settings => {
-						settings.firstWeekday = weekdays.find(x => x.name === data)!;
-					});
-				});
-			});
-
-		new Setting(containerEl).setName('Advanced').setHeading();
-
-		new Setting(containerEl)
-			.setName('Dev mode')
-			.setDesc('Enable dev mode. Not recommended unless you want to debug this plugin.')
-			.addToggle(cb => {
-				cb.setValue(this.mb.getSettings().devMode);
-				cb.onChange(data => {
-					this.mb.updateSettings(settings => {
-						settings.devMode = data;
-					});
-				});
-			});
-
-		new Setting(containerEl)
-			.setName('Disable code block restrictions')
-			.setDesc(
-				'Disable restrictions on which input fields can be created in which code blocks. Not recommended unless you know what you are doing.',
-			)
-			.addToggle(cb => {
-				cb.setValue(this.mb.getSettings().ignoreCodeBlockRestrictions);
-				cb.onChange(data => {
-					this.mb.updateSettings(settings => {
-						settings.ignoreCodeBlockRestrictions = data;
-					});
-				});
-			});
-
-		new Setting(containerEl)
-			.setName('Sync interval')
-			.setDesc(
-				`The interval in milli-seconds between disk writes. Changing this number is not recommended except if your hard drive is exceptionally slow. Standard: ${DEFAULT_SETTINGS.syncInterval}; Minimum: ${MIN_SYNC_INTERVAL}; Maximum: ${MAX_SYNC_INTERVAL}`,
-			)
-			.addText(cb => {
-				cb.setValue(this.mb.getSettings().syncInterval.toString());
-				cb.onChange(data => {
-					this.mb.updateSettings(settings => {
-						settings.syncInterval = Number.parseInt(data);
-						if (Number.isNaN(settings.syncInterval)) {
-							settings.syncInterval = DEFAULT_SETTINGS.syncInterval;
-						}
-						if (settings.syncInterval < MIN_SYNC_INTERVAL) {
-							settings.syncInterval = MIN_SYNC_INTERVAL;
-						}
-						if (settings.syncInterval > MAX_SYNC_INTERVAL) {
-							settings.syncInterval = MAX_SYNC_INTERVAL;
-						}
-					});
 				});
 			});
 	}

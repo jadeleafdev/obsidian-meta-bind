@@ -59,11 +59,34 @@ export const weekdays: Weekday[] = [
 	},
 ];
 
+export function getWeekdayByName(name: string): Weekday {
+	return weekdays.find(weekday => weekday.name === name) ?? weekdays[1];
+}
+
+export function normalizeFirstWeekday(firstWeekday: unknown): string {
+	if (typeof firstWeekday === 'string') {
+		return getWeekdayByName(firstWeekday).name;
+	}
+
+	if (typeof firstWeekday === 'number') {
+		return (weekdays.find(weekday => weekday.index === firstWeekday) ?? weekdays[1]).name;
+	}
+
+	if (typeof firstWeekday === 'object' && firstWeekday !== null && 'name' in firstWeekday) {
+		const name = firstWeekday.name;
+		if (typeof name === 'string') {
+			return getWeekdayByName(name).name;
+		}
+	}
+
+	return weekdays[1].name;
+}
+
 export interface MetaBindPluginSettings {
 	devMode: boolean;
 	ignoreCodeBlockRestrictions: boolean;
 	preferredDateFormat: string;
-	firstWeekday: Weekday;
+	firstWeekday: string;
 	syncInterval: number;
 	enableJs: boolean;
 	viewFieldDisplayNullAsEmpty: boolean;
@@ -84,7 +107,7 @@ export const DEFAULT_SETTINGS: MetaBindPluginSettings = {
 	devMode: false,
 	ignoreCodeBlockRestrictions: false,
 	preferredDateFormat: 'YYYY-MM-DD',
-	firstWeekday: weekdays[1],
+	firstWeekday: weekdays[1].name,
 	syncInterval: 200,
 	enableJs: false,
 	viewFieldDisplayNullAsEmpty: false,

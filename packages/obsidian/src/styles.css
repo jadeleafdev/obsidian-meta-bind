@@ -753,20 +753,6 @@ code.mb-warning {
 	white-space: pre;
 }
 
-.mb-excluded-folders-table-input-cell {
-	width: 100%;
-}
-
-.mb-excluded-folders-table-input-cell > input {
-	width: 100%;
-}
-
-.mb-textarea {
-	width: 100%;
-	height: 100px;
-	resize: vertical;
-}
-
 .mb-icon-wrapper {
 	display: block;
 	position: relative;
@@ -857,6 +843,12 @@ div.setting-item > div.setting-item-control.mb-vertical-control {
 	align-items: flex-start;
 	gap: var(--size-4-1);
 	width: 100%;
+}
+
+.mb-settings-list-modal-textarea {
+	width: 100%;
+	min-height: 120px;
+	resize: vertical;
 }
 
 .mb-search-modal-element-description {

@@ -1,12 +1,12 @@
 import type { Weekday } from 'meta-bind-core/src/Settings';
-import { monthNames, weekdays } from 'meta-bind-core/src/Settings';
+import { getWeekdayByName, monthNames, weekdays } from 'meta-bind-core/src/Settings';
 import { mod } from 'meta-bind-core/src/utils/Utils';
 import Moment from 'moment/moment';
 
 export let firstWeekday: Weekday = weekdays[1];
 
-export function setFirstWeekday(w: Weekday): void {
-	firstWeekday = w;
+export function setFirstWeekday(weekdayName: string): void {
+	firstWeekday = getWeekdayByName(weekdayName);
 }
 
 export function getMonthName(index: number): string {
