@@ -1,8 +1,16 @@
 # Obsidian Meta Bind Changelog
 
-# Unreleased
+# 1.5.0
+
+Changes
 
 - Migrated to the new Settings API. This requires Obsidian version 1.13.0 or higher.
+- Improved some error and validation messages for buttons (thanks jd-paul) [#656](https://github.com/mProjectsCode/obsidian-meta-bind-plugin/pull/656)
+
+Bug Fixes
+
+- Fixed an issue with aux click and buttons (thanks jd-paul) [#656](https://github.com/mProjectsCode/obsidian-meta-bind-plugin/pull/656)
+- Fixed adding a button template from clipboard failing if the copied string included codeblock fences [#666](https://github.com/mProjectsCode/obsidian-meta-bind-plugin/issues/666)
 
 # 1.4.15
 
