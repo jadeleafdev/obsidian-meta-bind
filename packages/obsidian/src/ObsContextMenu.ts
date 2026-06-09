@@ -1,11 +1,14 @@
+import type { DomHelpers } from 'meta-bind-core/src/api/DomHelpers';
 import type { ContextMenuItemDefinition, IContextMenu } from 'meta-bind-core/src/utils/IContextMenu';
 import { Menu } from 'obsidian';
 
 export class ObsContextMenu implements IContextMenu {
 	menu: Menu;
+	private readonly domHelpers: DomHelpers;
 
-	constructor() {
+	constructor(domHelpers: DomHelpers) {
 		this.menu = new Menu();
+		this.domHelpers = domHelpers;
 	}
 
 	public setItems(items: ContextMenuItemDefinition[]): void {
@@ -24,7 +27,7 @@ export class ObsContextMenu implements IContextMenu {
 	}
 
 	public show(x: number, y: number): void {
-		this.menu.showAtPosition({ x, y }, activeDocument);
+		this.menu.showAtPosition({ x, y }, this.domHelpers.activeDocument);
 	}
 
 	public showWithEvent(event: MouseEvent): void {

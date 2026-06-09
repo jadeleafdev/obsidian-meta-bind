@@ -5,7 +5,6 @@ import { ButtonField } from 'meta-bind-core/src/fields/button/ButtonField';
 import { FieldMountable } from 'meta-bind-core/src/fields/FieldMountable';
 import type { ButtonDeclaration } from 'meta-bind-core/src/parsers/ButtonParser';
 import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
-import { DomHelpers, showUnloadedMessage } from 'meta-bind-core/src/utils/Utils';
 
 export class ButtonMountable extends FieldMountable {
 	errorCollection: ErrorCollection;
@@ -37,7 +36,7 @@ export class ButtonMountable extends FieldMountable {
 		MB_DEBUG && console.debug('meta-bind | ButtonMountable >> mount', this.declaration.declarationString);
 		super.onMount(targetEl);
 
-		DomHelpers.removeAllClasses(targetEl);
+		this.mb.domHelpers.removeAllClasses(targetEl);
 
 		if (this.declaration.config && this.declaration.errorCollection.isEmpty()) {
 			try {
@@ -77,6 +76,6 @@ export class ButtonMountable extends FieldMountable {
 
 		this.buttonField?.unmount();
 
-		showUnloadedMessage(targetEl, 'button');
+		this.mb.domHelpers.showUnloadedMessage(targetEl, 'button');
 	}
 }

@@ -42,7 +42,6 @@
 	import SettingComponent from 'meta-bind-core/src/utils/components/SettingComponent.svelte';
 	import Toggle from 'meta-bind-core/src/utils/components/Toggle.svelte';
 	import type { ContextMenuItemDefinition } from 'meta-bind-core/src/utils/IContextMenu';
-	import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
 	import { onDestroy } from 'svelte';
 	import type { MetaBind } from 'meta-bind-core/src';
 
@@ -69,7 +68,7 @@
 	$effect(() => {
 		buttonMountable?.unmount();
 		if (buttonEl) {
-			DomHelpers.empty(buttonEl);
+			mb.domHelpers.empty(buttonEl);
 			buttonMountable = new ButtonField(
 				mb,
 				$state.snapshot(buttonConfig),

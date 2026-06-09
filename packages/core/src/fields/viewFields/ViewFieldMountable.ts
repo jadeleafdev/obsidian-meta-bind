@@ -7,7 +7,6 @@ import type { ViewField } from 'meta-bind-core/src/fields/viewFields/ViewFieldFa
 import type { ViewFieldDeclaration } from 'meta-bind-core/src/parsers/viewFieldParser/ViewFieldDeclaration';
 import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
 import { ErrorLevel, MetaBindInternalError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
-import { DomHelpers, showUnloadedMessage } from 'meta-bind-core/src/utils/Utils';
 
 export class ViewFieldMountable extends FieldMountable {
 	renderChildType: RenderChildType;
@@ -93,8 +92,8 @@ export class ViewFieldMountable extends FieldMountable {
 		MB_DEBUG && console.debug('meta-bind | ViewFieldMountable >> mount', this.declaration);
 		super.onMount(targetEl);
 
-		DomHelpers.empty(targetEl);
-		DomHelpers.addClass(targetEl, 'mb-view');
+		this.mb.domHelpers.empty(targetEl);
+		this.mb.domHelpers.addClass(targetEl, 'mb-view');
 
 		this.createViewField();
 
@@ -103,9 +102,9 @@ export class ViewFieldMountable extends FieldMountable {
 			return;
 		}
 
-		const wrapperEl = document.createElement('div');
-		DomHelpers.addClass(wrapperEl, 'mb-view-wrapper');
-		DomHelpers.addClass(targetEl, 'mb-view-rendered');
+		const wrapperEl = this.mb.domHelpers.createElement(targetEl, 'div');
+		this.mb.domHelpers.addClass(wrapperEl, 'mb-view-wrapper');
+		this.mb.domHelpers.addClass(targetEl, 'mb-view-rendered');
 
 		try {
 			this.viewField?.mount(wrapperEl);
@@ -114,19 +113,17 @@ export class ViewFieldMountable extends FieldMountable {
 		}
 
 		this.createErrorIndicator(targetEl);
-		targetEl.append(wrapperEl);
-
 		const classArguments = this.getArguments(ViewFieldArgumentType.CLASS);
 		for (const classArgument of classArguments) {
-			DomHelpers.addClasses(wrapperEl, classArgument.value);
+			this.mb.domHelpers.addClasses(wrapperEl, classArgument.value);
 		}
 
-		DomHelpers.addClass(wrapperEl, `mb-view-type-${this.declaration.viewFieldType}`);
+		this.mb.domHelpers.addClass(wrapperEl, `mb-view-type-${this.declaration.viewFieldType}`);
 
 		if (this.renderChildType === RenderChildType.BLOCK) {
-			DomHelpers.addClass(targetEl, 'mb-view-block');
+			this.mb.domHelpers.addClass(targetEl, 'mb-view-block');
 		} else {
-			DomHelpers.addClass(targetEl, 'mb-view-inline');
+			this.mb.domHelpers.addClass(targetEl, 'mb-view-inline');
 		}
 	}
 
@@ -136,6 +133,6 @@ export class ViewFieldMountable extends FieldMountable {
 
 		this.viewField?.unmount();
 
-		showUnloadedMessage(targetEl, 'view field');
+		this.mb.domHelpers.showUnloadedMessage(targetEl, 'view field');
 	}
 }

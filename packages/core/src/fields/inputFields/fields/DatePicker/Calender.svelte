@@ -1,18 +1,20 @@
 <script lang="ts">
-	import type { Moment } from 'moment';
-	import moment from 'moment';
+	import type { MetaBind } from 'meta-bind-core/src';
+	import type { MetaBindDate } from 'meta-bind-core/src/api/MetaBindDate';
 	import { getDateRows, getWeekDays } from 'meta-bind-core/src/utils/DatePickerUtils.js';
 
 	let {
+		mb,
 		selectedDate,
 		month,
 		year,
 		dateChange,
 	}: {
-		selectedDate: Moment | null;
+		mb: MetaBind;
+		selectedDate: MetaBindDate | null;
 		month: number;
 		year: number;
-		dateChange: (date: Moment) => void;
+		dateChange: (date: MetaBindDate) => void;
 	} = $props();
 
 	// local vars to help in render
@@ -20,7 +22,7 @@
 
 	function selectCell(value: number | undefined): void {
 		if (value) {
-			dateChange(moment(new Date(year, month, value)));
+			dateChange(mb.dateParser.fromDate(new Date(year, month, value)));
 		}
 	}
 

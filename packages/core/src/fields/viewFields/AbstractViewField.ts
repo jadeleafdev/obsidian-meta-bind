@@ -4,7 +4,6 @@ import type { ViewFieldMountable } from 'meta-bind-core/src/fields/viewFields/Vi
 import type { ViewFieldVariable } from 'meta-bind-core/src/fields/viewFields/ViewFieldVariable';
 import type { DerivedMetadataSubscription } from 'meta-bind-core/src/metadata/DerivedMetadataSubscription';
 import { Mountable } from 'meta-bind-core/src/utils/Mountable';
-import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
 
 export abstract class AbstractViewField<T> extends Mountable {
 	readonly mb: MetaBind;
@@ -35,12 +34,12 @@ export abstract class AbstractViewField<T> extends Mountable {
 	protected abstract mapValue(value: T): unknown;
 
 	private async initialRender(targetEl: HTMLElement): Promise<void> {
-		DomHelpers.addClass(targetEl, 'mb-view-text');
+		this.mb.domHelpers.addClass(targetEl, 'mb-view-text');
 
 		this.hidden = this.mountable.getArgument(ViewFieldArgumentType.HIDDEN)?.value ?? false;
 
 		if (this.hidden) {
-			DomHelpers.addClass(targetEl, 'mb-view-hidden');
+			this.mb.domHelpers.addClass(targetEl, 'mb-view-hidden');
 		}
 
 		await this.onInitialRender(targetEl);

@@ -1,15 +1,17 @@
 <script lang="ts">
-	import type { Moment } from 'moment';
-	import moment from 'moment';
+	import type { MetaBind } from 'meta-bind-core/src';
+	import type { MetaBindDate } from 'meta-bind-core/src/api/MetaBindDate';
 	import Calender from 'meta-bind-core/src/fields/inputFields/fields/DatePicker/Calender.svelte';
 	import { getMonthName } from 'meta-bind-core/src/utils/DatePickerUtils.js';
 
 	let {
-		selectedDate = moment(),
+		mb,
+		selectedDate,
 		dateChangeCallback,
 	}: {
-		selectedDate: Moment | null;
-		dateChangeCallback: (date: Moment | null) => void;
+		mb: MetaBind;
+		selectedDate: MetaBindDate | null;
+		dateChangeCallback: (date: MetaBindDate | null) => void;
 	} = $props();
 
 	let month = $state(0);
@@ -21,7 +23,7 @@
 			month = selectedDate.month();
 			year = selectedDate.year();
 		} else {
-			const now = moment();
+			const now = mb.dateParser.getDefaultDate();
 			month = now.month();
 			year = now.year();
 		}
@@ -55,7 +57,7 @@
 		}
 	}
 
-	function onDateChange(date: Moment): void {
+	function onDateChange(date: MetaBindDate): void {
 		selectedDate = date;
 		dateChangeCallback(date);
 	}
@@ -66,7 +68,7 @@
 	}
 
 	function setDateToCurrent(): void {
-		selectedDate = moment();
+		selectedDate = mb.dateParser.getDefaultDate();
 		dateChangeCallback(selectedDate);
 	}
 </script>
@@ -80,7 +82,7 @@
 		</div>
 		<button class="mb-date-picker-month-switch-button" onclick={nextMonth}>Next</button>
 	</div>
-	<Calender dateChange={onDateChange} month={month} year={year} selectedDate={selectedDate}></Calender>
+	<Calender mb={mb} dateChange={onDateChange} month={month} year={year} selectedDate={selectedDate}></Calender>
 	<div class="mb-date-picker-footer">
 		<button class="mb-date-picker-util-button" onclick={setDateToNull}>Set no Date</button>
 		<button class="mb-date-picker-util-button" onclick={setDateToCurrent}>Set to Now</button>

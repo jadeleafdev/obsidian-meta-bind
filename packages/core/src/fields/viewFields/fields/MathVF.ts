@@ -5,7 +5,7 @@ import type { ViewFieldVariable } from 'meta-bind-core/src/fields/viewFields/Vie
 import { ErrorLevel, MetaBindExpressionError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
 import { parseLiteral, stringifyUnknown } from 'meta-bind-core/src/utils/Literal';
 import { Signal } from 'meta-bind-core/src/utils/Signal';
-import { DomHelpers, getUUID } from 'meta-bind-core/src/utils/Utils';
+import { getUUID } from 'meta-bind-core/src/utils/Utils';
 
 interface MathVFResult {
 	value: unknown;
@@ -114,9 +114,9 @@ export class MathVF extends AbstractViewField<MathVFResult> {
 		const text = stringifyUnknown(value?.value, this.mountable.mb.getSettings().viewFieldDisplayNullAsEmpty) ?? '';
 
 		if (value?.error) {
-			DomHelpers.addClass(container, 'mb-error');
+			this.mb.domHelpers.addClass(container, 'mb-error');
 		} else {
-			DomHelpers.removeClass(container, 'mb-error');
+			this.mb.domHelpers.removeClass(container, 'mb-error');
 		}
 		container.innerText = text;
 	}

@@ -9,7 +9,6 @@ import type { InputFieldDeclaration } from 'meta-bind-core/src/parsers/inputFiel
 import { DocsUtils } from 'meta-bind-core/src/utils/DocsUtils';
 import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
 import { ErrorLevel, MetaBindInternalError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
-import { DomHelpers, showUnloadedMessage } from 'meta-bind-core/src/utils/Utils';
 
 export class InputFieldMountable extends FieldMountable {
 	renderChildType: RenderChildType;
@@ -75,12 +74,12 @@ export class InputFieldMountable extends FieldMountable {
 
 	private createContainer(containerEl: HTMLElement): HTMLElement {
 		if (this.shouldAddCardContainer()) {
-			const cardContainerEl = DomHelpers.createElement(containerEl, 'div');
-			DomHelpers.addClass(cardContainerEl, 'mb-card');
+			const cardContainerEl = this.mb.domHelpers.createElement(containerEl, 'div');
+			this.mb.domHelpers.addClass(cardContainerEl, 'mb-card');
 
 			const titleArgument = this.getArgument(InputFieldArgumentType.TITLE);
 			if (titleArgument) {
-				DomHelpers.createElement(cardContainerEl, 'h3', { text: titleArgument.value });
+				this.mb.domHelpers.createElement(cardContainerEl, 'h3', { text: titleArgument.value });
 			}
 
 			return cardContainerEl;
@@ -91,8 +90,8 @@ export class InputFieldMountable extends FieldMountable {
 	private addShowcase(containerEl: HTMLElement): void {
 		const showcaseArgument = this.getArgument(InputFieldArgumentType.SHOWCASE);
 		if (showcaseArgument && this.shouldAddCardContainer()) {
-			const codeEl = DomHelpers.createElement(containerEl, 'code', { class: 'mb-none' });
-			const linkEl = DomHelpers.createElement(codeEl, 'a', {
+			const codeEl = this.mb.domHelpers.createElement(containerEl, 'code', { class: 'mb-none' });
+			const linkEl = this.mb.domHelpers.createElement(codeEl, 'a', {
 				text: this.declarationString,
 				class: 'mb-no-link',
 			});
@@ -135,8 +134,8 @@ export class InputFieldMountable extends FieldMountable {
 		MB_DEBUG && console.debug('meta-bind | InputFieldMountable >> mount', this.declaration);
 		super.onMount(targetEl);
 
-		DomHelpers.empty(targetEl);
-		DomHelpers.addClass(targetEl, 'mb-input');
+		this.mb.domHelpers.empty(targetEl);
+		this.mb.domHelpers.addClass(targetEl, 'mb-input');
 
 		this.createInputField();
 
@@ -149,20 +148,20 @@ export class InputFieldMountable extends FieldMountable {
 
 		this.createErrorIndicator(containerEl);
 
-		const wrapperEl = DomHelpers.createElement(containerEl, 'div', { class: 'mb-input-wrapper' });
+		const wrapperEl = this.mb.domHelpers.createElement(containerEl, 'div', { class: 'mb-input-wrapper' });
 		this.inputField?.mount(wrapperEl);
 
 		const classArguments = this.getArguments(InputFieldArgumentType.CLASS);
 		for (const classArgument of classArguments) {
-			DomHelpers.addClasses(wrapperEl, classArgument.value);
+			this.mb.domHelpers.addClasses(wrapperEl, classArgument.value);
 		}
 
-		DomHelpers.addClass(wrapperEl, `mb-input-type-${this.declaration.inputFieldType}`);
+		this.mb.domHelpers.addClass(wrapperEl, `mb-input-type-${this.declaration.inputFieldType}`);
 
 		if (this.renderChildType === RenderChildType.BLOCK) {
-			DomHelpers.addClass(targetEl, 'mb-input-block');
+			this.mb.domHelpers.addClass(targetEl, 'mb-input-block');
 		} else {
-			DomHelpers.addClass(targetEl, 'mb-input-inline');
+			this.mb.domHelpers.addClass(targetEl, 'mb-input-inline');
 		}
 
 		this.addShowcase(containerEl);
@@ -174,6 +173,6 @@ export class InputFieldMountable extends FieldMountable {
 
 		this.inputField?.unmount();
 
-		showUnloadedMessage(targetEl, 'input field');
+		this.mb.domHelpers.showUnloadedMessage(targetEl, 'input field');
 	}
 }

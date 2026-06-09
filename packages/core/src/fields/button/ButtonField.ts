@@ -4,7 +4,7 @@ import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
 import type { ButtonConfig, ButtonContext } from 'meta-bind-core/src/config/ButtonConfig';
 import { ButtonClickContext, ButtonClickType } from 'meta-bind-core/src/config/ButtonConfig';
 import { Mountable } from 'meta-bind-core/src/utils/Mountable';
-import { DomHelpers, isTruthy } from 'meta-bind-core/src/utils/Utils';
+import { isTruthy } from 'meta-bind-core/src/utils/Utils';
 import type { Component as SvelteComponent } from 'svelte';
 import { mount, unmount } from 'svelte';
 import ButtonComponent from 'meta-bind-core/src/utils/components/ButtonComponent.svelte';
@@ -40,9 +40,9 @@ export class ButtonField extends Mountable {
 	}
 
 	protected onMount(targetEl: HTMLElement): void {
-		DomHelpers.empty(targetEl);
-		DomHelpers.removeAllClasses(targetEl);
-		DomHelpers.addClasses(targetEl, ['mb-button', this.isInline ? 'mb-button-inline' : 'mb-button-block']);
+		this.mb.domHelpers.empty(targetEl);
+		this.mb.domHelpers.removeAllClasses(targetEl);
+		this.mb.domHelpers.addClasses(targetEl, ['mb-button', this.isInline ? 'mb-button-inline' : 'mb-button-block']);
 
 		if (!this.isInline && !this.isPreview && !this.isInGroup) {
 			if (this.config.id) {
@@ -54,7 +54,7 @@ export class ButtonField extends Mountable {
 		}
 
 		if (this.config.class) {
-			DomHelpers.addClasses(
+			this.mb.domHelpers.addClasses(
 				targetEl,
 				this.config.class.split(' ').filter(x => x !== ''),
 			);

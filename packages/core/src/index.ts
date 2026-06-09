@@ -1,5 +1,6 @@
 import type { MathJsInstance } from 'mathjs';
 import type { API } from 'meta-bind-core/src/api/API';
+import type { DomHelpers } from 'meta-bind-core/src/api/DomHelpers';
 import type { FileAPI } from 'meta-bind-core/src/api/FileAPI';
 import type { InternalAPI } from 'meta-bind-core/src/api/InternalAPI';
 import { SyntaxHighlightingAPI } from 'meta-bind-core/src/api/SyntaxHighlightingAPI';
@@ -44,6 +45,7 @@ export abstract class MetaBind<Components extends MB_Comps = MB_Comps> {
 	jsViewFieldParser: JsViewFieldParser;
 	buttonParser: ButtonParser;
 	bindTargetParser: BindTargetParser;
+	dateParser: DateParser;
 	// Syntax Highlighting
 	syntaxHighlighting: SyntaxHighlightingAPI;
 	// Factories
@@ -55,6 +57,7 @@ export abstract class MetaBind<Components extends MB_Comps = MB_Comps> {
 	// Managers
 	metadataManager: MetadataManager;
 	mountableManager: MountableManager;
+	domHelpers!: DomHelpers;
 	// Other
 	math: MathJsInstance;
 	build: MetaBindBuild;
@@ -65,6 +68,7 @@ export abstract class MetaBind<Components extends MB_Comps = MB_Comps> {
 		this.jsViewFieldParser = new JsViewFieldParser(this);
 		this.buttonParser = new ButtonParser(this);
 		this.bindTargetParser = new BindTargetParser(this);
+		this.dateParser = new DateParser(this);
 
 		this.syntaxHighlighting = new SyntaxHighlightingAPI(this);
 
@@ -126,7 +130,6 @@ export abstract class MetaBind<Components extends MB_Comps = MB_Comps> {
 	}
 
 	updateInternalSettings(settings: MetaBindSettings): void {
-		DateParser.dateFormat = settings.preferredDateFormat;
 		setFirstWeekday(settings.firstWeekday);
 
 		this.loadTemplates();

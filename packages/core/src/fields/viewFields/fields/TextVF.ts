@@ -5,7 +5,7 @@ import type { ViewFieldVariable } from 'meta-bind-core/src/fields/viewFields/Vie
 import { ErrorLevel, MetaBindExpressionError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
 import { stringifyUnknown } from 'meta-bind-core/src/utils/Literal';
 import { Signal } from 'meta-bind-core/src/utils/Signal';
-import { DomHelpers, getUUID } from 'meta-bind-core/src/utils/Utils';
+import { getUUID } from 'meta-bind-core/src/utils/Utils';
 
 export class TextVF extends AbstractViewField<string> {
 	textParts?: (string | ViewFieldVariable)[];
@@ -74,7 +74,7 @@ export class TextVF extends AbstractViewField<string> {
 		this.renderMarkdown = this.mountable.getArgument(ViewFieldArgumentType.RENDER_MARKDOWN)?.value ?? false;
 
 		if (this.renderMarkdown) {
-			DomHelpers.addClass(container, 'mb-view-markdown');
+			this.mb.domHelpers.addClass(container, 'mb-view-markdown');
 		}
 	}
 
@@ -83,7 +83,7 @@ export class TextVF extends AbstractViewField<string> {
 
 		if (this.renderMarkdown) {
 			this.markdownUnloadCallback?.();
-			DomHelpers.empty(container);
+			this.mb.domHelpers.empty(container);
 
 			this.markdownUnloadCallback = await this.mountable.mb.internal.renderMarkdown(
 				text,

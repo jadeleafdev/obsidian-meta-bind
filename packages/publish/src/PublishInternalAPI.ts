@@ -1,6 +1,7 @@
 import type { LifecycleHook } from 'meta-bind-core/src/api/API';
 import type { Command, ModalOptions } from 'meta-bind-core/src/api/InternalAPI';
 import { InternalAPI } from 'meta-bind-core/src/api/InternalAPI';
+import type { MetaBindDate } from 'meta-bind-core/src/api/MetaBindDate';
 import type { ImageSuggesterIPF } from 'meta-bind-core/src/fields/inputFields/fields/ImageSuggester/ImageSuggesterIPF';
 import type {
 	SuggesterLikeIFP,
@@ -14,6 +15,7 @@ import type { IFuzzySearch } from 'meta-bind-core/src/utils/IFuzzySearch';
 import type { IJsRenderer } from 'meta-bind-core/src/utils/IJsRenderer';
 import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
 import type { PublishComponents, PublishMetaBind } from 'meta-bind-publish/src/main';
+import moment from 'moment';
 import { Notice, parseYaml, stringifyYaml, setIcon, Component } from 'obsidian/publish';
 import type { ZodType } from 'zod';
 import { z } from 'zod';
@@ -126,6 +128,10 @@ export class PublishInternalAPI extends InternalAPI<PublishComponents> {
 
 	public createContextMenu(_items: ContextMenuItemDefinition[]): IContextMenu {
 		throw new Error('not implemented');
+	}
+
+	public createDate(input?: string | Date, format?: string): MetaBindDate {
+		return moment(input, format);
 	}
 
 	public createNoteWithTemplater(

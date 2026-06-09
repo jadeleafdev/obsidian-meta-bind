@@ -8,6 +8,7 @@ import type { IJsRenderer } from 'meta-bind-core/src/utils/IJsRenderer';
 import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
 import { TestMetaBind, type TestComponents } from './TestPlugin';
 import type { IFuzzySearch } from 'meta-bind-core/src/utils/IFuzzySearch';
+import type { MetaBindDate } from 'meta-bind-core/src/api/MetaBindDate';
 import { ModalContent } from 'meta-bind-core/src/modals/ModalContent';
 import type { IModal } from 'meta-bind-core/src/modals/IModal';
 import { SelectModalContent } from 'meta-bind-core/src/modals/SelectModalContent';
@@ -16,6 +17,7 @@ import YAML from 'yaml';
 import { z, ZodType } from 'zod';
 import type { LifecycleHook } from 'meta-bind-core/src/api/API';
 import { zodFunction } from 'meta-bind-core/src/utils/ZodUtils';
+import moment from 'moment';
 
 export class TestInternalAPI extends InternalAPI<TestComponents> {
 	constructor(mb: TestMetaBind) {
@@ -111,6 +113,10 @@ export class TestInternalAPI extends InternalAPI<TestComponents> {
 
 	public createContextMenu(_items: ContextMenuItemDefinition[]): IContextMenu {
 		throw new Error('not implemented');
+	}
+
+	public createDate(input?: string | Date, format?: string): MetaBindDate {
+		return moment(input, format);
 	}
 
 	public evaluateTemplaterTemplate(_templateFilePath: string, _targetFilePath: string): Promise<string> {

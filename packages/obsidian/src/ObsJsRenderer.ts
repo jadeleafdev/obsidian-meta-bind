@@ -1,7 +1,6 @@
 import type { API } from 'jsEngine/src/api/API';
 import type { JsExecution } from 'jsEngine/src/engine/JsExecution';
 import type { IJsRenderer } from 'meta-bind-core/src/utils/IJsRenderer';
-import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
 import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import { getJsEnginePluginAPI } from 'meta-bind-obsidian/src/ObsUtils';
 import { Component } from 'obsidian';
@@ -39,8 +38,8 @@ export class ObsJsRenderer implements IJsRenderer {
 
 	async evaluate(contextOverrides: Record<string, unknown>): Promise<unknown> {
 		try {
-			DomHelpers.empty(this.containerEl);
-			DomHelpers.removeClass(this.containerEl, 'mb-error');
+			this.mb.domHelpers.empty(this.containerEl);
+			this.mb.domHelpers.removeClass(this.containerEl, 'mb-error');
 
 			this.renderComponent.unload();
 			this.renderComponent = new Component();
@@ -60,7 +59,7 @@ export class ObsJsRenderer implements IJsRenderer {
 		} catch (e) {
 			if (e instanceof Error) {
 				this.containerEl.innerText = e.message;
-				DomHelpers.addClass(this.containerEl, 'mb-error');
+				this.mb.domHelpers.addClass(this.containerEl, 'mb-error');
 			}
 
 			return undefined;

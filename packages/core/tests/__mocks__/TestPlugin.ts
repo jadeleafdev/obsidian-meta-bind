@@ -9,7 +9,6 @@ import {
 	InternalMetadataSource,
 	ScopeMetadataSource,
 } from 'meta-bind-core/src/metadata/InternalMetadataSources';
-import { DateParser } from 'meta-bind-core/src/parsers/DateParser';
 import {
 	type BindTargetDeclaration,
 	BindTargetStorageType,
@@ -27,7 +26,14 @@ import { parsePropPath } from 'meta-bind-core/src/utils/prop/PropParser';
 import { MountableManager } from 'meta-bind-core/src/MountableManager';
 import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
 import { MetaBind } from 'meta-bind-core/src';
+import { DomHelpers } from 'meta-bind-core/src/api/DomHelpers';
 import { TestFileAPI } from './TestFileAPI';
+
+class TestDomHelpers extends DomHelpers {
+	override get activeDocument(): Document {
+		return document;
+	}
+}
 
 /**
  * A default value to indicate that a field should be it's the default value.
@@ -64,6 +70,7 @@ export class TestMetaBind extends MetaBind<TestComponents> {
 
 	constructor() {
 		super();
+		this.domHelpers = new TestDomHelpers();
 
 		this.setComponents({
 			api: new TestAPI(this),
@@ -79,7 +86,6 @@ export class TestMetaBind extends MetaBind<TestComponents> {
 		this.settings = structuredClone(DEFAULT_SETTINGS);
 		this.settings.enableJs = true;
 
-		DateParser.dateFormat = this.settings.preferredDateFormat;
 		setFirstWeekday(this.settings.firstWeekday);
 	}
 

@@ -1,7 +1,9 @@
 import { describe, expect, test } from 'bun:test';
+import { DomHelpers } from 'meta-bind-core/src/api/DomHelpers';
 import {
 	areArraysEqual,
 	arrayStartsWith,
+	areObjectsEqual,
 	clamp,
 	ensureFileExtension,
 	getFolderPathFromFilePath,
@@ -12,7 +14,12 @@ import {
 	toArray,
 	toEnumeration,
 } from 'meta-bind-core/src/utils/Utils';
-import { areObjectsEqual } from 'meta-bind-core/src/utils/Utils';
+
+class TestDomHelpers extends DomHelpers {
+	override get activeDocument(): Document {
+		return document;
+	}
+}
 
 describe('utils', () => {
 	describe('clamp function', () => {
@@ -398,6 +405,19 @@ describe('utils', () => {
 					() => {},
 				),
 			).toBe(false);
+		});
+	});
+
+	describe('DomHelpers', () => {
+		test('creates elements in the parent document', () => {
+			const domHelpers = new TestDomHelpers();
+			const secondaryDocument = document.implementation.createHTMLDocument();
+			const parent = secondaryDocument.createElement('div');
+
+			const child = domHelpers.createElement(parent, 'span');
+
+			expect(child.ownerDocument).toBe(secondaryDocument);
+			expect(parent.firstChild).toBe(child);
 		});
 	});
 });

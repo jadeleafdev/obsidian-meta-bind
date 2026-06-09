@@ -4,7 +4,6 @@ import { ButtonGroupField } from 'meta-bind-core/src/fields/button/ButtonGroupFi
 import { FieldMountable } from 'meta-bind-core/src/fields/FieldMountable';
 import type { ButtonGroupDeclaration } from 'meta-bind-core/src/parsers/ButtonParser';
 import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection';
-import { DomHelpers, showUnloadedMessage } from 'meta-bind-core/src/utils/Utils';
 
 export class ButtonGroupMountable extends FieldMountable {
 	errorCollection: ErrorCollection;
@@ -38,7 +37,7 @@ export class ButtonGroupMountable extends FieldMountable {
 		MB_DEBUG && console.debug('meta-bind | ButtonGroupMountable >> mount', this.declaration);
 		super.onMount(targetEl);
 
-		DomHelpers.removeAllClasses(targetEl);
+		this.mb.domHelpers.removeAllClasses(targetEl);
 
 		if (this.declaration.errorCollection.isEmpty()) {
 			try {
@@ -76,6 +75,6 @@ export class ButtonGroupMountable extends FieldMountable {
 
 		this.buttonField?.unmount();
 
-		showUnloadedMessage(targetEl, 'inline button');
+		this.mb.domHelpers.showUnloadedMessage(targetEl, 'inline button');
 	}
 }

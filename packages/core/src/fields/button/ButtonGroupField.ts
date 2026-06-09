@@ -5,7 +5,6 @@ import type { ButtonConfig } from 'meta-bind-core/src/config/ButtonConfig';
 import { ButtonStyleType } from 'meta-bind-core/src/config/ButtonConfig';
 import { ButtonField } from 'meta-bind-core/src/fields/button/ButtonField';
 import { Mountable } from 'meta-bind-core/src/utils/Mountable';
-import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
 import type { Component as SvelteComponent } from 'svelte';
 import { mount, unmount } from 'svelte';
 import ButtonComponent from 'meta-bind-core/src/utils/components/ButtonComponent.svelte';
@@ -34,8 +33,8 @@ export class ButtonGroupField extends Mountable {
 	}
 
 	private renderInitialButton(element: HTMLElement, buttonId: string): ReturnType<SvelteComponent> {
-		DomHelpers.removeAllClasses(element);
-		DomHelpers.addClasses(element, [
+		this.mb.domHelpers.removeAllClasses(element);
+		this.mb.domHelpers.addClasses(element, [
 			'mb-button',
 			this.renderChildType === RenderChildType.INLINE ? 'mb-button-inline' : 'mb-button-block',
 		]);
@@ -54,14 +53,14 @@ export class ButtonGroupField extends Mountable {
 	}
 
 	protected onMount(targetEl: HTMLElement): void {
-		DomHelpers.empty(targetEl);
-		DomHelpers.addClasses(targetEl, [
+		this.mb.domHelpers.empty(targetEl);
+		this.mb.domHelpers.addClasses(targetEl, [
 			'mb-button-group',
 			this.renderChildType === RenderChildType.INLINE ? 'mb-button-group-inline' : 'mb-button-group-block',
 		]);
 
 		for (const buttonId of this.referencedIds) {
-			const wrapperEl = DomHelpers.createElement(targetEl, 'span');
+			const wrapperEl = this.mb.domHelpers.createElement(targetEl, 'span');
 
 			let initialButton: ReturnType<SvelteComponent> | undefined = this.renderInitialButton(wrapperEl, buttonId);
 			let button: ButtonField | undefined;
@@ -99,6 +98,6 @@ export class ButtonGroupField extends Mountable {
 	}
 
 	protected onUnmount(targetEl: HTMLElement): void {
-		DomHelpers.empty(targetEl);
+		this.mb.domHelpers.empty(targetEl);
 	}
 }

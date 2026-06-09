@@ -1,30 +1,38 @@
-import type { Moment } from 'moment';
-import moment from 'moment';
+import type { MetaBind } from 'meta-bind-core/src';
+import type { MetaBindDate } from 'meta-bind-core/src/api/MetaBindDate';
 
 export class DateParser {
-	public static dateFormat: string;
+	private readonly mb: MetaBind;
 
-	public static stringify(date: Moment): string {
-		return date.format(this.dateFormat);
+	constructor(mb: MetaBind) {
+		this.mb = mb;
 	}
 
-	public static parse(dateString: string): Moment {
-		return moment(dateString, DateParser.dateFormat);
+	public stringify(date: MetaBindDate): string {
+		return date.format(this.mb.getSettings().preferredDateFormat);
 	}
 
-	public static getDefaultDate(): Moment {
-		return moment(new Date());
+	public parse(dateString: string): MetaBindDate {
+		return this.mb.internal.createDate(dateString, this.mb.getSettings().preferredDateFormat);
 	}
 
-	public static getDefaultDay(): number {
+	public getDefaultDate(): MetaBindDate {
+		return this.mb.internal.createDate();
+	}
+
+	public fromDate(date: Date): MetaBindDate {
+		return this.mb.internal.createDate(date);
+	}
+
+	public getDefaultDay(): number {
 		return new Date().getDate();
 	}
 
-	public static getDefaultMonth(): number {
+	public getDefaultMonth(): number {
 		return 1;
 	}
 
-	public static getDefaultYear(): number {
+	public getDefaultYear(): number {
 		return new Date().getFullYear();
 	}
 }

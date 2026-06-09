@@ -1,4 +1,5 @@
 import type { LifecycleHook } from 'meta-bind-core/src/api/API';
+import type { MetaBindDate } from 'meta-bind-core/src/api/MetaBindDate';
 import type {
 	ImageSuggesterLikeIPF,
 	SuggesterLikeIFP,
@@ -19,7 +20,6 @@ import type { ContextMenuItemDefinition, IContextMenu } from 'meta-bind-core/src
 import type { IFuzzySearch } from 'meta-bind-core/src/utils/IFuzzySearch';
 import type { IJsRenderer } from 'meta-bind-core/src/utils/IJsRenderer';
 import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
-import type { Moment } from 'moment';
 import { mount, unmount } from 'svelte';
 import type { z } from 'zod';
 import type { MB_Comps, MetaBind } from '..';
@@ -227,6 +227,8 @@ export abstract class InternalAPI<Components extends MB_Comps> {
 
 	abstract createContextMenu(items: ContextMenuItemDefinition[]): IContextMenu;
 
+	abstract createDate(input?: string | Date, format?: string): MetaBindDate;
+
 	abstract evaluateTemplaterTemplate(templateFilePath: string, targetFilePath: string): Promise<string>;
 
 	abstract createNoteWithTemplater(
@@ -307,14 +309,15 @@ export abstract class InternalAPI<Components extends MB_Comps> {
 		).open();
 	}
 
-	openDatePickerModal(value: Moment | null, setValue: (value: Moment | null) => void): void {
+	openDatePickerModal(value: MetaBindDate | null, setValue: (value: MetaBindDate | null) => void): void {
 		this.createModal(
 			new SvelteModalContent((modal, targetEl) => {
 				return mount(DatePickerInput, {
 					target: targetEl,
 					props: {
+						mb: this.mb,
 						selectedDate: value,
-						dateChangeCallback: (value: Moment | null): void => {
+						dateChangeCallback: (value: MetaBindDate | null): void => {
 							setValue(value);
 							modal.closeModal();
 						},

@@ -1,4 +1,5 @@
 import { MetaBind, MetaBindBuild } from 'meta-bind-core/src';
+import { DomHelpers } from 'meta-bind-core/src/api/DomHelpers';
 import { RenderChildType } from 'meta-bind-core/src/config/APIConfigs';
 import { EMBED_MAX_DEPTH } from 'meta-bind-core/src/config/FieldConfigs';
 import {
@@ -25,6 +26,12 @@ import { MetaBindSettingTab } from 'meta-bind-obsidian/src/settings/SettingsTab'
 import type { App, MarkdownPostProcessorContext, WorkspaceLeaf } from 'obsidian';
 import { loadPrism, stringifyYaml } from 'obsidian';
 
+class ObsDomHelpers extends DomHelpers {
+	override get activeDocument(): Document {
+		return activeDocument;
+	}
+}
+
 export interface ObsComponents {
 	api: ObsAPI;
 	internal: ObsInternalAPI;
@@ -42,6 +49,7 @@ export class ObsMetaBind extends MetaBind<ObsComponents> {
 
 		this.app = plugin.app;
 		this.plugin = plugin;
+		this.domHelpers = new ObsDomHelpers();
 
 		this.setComponents({
 			api: new ObsAPI(this),

@@ -1,6 +1,7 @@
 import type { LifecycleHook } from 'meta-bind-core/src/api/API';
 import type { Command, ModalOptions } from 'meta-bind-core/src/api/InternalAPI';
 import { InternalAPI } from 'meta-bind-core/src/api/InternalAPI';
+import type { MetaBindDate } from 'meta-bind-core/src/api/MetaBindDate';
 import type {
 	ImageSuggesterLikeIPF,
 	SuggesterLikeIFP,
@@ -22,7 +23,17 @@ import { ObsJsRenderer } from 'meta-bind-obsidian/src/ObsJsRenderer';
 import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import { getJsEnginePluginAPI, getTemplaterPluginAPI, Templater_RunMode } from 'meta-bind-obsidian/src/ObsUtils';
 import type { App } from 'obsidian';
-import { Component, MarkdownRenderer, Notice, parseYaml, setIcon, stringifyYaml, TFile, TFolder } from 'obsidian';
+import {
+	Component,
+	MarkdownRenderer,
+	Notice,
+	parseYaml,
+	setIcon,
+	stringifyYaml,
+	TFile,
+	TFolder,
+	moment,
+} from 'obsidian';
 import type { ZodType } from 'zod';
 import { z } from 'zod';
 
@@ -168,9 +179,14 @@ export class ObsInternalAPI extends InternalAPI<ObsMetaBind> {
 	}
 
 	public createContextMenu(items: ContextMenuItemDefinition[]): IContextMenu {
-		const menu = new ObsContextMenu();
+		const menu = new ObsContextMenu(this.omb.domHelpers);
 		menu.setItems(items);
 		return menu;
+	}
+
+	public createDate(input?: string | Date, format?: string): MetaBindDate {
+		const createMoment = moment as unknown as (input?: string | Date, format?: string) => MetaBindDate;
+		return createMoment(input, format);
 	}
 
 	public async evaluateTemplaterTemplate(templateFilePath: string, targetFilePath: string): Promise<string> {

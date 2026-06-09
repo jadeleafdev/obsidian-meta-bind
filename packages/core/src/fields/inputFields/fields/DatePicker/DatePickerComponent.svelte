@@ -1,16 +1,16 @@
 <script lang="ts">
-	import type { Moment } from 'moment';
+	import type { MetaBindDate } from 'meta-bind-core/src/api/MetaBindDate';
 	import type { InputFieldSvelteProps } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
 	import Icon from 'meta-bind-core/src/utils/components/Icon.svelte';
 
-	const props: InputFieldSvelteProps<Moment | null> & {
+	const props: InputFieldSvelteProps<MetaBindDate | null> & {
 		dateFormat: string;
 		showDatePicker: () => void;
 	} = $props();
 
 	let value = $state(props.value);
 
-	export function setValue(v: Moment | null): void {
+	export function setValue(v: MetaBindDate | null): void {
 		value = v;
 	}
 

@@ -263,64 +263,6 @@ export function expectType<T>(_: T): void {
 	// no op
 }
 
-export function showUnloadedMessage(container: HTMLElement, subject: string): void {
-	container.innerHTML = '';
-	container.className = '';
-
-	const span = document.createElement('span');
-	span.className = 'mb-warning mb-unloaded';
-	span.innerText = `[MB_UNLOADED] ${subject}`;
-
-	container.appendChild(span);
-}
-
-export class DomHelpers {
-	static createElement<K extends keyof HTMLElementTagNameMap>(
-		parent: HTMLElement,
-		tagName: K,
-		options?: {
-			text?: string;
-			class?: string;
-		},
-	): HTMLElementTagNameMap[K] {
-		const el = document.createElement(tagName);
-		if (options?.text) {
-			el.innerText = options.text;
-		}
-		if (options?.class) {
-			el.className = options.class;
-		}
-		parent.appendChild(el);
-		return el;
-	}
-
-	static addClass(el: HTMLElement, cls: string): void {
-		el.classList.add(...cls.split(' '));
-	}
-
-	static addClasses(el: HTMLElement, cls: string[]): void {
-		el.classList.add(...cls);
-	}
-
-	static removeClass(el: HTMLElement, cls: string): void {
-		el.classList.remove(...cls.split(' '));
-	}
-
-	static hasClass(el: HTMLElement, cls: string): boolean {
-		return el.classList.contains(cls);
-	}
-
-	static removeAllClasses(el: HTMLElement): void {
-		el.className = '';
-	}
-
-	static empty(el: HTMLElement): void {
-		while (el.lastChild) {
-			el.removeChild(el.lastChild);
-		}
-	}
-}
-
 export function getFolderPathFromFilePath(filePath: string): string {
 	const pathSeparator = filePath.lastIndexOf('/');
 	if (pathSeparator === -1) {

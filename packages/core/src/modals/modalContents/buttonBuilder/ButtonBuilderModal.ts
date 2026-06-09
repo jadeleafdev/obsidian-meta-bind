@@ -1,7 +1,6 @@
 import type { MetaBind } from 'meta-bind-core/src';
 import type { ButtonConfig } from 'meta-bind-core/src/config/ButtonConfig';
 import { ModalContent } from 'meta-bind-core/src/modals/ModalContent';
-import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
 import type { Component as SvelteComponent } from 'svelte';
 import { mount, unmount } from 'svelte';
 import ButtonBuilderModalComponent from 'meta-bind-core/src/modals/modalContents/buttonBuilder/ButtonBuilderModalComponent.svelte';
@@ -26,7 +25,7 @@ export class ButtonBuilderModal extends ModalContent {
 	}
 
 	protected onMount(targetEl: HTMLElement): void {
-		DomHelpers.empty(targetEl);
+		this.mb.domHelpers.empty(targetEl);
 		if (this.component) {
 			void unmount(this.component);
 		}
@@ -42,7 +41,7 @@ export class ButtonBuilderModal extends ModalContent {
 	}
 
 	protected onUnmount(targetEl: HTMLElement): void {
-		DomHelpers.empty(targetEl);
+		this.mb.domHelpers.empty(targetEl);
 		if (this.component) {
 			void unmount(this.component);
 		}

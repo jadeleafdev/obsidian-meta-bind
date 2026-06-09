@@ -9,7 +9,6 @@ import type { SimpleViewFieldDeclaration } from 'meta-bind-core/src/parsers/view
 import type { MBExtendedLiteral } from 'meta-bind-core/src/utils/Literal';
 import { parsePropPath } from 'meta-bind-core/src/utils/prop/PropParser';
 import { Signal } from 'meta-bind-core/src/utils/Signal';
-import { showUnloadedMessage } from 'meta-bind-core/src/utils/Utils';
 import type { Component as SvelteComponent } from 'svelte';
 import { mount, unmount } from 'svelte';
 import MetaBindTableComponent from 'meta-bind-core/src/fields/metaBindTable/MetaBindTableComponent.svelte';
@@ -183,6 +182,6 @@ export class TableMountable extends FieldMountable {
 			void unmount(this.tableComponent);
 		}
 
-		showUnloadedMessage(targetEl, 'table');
+		this.mb.domHelpers.showUnloadedMessage(targetEl, 'table');
 	}
 }

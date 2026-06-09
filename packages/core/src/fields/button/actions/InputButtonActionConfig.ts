@@ -20,11 +20,16 @@ export class InputButtonActionConfig extends AbstractButtonActionConfig<InputBut
 		_context: ButtonContext,
 		_click: ButtonClickContext,
 	): Promise<void> {
-		const el = document.activeElement;
-		if (el && el instanceof HTMLInputElement) {
-			el.setRangeText(action.str, el.selectionStart!, el.selectionEnd!, 'end');
-			el.dispatchEvent(new Event('input', { bubbles: true }));
+		const activeDocument = this.mb.domHelpers.activeDocument;
+		const activeWindow = activeDocument.defaultView;
+		const activeElement = activeDocument.activeElement;
+
+		if (!activeWindow || !(activeElement instanceof activeWindow.HTMLInputElement)) {
+			return;
 		}
+
+		activeElement.setRangeText(action.str, activeElement.selectionStart!, activeElement.selectionEnd!, 'end');
+		activeElement.dispatchEvent(new activeWindow.Event('input', { bubbles: true }));
 	}
 
 	create(): Required<InputButtonAction> {

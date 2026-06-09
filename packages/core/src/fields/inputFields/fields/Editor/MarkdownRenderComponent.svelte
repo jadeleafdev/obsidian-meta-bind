@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { MetaBind } from 'meta-bind-core/src';
-	import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
 	import { onDestroy } from 'svelte';
 
 	let element: HTMLElement;
@@ -23,7 +22,7 @@
 
 	async function render(v: string): Promise<void> {
 		markdownUnloadCallback?.();
-		DomHelpers.empty(element);
+		mb.domHelpers.empty(element);
 		markdownUnloadCallback = await mb.internal.renderMarkdown(v, element, filePath);
 	}
 

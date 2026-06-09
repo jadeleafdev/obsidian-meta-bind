@@ -1,5 +1,4 @@
 import { ModalContent } from 'meta-bind-core/src/modals/ModalContent';
-import { DomHelpers } from 'meta-bind-core/src/utils/Utils';
 import type { Component as SvelteComponent } from 'svelte';
 import { unmount } from 'svelte';
 
@@ -19,7 +18,7 @@ export class SvelteModalContent<T extends SvelteComponent> extends ModalContent 
 	}
 
 	protected onMount(targetEl: HTMLElement): void {
-		DomHelpers.empty(targetEl);
+		targetEl.replaceChildren();
 
 		this.component = this.createComponent(this, targetEl);
 	}
@@ -29,6 +28,6 @@ export class SvelteModalContent<T extends SvelteComponent> extends ModalContent 
 			void unmount(this.component);
 		}
 
-		DomHelpers.empty(targetEl);
+		targetEl.replaceChildren();
 	}
 }

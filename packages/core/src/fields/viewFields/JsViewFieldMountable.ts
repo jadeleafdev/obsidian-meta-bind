@@ -7,7 +7,7 @@ import { ErrorCollection } from 'meta-bind-core/src/utils/errors/ErrorCollection
 import { ErrorLevel, MetaBindJsError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
 import type { IJsRenderer } from 'meta-bind-core/src/utils/IJsRenderer';
 import { Signal } from 'meta-bind-core/src/utils/Signal';
-import { DomHelpers, getUUID, showUnloadedMessage } from 'meta-bind-core/src/utils/Utils';
+import { getUUID } from 'meta-bind-core/src/utils/Utils';
 
 export class JsViewFieldMountable extends FieldMountable {
 	errorCollection: ErrorCollection;
@@ -100,8 +100,8 @@ export class JsViewFieldMountable extends FieldMountable {
 		MB_DEBUG && console.debug('meta-bind | JsViewFieldMountable >> mount', this.declaration);
 		super.onMount(targetEl);
 
-		DomHelpers.addClass(targetEl, 'mb-view');
-		DomHelpers.empty(targetEl);
+		this.mb.domHelpers.addClass(targetEl, 'mb-view');
+		this.mb.domHelpers.empty(targetEl);
 
 		if (!this.mb.internal.isJsEngineAvailable()) {
 			this.errorCollection.add(
@@ -129,9 +129,9 @@ export class JsViewFieldMountable extends FieldMountable {
 			return;
 		}
 
-		const wrapperEl: HTMLDivElement = document.createElement('div');
-		DomHelpers.addClass(wrapperEl, 'mb-view-wrapper');
-		DomHelpers.addClass(targetEl, 'mb-view-rendered');
+		const wrapperEl = this.mb.domHelpers.createElement(targetEl, 'div');
+		this.mb.domHelpers.addClass(wrapperEl, 'mb-view-wrapper');
+		this.mb.domHelpers.addClass(targetEl, 'mb-view-rendered');
 
 		this.jsRenderer = this.mb.internal.createJsRenderer(
 			wrapperEl,
@@ -141,8 +141,6 @@ export class JsViewFieldMountable extends FieldMountable {
 		);
 
 		this.registerSelfToMetadataManager();
-
-		targetEl.appendChild(wrapperEl);
 	}
 
 	protected onUnmount(targetEl: HTMLElement): void {
@@ -151,6 +149,6 @@ export class JsViewFieldMountable extends FieldMountable {
 
 		this.unregisterSelfFromMetadataManager();
 
-		showUnloadedMessage(targetEl, 'js view field');
+		this.mb.domHelpers.showUnloadedMessage(targetEl, 'js view field');
 	}
 }

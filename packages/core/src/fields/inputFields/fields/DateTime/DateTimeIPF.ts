@@ -1,6 +1,5 @@
 import { AbstractInputField } from 'meta-bind-core/src/fields/inputFields/AbstractInputField';
 import type { InputFieldSvelteComponent } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
-import { DateParser } from 'meta-bind-core/src/parsers/DateParser';
 import { parseUnknownToString } from 'meta-bind-core/src/utils/Literal';
 import DateTimeComponent from 'meta-bind-core/src/fields/inputFields/fields/DateTime/DateTimeComponent.svelte';
 
@@ -10,7 +9,7 @@ export class DateTimeIPF extends AbstractInputField<string, string> {
 	}
 
 	protected getFallbackDefaultValue(): string {
-		return DateParser.stringify(DateParser.getDefaultDate());
+		return this.mountable.mb.dateParser.stringify(this.mountable.mb.dateParser.getDefaultDate());
 	}
 
 	protected getSvelteComponent(): InputFieldSvelteComponent<string> {

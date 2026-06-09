@@ -1,7 +1,6 @@
 import type { Weekday } from 'meta-bind-core/src/Settings';
 import { getWeekdayByName, monthNames, weekdays } from 'meta-bind-core/src/Settings';
 import { mod } from 'meta-bind-core/src/utils/Utils';
-import Moment from 'moment/moment';
 
 export let firstWeekday: Weekday = weekdays[1];
 
@@ -14,7 +13,7 @@ export function getMonthName(index: number): string {
 }
 
 export function getDateRows(monthIndex: number, year: number): number[] {
-	const days: number = Moment(new Date(year, monthIndex)).daysInMonth(); // amount of days in month
+	const days: number = new Date(year, monthIndex + 1, 0).getDate(); // amount of days in month
 	let rows: number[] = new Array(42).fill(0) as number[]; // empty 42 long array (28 + 7 + 7)
 	const startIndex: number = getWeekDay(new Date(year, monthIndex, 1)); // index offset based on weekday of first day in month
 

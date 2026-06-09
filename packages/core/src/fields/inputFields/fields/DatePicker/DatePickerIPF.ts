@@ -1,13 +1,12 @@
+import type { MetaBindDate } from 'meta-bind-core/src/api/MetaBindDate';
 import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
 import type { OptionInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
 import { AbstractInputField } from 'meta-bind-core/src/fields/inputFields/AbstractInputField';
 import type { InputFieldMountable } from 'meta-bind-core/src/fields/inputFields/InputFieldMountable';
 import type { InputFieldSvelteComponent } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
-import { DateParser } from 'meta-bind-core/src/parsers/DateParser';
-import type { Moment } from 'moment';
 import DatePickerComponent from 'meta-bind-core/src/fields/inputFields/fields/DatePicker/DatePickerComponent.svelte';
 
-export class DatePickerIPF extends AbstractInputField<string | null, Moment | null> {
+export class DatePickerIPF extends AbstractInputField<string | null, MetaBindDate | null> {
 	options: OptionInputFieldArgument[];
 
 	constructor(mountable: InputFieldMountable) {
@@ -23,36 +22,36 @@ export class DatePickerIPF extends AbstractInputField<string | null, Moment | nu
 		if (value === undefined || typeof value !== 'string') {
 			return undefined;
 		}
-		const date = DateParser.parse(value);
+		const date = this.mountable.mb.dateParser.parse(value);
 		if (date.isValid()) {
-			return DateParser.stringify(date);
+			return this.mountable.mb.dateParser.stringify(date);
 		} else {
 			return undefined;
 		}
 	}
 
-	protected getFallbackDefaultValue(): Moment {
-		return DateParser.getDefaultDate();
+	protected getFallbackDefaultValue(): MetaBindDate {
+		return this.mountable.mb.dateParser.getDefaultDate();
 	}
 
-	protected getSvelteComponent(): InputFieldSvelteComponent<Moment | null> {
+	protected getSvelteComponent(): InputFieldSvelteComponent<MetaBindDate | null> {
 		// @ts-ignore
 		return DatePickerComponent;
 	}
 
-	protected rawMapValue(value: Moment | null): string | null {
+	protected rawMapValue(value: MetaBindDate | null): string | null {
 		if (value === null) {
 			return null;
 		}
 
-		return DateParser.stringify(value);
+		return this.mountable.mb.dateParser.stringify(value);
 	}
 
-	protected rawReverseMapValue(value: string | null): Moment | null | undefined {
+	protected rawReverseMapValue(value: string | null): MetaBindDate | null | undefined {
 		if (value === null) {
 			return null;
 		}
-		const date = DateParser.parse(value);
+		const date = this.mountable.mb.dateParser.parse(value);
 		if (date.isValid()) {
 			return date;
 		} else {
@@ -64,7 +63,7 @@ export class DatePickerIPF extends AbstractInputField<string | null, Moment | nu
 		return {
 			dateFormat: this.mountable.mb.getSettings().preferredDateFormat,
 			showDatePicker: (): void => {
-				this.mountable.mb.internal.openDatePickerModal(this.getInternalValue(), (value: Moment | null) =>
+				this.mountable.mb.internal.openDatePickerModal(this.getInternalValue(), (value: MetaBindDate | null) =>
 					this.setInternalValue(value),
 				);
 			},
