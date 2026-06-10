@@ -20,6 +20,9 @@ export class MetaBindSettingTab extends PluginSettingTab {
 
 	getSettingDefinitions(): SettingDefinitionItem<MetaBindSettingKey>[] {
 		const items: SettingDefinitionItem<MetaBindSettingKey>[] = [];
+		const inputFieldTemplateSettings = new InputFieldTemplateSettings(this.app, this.mb, () => this.update());
+		const buttonTemplateSettings = new ButtonTemplateSettings(this.mb, () => this.update());
+		const excludedFolderSettings = new ExcludedFolderSettings(this.app, this.mb, () => this.update());
 
 		if (this.mb.build === MetaBindBuild.DEV || this.mb.build === MetaBindBuild.CANARY) {
 			items.push({
@@ -69,19 +72,25 @@ export class MetaBindSettingTab extends PluginSettingTab {
 				type: 'page',
 				name: 'Input field templates',
 				desc: 'You can specify input field templates here, and access them using `INPUT[template_name][overrides (optional)]` in your notes.',
-				items: new InputFieldTemplateSettings(this.app, this.mb, () => this.update()).getDefinitions(),
+				displayValue: inputFieldTemplateSettings.getDisplayValue(),
+				status: inputFieldTemplateSettings.getStatus(),
+				items: inputFieldTemplateSettings.getDefinitions(),
 			},
 			{
 				type: 'page',
 				name: 'Button templates',
 				desc: 'You can specify button field templates here, and access them in inline buttons.',
-				items: new ButtonTemplateSettings(this.mb, () => this.update()).getDefinitions(),
+				displayValue: buttonTemplateSettings.getDisplayValue(),
+				status: buttonTemplateSettings.getStatus(),
+				items: buttonTemplateSettings.getDefinitions(),
 			},
 			{
 				type: 'page',
 				name: 'Excluded folders',
 				desc: 'You can specify excluded folders here. The plugin will not work within excluded folders.',
-				items: new ExcludedFolderSettings(this.app, this.mb, () => this.update()).getDefinitions(),
+				displayValue: excludedFolderSettings.getDisplayValue(),
+				status: excludedFolderSettings.getStatus(),
+				items: excludedFolderSettings.getDefinitions(),
 			},
 			{
 				type: 'group',

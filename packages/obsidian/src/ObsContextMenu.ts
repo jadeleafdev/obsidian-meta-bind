@@ -30,6 +30,13 @@ export class ObsContextMenu implements IContextMenu {
 		this.menu.showAtPosition({ x, y }, this.domHelpers.activeDocument);
 	}
 
+	public showAtElement(el: HTMLElement): void {
+		this.menu.showAtPosition(
+			{ x: el.getBoundingClientRect().right, y: el.getBoundingClientRect().bottom },
+			this.domHelpers.activeDocument,
+		);
+	}
+
 	public showWithEvent(event: MouseEvent): void {
 		this.menu.showAtMouseEvent(event);
 		event.stopImmediatePropagation();

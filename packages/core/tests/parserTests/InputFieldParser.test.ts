@@ -117,3 +117,12 @@ describe('should error on invalid input field type', () => {
 		expect(res.errorCollection.hasErrors()).toBe(true);
 	});
 });
+
+describe('template validation', () => {
+	test('validates without replacing active templates', () => {
+		mb.inputFieldParser.parseTemplates([{ name: 'active', declaration: 'INPUT[text]' }]);
+
+		expect(mb.inputFieldParser.validateTemplate({ name: 'invalid', declaration: 'INPUT[' }).hasErrors()).toBe(true);
+		expect(mb.inputFieldParser.getTemplate('active')).toBeDefined();
+	});
+});

@@ -11,29 +11,41 @@ export class ExcludedFolderSettings {
 		private readonly onUpdate: () => void,
 	) {}
 
+	getDisplayValue(): string {
+		const count = this.mb.getSettings().excludedFolders.length;
+		return `${count} folder${count === 1 ? '' : 's'}`;
+	}
+
+	getStatus(): 'warning' | null {
+		return this.mb.getSettings().excludedFolders.some(folder => this.getFolderWarning(folder) !== null)
+			? 'warning'
+			: null;
+	}
+
 	getDefinitions(): SettingDefinitionItem<MetaBindSettingKey>[] {
 		const folders = this.mb.getSettings().excludedFolders;
 
 		return [
-			{
-				name: 'Add folder',
-				action: (): void => {
-					this.openExcludedFolderModal(undefined, folder => {
-						updateListItems(
-							this.mb.getSettings().excludedFolders,
-							folders => {
-								folders.push(folder);
-							},
-							folders => this.applyExcludedFolders(folders),
-							this.onUpdate,
-						);
-					});
-				},
-			},
-			getListSettingGroup({
+			getListSettingGroup(this.mb, {
 				heading: 'Folders',
 				emptyState: 'No excluded folders configured.',
 				items: folders,
+				addItems: {
+					type: 'single',
+					label: 'Add folder',
+					action: (): void => {
+						this.openExcludedFolderModal(undefined, folder => {
+							updateListItems(
+								this.mb.getSettings().excludedFolders,
+								folders => {
+									folders.push(folder);
+								},
+								folders => this.applyExcludedFolders(folders),
+								this.onUpdate,
+							);
+						});
+					},
+				},
 				renderItem: (folder, index) => this.getExcludedFolderSetting(folder, index),
 				applyItems: folders => this.applyExcludedFolders(folders),
 				onUpdate: this.onUpdate,
@@ -42,11 +54,18 @@ export class ExcludedFolderSettings {
 	}
 
 	private getExcludedFolderSetting(folder: string, index: number): SettingGroupItem<MetaBindSettingKey> {
+		const warning = this.getFolderWarning(folder);
+
 		return {
 			name: folder || `Excluded folder ${index + 1}`,
-			desc: folder === '' ? 'Folder path may not be empty.' : 'Plugin behavior is disabled in this folder.',
+			desc: warning ?? 'Plugin behavior is disabled in this folder.',
 			searchable: folder !== '',
 			render: (setting: Setting): void => {
+				if (warning !== null) {
+					setting.addDisplayValue(display => {
+						display.setValue(folder === '' ? 'Invalid' : 'Missing').setStatus('warning');
+					});
+				}
 				setting.addExtraButton(cb => {
 					cb.setIcon('pencil');
 					cb.setTooltip('Edit folder');
@@ -65,6 +84,19 @@ export class ExcludedFolderSettings {
 				});
 			},
 		};
+	}
+
+	private getFolderWarning(folder: string): string | null {
+		if (folder === '') {
+			return 'Folder path may not be empty.';
+		}
+		if (!this.app.workspace.layoutReady) {
+			return null;
+		}
+		if (this.app.vault.getFolderByPath(folder) === null) {
+			return 'This folder does not exist in the vault.';
+		}
+		return null;
 	}
 
 	private applyExcludedFolders(folders: string[]): boolean {

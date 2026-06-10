@@ -190,6 +190,10 @@ export class InputFieldParser implements ITemplateSupplier<UnvalidatedInputField
 		};
 	}
 
+	public validateTemplate(template: InputFieldTemplate): ErrorCollection {
+		return this.parseTemplateString(template.declaration).errorCollection;
+	}
+
 	public parseTemplates(templates: InputFieldTemplate[]): ErrorCollection {
 		this.templates = [];
 		const errorCollection: ErrorCollection = new ErrorCollection('input field template parser');

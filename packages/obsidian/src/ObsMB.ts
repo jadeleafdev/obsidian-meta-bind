@@ -24,7 +24,7 @@ import { ObsNotePosition } from 'meta-bind-obsidian/src/ObsNotePosition';
 import { PlaygroundView, MB_PLAYGROUND_VIEW_TYPE } from 'meta-bind-obsidian/src/playground/PlaygroundView';
 import { MetaBindSettingTab } from 'meta-bind-obsidian/src/settings/SettingsTab';
 import type { App, MarkdownPostProcessorContext, WorkspaceLeaf } from 'obsidian';
-import { loadPrism, stringifyYaml } from 'obsidian';
+import { debounce, loadPrism, stringifyYaml } from 'obsidian';
 
 class ObsDomHelpers extends DomHelpers {
 	override get activeDocument(): Document {
@@ -57,7 +57,15 @@ export class ObsMetaBind extends MetaBind<ObsComponents> {
 			file: new ObsFileAPI(this),
 		});
 
-		this.plugin.addSettingTab(new MetaBindSettingTab(this.app, this));
+		const settingTab = new MetaBindSettingTab(this.app, this);
+		this.plugin.addSettingTab(settingTab);
+		this.app.workspace.onLayoutReady(() => {
+			const refreshSettings = debounce(() => settingTab.update(), 200, true);
+			settingTab.update();
+			this.plugin.registerEvent(this.app.vault.on('create', refreshSettings));
+			this.plugin.registerEvent(this.app.vault.on('delete', refreshSettings));
+			this.plugin.registerEvent(this.app.vault.on('rename', refreshSettings));
+		});
 
 		// check dependencies
 		this.dependencyManager = new DependencyManager(this, []);

@@ -10,5 +10,7 @@ export interface IContextMenu {
 
 	show(x: number, y: number): void;
 
+	showAtElement(el: HTMLElement): void;
+
 	showWithEvent(event: MouseEvent): void;
 }
