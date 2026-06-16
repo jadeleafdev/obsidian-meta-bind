@@ -1,5 +1,15 @@
 # Obsidian Meta Bind Changelog
 
+# 1.5.1
+
+Changes
+
+- Migrated to the new settings API changes in 1.13.1
+
+Misc
+
+- Fix more Obsidian review warnings
+
 # 1.5.0
 
 Changes
