@@ -90,7 +90,7 @@ export class EmbedMountable extends FieldMountable {
 	}
 
 	protected onMount(targetEl: HTMLElement): void {
-		MB_DEBUG && console.debug('meta-bind | EmbedMountable >> mount', this.content);
+		if (MB_DEBUG) console.debug('meta-bind | EmbedMountable >> mount', this.content);
 		super.onMount(targetEl);
 
 		this.mb.domHelpers.addClass(targetEl, 'mb-embed');
@@ -99,7 +99,7 @@ export class EmbedMountable extends FieldMountable {
 	}
 
 	protected onUnmount(targetEl: HTMLElement): void {
-		MB_DEBUG && console.debug('meta-bind | EmbedMountable >> unmount', this.content);
+		if (MB_DEBUG) console.debug('meta-bind | EmbedMountable >> unmount', this.content);
 		super.onUnmount(targetEl);
 
 		this.mb.domHelpers.removeClass(targetEl, 'mb-embed');

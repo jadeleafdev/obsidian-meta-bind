@@ -75,7 +75,7 @@ export class PublishMetaBind extends MetaBind<PublishComponents> {
 	}
 
 	onLoad(): void {
-		MB_DEBUG && console.log('meta-bind-publish | loaded');
+		if (MB_DEBUG) console.log('meta-bind-publish | loaded');
 
 		this.updateInternalSettings();
 
@@ -178,7 +178,7 @@ export class PublishMetaBind extends MetaBind<PublishComponents> {
 	}
 
 	onUnload(): void {
-		MB_DEBUG && console.log('meta-bind-publish | unloaded');
+		if (MB_DEBUG) console.log('meta-bind-publish | unloaded');
 	}
 
 	load(): void {

@@ -1,5 +1,4 @@
-import type { API as JsEngineAPI } from 'jsEngine/src/api/API';
-import type JsEnginePlugin from 'jsEngine/src/main';
+import type { JsEngineApi, JsEnginePlugin } from '@lemons_dev/obsidian-js-engine-api';
 import type { Templater, TemplaterPlugin } from 'meta-bind-obsidian/extraTypes/Templater';
 import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import type { Plugin } from 'obsidian';
@@ -10,7 +9,7 @@ export function getDataViewPluginAPI(mb: ObsMetaBind): DataviewApi {
 	return (dataViewPlugin as Plugin & { api: DataviewApi }).api;
 }
 
-export function getJsEnginePluginAPI(mb: ObsMetaBind): JsEngineAPI {
+export function getJsEnginePluginAPI(mb: ObsMetaBind): JsEngineApi {
 	const jsEnginePlugin = mb.dependencyManager.checkDependency('js-engine');
 	return (jsEnginePlugin as JsEnginePlugin).api;
 }

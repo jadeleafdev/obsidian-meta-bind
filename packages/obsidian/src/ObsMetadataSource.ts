@@ -53,7 +53,7 @@ export class ObsMetadataSource extends FilePathMetadataSource<ObsMetadataCacheIt
 
 		const frontmatter = this.mb.app.metadataCache.getFileCache(file)?.frontmatter;
 
-		MB_DEBUG &&
+		if (MB_DEBUG)
 			console.log('meta-bind | Obs Source >> loaded frontmatter', structuredClone(frontmatter), storagePath);
 
 		return {

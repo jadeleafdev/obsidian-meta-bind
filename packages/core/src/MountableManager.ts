@@ -10,7 +10,7 @@ export class MountableManager {
 	unloadFile(filePath: string): void {
 		for (const mountable of this.activeMountables.values()) {
 			if (mountable.getFilePath() === filePath) {
-				MB_DEBUG &&
+				if (MB_DEBUG)
 					console.debug(`meta-bind | MountableManager >> unregistered Mountable ${mountable.getUuid()}`);
 				mountable.unmount();
 			}
@@ -19,18 +19,19 @@ export class MountableManager {
 
 	unload(): void {
 		for (const mountable of this.activeMountables.values()) {
-			MB_DEBUG && console.debug(`meta-bind | MountableManager >> unregistered Mountable ${mountable.getUuid()}`);
+			if (MB_DEBUG)
+				console.debug(`meta-bind | MountableManager >> unregistered Mountable ${mountable.getUuid()}`);
 			mountable.unmount();
 		}
 	}
 
 	registerMountable(mountable: FieldMountable): void {
-		MB_DEBUG && console.debug(`meta-bind | MountableManager >> registered Mountable ${mountable.getUuid()}`);
+		if (MB_DEBUG) console.debug(`meta-bind | MountableManager >> registered Mountable ${mountable.getUuid()}`);
 		this.activeMountables.set(mountable.getUuid(), mountable);
 	}
 
 	unregisterMountable(mountable: FieldMountable): void {
-		MB_DEBUG && console.debug(`meta-bind | MountableManager >> unregistered Mountable ${mountable.getUuid()}`);
+		if (MB_DEBUG) console.debug(`meta-bind | MountableManager >> unregistered Mountable ${mountable.getUuid()}`);
 		this.activeMountables.delete(mountable.getUuid());
 	}
 }

@@ -1,4 +1,4 @@
-import type { ReactiveComponent } from 'jsEngine/src/api/reactive/ReactiveComponent';
+import type { ReactiveComponent } from '@lemons_dev/obsidian-js-engine-api';
 import type { LifecycleHook } from 'meta-bind-core/src/api/API.js';
 import { API } from 'meta-bind-core/src/api/API.js';
 import type { InlineFieldType } from 'meta-bind-core/src/config/APIConfigs';

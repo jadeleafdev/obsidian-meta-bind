@@ -1,5 +1,4 @@
-import type { API } from 'jsEngine/src/api/API';
-import type { JsExecution } from 'jsEngine/src/engine/JsExecution';
+import type { JsEngineApi, JsExecution } from '@lemons_dev/obsidian-js-engine-api';
 import type { IJsRenderer } from 'meta-bind-core/src/utils/IJsRenderer';
 import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import { getJsEnginePluginAPI } from 'meta-bind-obsidian/src/ObsUtils';
@@ -9,7 +8,7 @@ export class ObsJsRenderer implements IJsRenderer {
 	readonly mb: ObsMetaBind;
 	readonly containerEl: HTMLElement;
 	readonly filePath: string;
-	readonly jsEngine: API;
+	readonly jsEngine: JsEngineApi;
 	readonly code: string;
 	readonly hidden: boolean;
 	renderComponent: Component;

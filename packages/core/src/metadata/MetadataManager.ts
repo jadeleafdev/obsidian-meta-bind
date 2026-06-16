@@ -600,7 +600,7 @@ export class MetadataManager {
 			return;
 		}
 
-		MB_DEBUG &&
+		if (MB_DEBUG)
 			console.log(
 				`meta-bind | MetadataManager >> external update in source "${source.id}" and storage path "${storagePath}"`,
 				value,
@@ -623,7 +623,7 @@ export class MetadataManager {
 			}
 		}
 
-		MB_DEBUG &&
+		if (MB_DEBUG)
 			console.log(`meta-bind | MetadataManager >> external update >> updated ${updatedCount} subscriptions`);
 	}
 

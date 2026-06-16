@@ -17,8 +17,8 @@ export default class ObsMetaBindPlugin extends Plugin {
 	settings: MetaBindPluginSettings;
 
 	async onload(): Promise<void> {
-		MB_DEBUG && console.log(`meta-bind | Main >> loading`);
-		MB_DEBUG && console.time('meta-bind | Main >> load-time');
+		if (MB_DEBUG) console.log(`meta-bind | Main >> loading`);
+		if (MB_DEBUG) console.time('meta-bind | Main >> load-time');
 
 		// settings
 		await this.loadSettings();
@@ -28,17 +28,17 @@ export default class ObsMetaBindPlugin extends Plugin {
 
 		this.mb.updateInternalSettings(this.settings);
 
-		MB_DEBUG && console.timeEnd('meta-bind | Main >> load-time');
+		if (MB_DEBUG) console.timeEnd('meta-bind | Main >> load-time');
 	}
 
 	onunload(): void {
 		this.mb.destroy();
 
-		MB_DEBUG && console.log(`meta-bind | Main >> unload`);
+		if (MB_DEBUG) console.log(`meta-bind | Main >> unload`);
 	}
 
 	async loadSettings(): Promise<void> {
-		MB_DEBUG && console.log(`meta-bind | Main >> loading settings`);
+		if (MB_DEBUG) console.log(`meta-bind | Main >> loading settings`);
 
 		const loadedSettings = ((await this.loadData()) ?? {}) as Partial<MetaBindPluginSettings>;
 
@@ -59,7 +59,7 @@ export default class ObsMetaBindPlugin extends Plugin {
 	}
 
 	async saveSettings(): Promise<void> {
-		MB_DEBUG && console.log(`meta-bind | Main >> settings save`);
+		if (MB_DEBUG) console.log(`meta-bind | Main >> settings save`);
 
 		await this.saveData(this.settings);
 	}
