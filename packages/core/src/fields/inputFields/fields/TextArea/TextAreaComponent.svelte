@@ -19,5 +19,4 @@
 	placeholder={props.placeholder}
 	bind:value={value}
 	maxlength={props.limit}
-	oninput={() => props.onValueChange($state.snapshot(value))}
-></textarea>
+	oninput={() => props.onValueChange($state.snapshot(value))}></textarea>
