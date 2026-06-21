@@ -7,6 +7,7 @@ import { SyntaxHighlightingAPI } from 'meta-bind-core/src/api/SyntaxHighlighting
 import { ButtonActionRunner } from 'meta-bind-core/src/fields/button/ButtonActionRunner';
 import { ButtonManager } from 'meta-bind-core/src/fields/button/ButtonManager';
 import { InputFieldFactory } from 'meta-bind-core/src/fields/inputFields/InputFieldFactory';
+import { OptionSourceResolver } from 'meta-bind-core/src/fields/inputFields/optionSource/OptionSourceResolver';
 import { ViewFieldFactory } from 'meta-bind-core/src/fields/viewFields/ViewFieldFactory';
 import { MetadataManager } from 'meta-bind-core/src/metadata/MetadataManager';
 import { MountableManager } from 'meta-bind-core/src/MountableManager';
@@ -54,6 +55,7 @@ export abstract class MetaBind<Components extends MB_Comps = MB_Comps> {
 	// Button
 	buttonActionRunner: ButtonActionRunner;
 	buttonManager: ButtonManager;
+	optionSourceResolver: OptionSourceResolver;
 	// Managers
 	metadataManager: MetadataManager;
 	mountableManager: MountableManager;
@@ -77,6 +79,7 @@ export abstract class MetaBind<Components extends MB_Comps = MB_Comps> {
 
 		this.buttonActionRunner = new ButtonActionRunner(this);
 		this.buttonManager = new ButtonManager(this);
+		this.optionSourceResolver = new OptionSourceResolver();
 
 		this.metadataManager = new MetadataManager();
 		this.mountableManager = new MountableManager();

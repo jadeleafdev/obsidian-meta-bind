@@ -53,6 +53,22 @@ export abstract class FileAPI<Components extends MB_Comps> {
 	public abstract getAllFolders(): string[];
 
 	/**
+	 * List all known tags, including the leading "#".
+	 */
+	public getAllTags(): string[] {
+		return [];
+	}
+
+	/**
+	 * List all tags for a specific file, including the leading "#".
+	 *
+	 * @param _filePath
+	 */
+	public getFileTags(_filePath: string): string[] {
+		return [];
+	}
+
+	/**
 	 * Open a specific file.
 	 *
 	 * @param filePath

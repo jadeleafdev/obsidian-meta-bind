@@ -64,15 +64,22 @@ export class ButtonGroupField extends Mountable {
 
 			let initialButton: ReturnType<SvelteComponent> | undefined = this.renderInitialButton(wrapperEl, buttonId);
 			let button: ButtonField | undefined;
+			let releaseButton: (() => void) | undefined;
 
 			const loadListenerCleanup = this.mb.buttonManager.registerButtonLoadListener(
 				this.filePath,
 				buttonId,
 				(buttonConfig: ButtonConfig) => {
+					if (this.renderChildType === RenderChildType.INLINE) {
+						releaseButton?.();
+						releaseButton = this.mb.buttonManager.retainButton(this.filePath, buttonId);
+					}
+
 					if (initialButton) {
 						void unmount(initialButton);
 					}
 					initialButton = undefined;
+					button?.unmount();
 					button = new ButtonField(
 						this.mb,
 						buttonConfig,
@@ -92,6 +99,7 @@ export class ButtonGroupField extends Mountable {
 				}
 				initialButton = undefined;
 				button?.unmount();
+				releaseButton?.();
 				loadListenerCleanup();
 			});
 		}

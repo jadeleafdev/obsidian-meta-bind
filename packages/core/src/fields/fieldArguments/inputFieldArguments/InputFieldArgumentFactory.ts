@@ -11,6 +11,7 @@ import { OffValueInputFieldArgument } from 'meta-bind-core/src/fields/fieldArgum
 import { OnValueInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OnValueInputFieldArgument';
 import { OptionInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
 import { OptionQueryInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionQueryInputFieldArgument';
+import { OptionSourceInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionSourceInputFieldArgument';
 import { PlaceholderInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/PlaceholderInputFieldArgument';
 import { ShowcaseInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/ShowcaseInputFieldArgument';
 import { StepSizeValueInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/StepSizeValueInputFieldArgument';
@@ -27,6 +28,7 @@ export const INPUT_FIELD_ARGUMENT_MAP = {
 	[InputFieldArgumentType.OPTION]: OptionInputFieldArgument,
 	[InputFieldArgumentType.TITLE]: TitleInputFieldArgument,
 	[InputFieldArgumentType.OPTION_QUERY]: OptionQueryInputFieldArgument,
+	[InputFieldArgumentType.OPTION_SOURCE]: OptionSourceInputFieldArgument,
 	[InputFieldArgumentType.SHOWCASE]: ShowcaseInputFieldArgument,
 	[InputFieldArgumentType.OFF_VALUE]: OffValueInputFieldArgument,
 	[InputFieldArgumentType.ON_VALUE]: OnValueInputFieldArgument,

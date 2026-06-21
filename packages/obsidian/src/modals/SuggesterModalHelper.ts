@@ -1,9 +1,11 @@
 import { InputFieldArgumentType, UseLinksInputFieldArgumentValue } from 'meta-bind-core/src/config/FieldConfigs';
 import type { OptionInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
 import type { OptionQueryInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionQueryInputFieldArgument';
+import type { OptionSourceInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionSourceInputFieldArgument';
 import { applyUseLinksArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/UseLinksInputFieldArgument';
 import type { SuggesterLikeIFP } from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
 import { SuggesterOption } from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
+import { deduplicateOptions } from 'meta-bind-core/src/fields/inputFields/optionSource/OptionSourceUtils';
 import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
 import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import { getDataViewPluginAPI } from 'meta-bind-obsidian/src/ObsUtils';
@@ -16,6 +18,7 @@ export function getSuggesterOptions(
 	filePath: string,
 	optionArgs: OptionInputFieldArgument[],
 	optionQueryArgs: OptionQueryInputFieldArgument[],
+	optionSourceArgs: OptionSourceInputFieldArgument[],
 	useLinks: UseLinksInputFieldArgumentValue,
 ): SuggesterOption<MBLiteral>[] {
 	const options: SuggesterOption<MBLiteral>[] = [];
@@ -64,7 +67,9 @@ export function getSuggesterOptions(
 		}
 	}
 
-	return options;
+	options.push(...mb.optionSourceResolver.resolveToSuggesterOptions(mb, optionSourceArgs, useLinks));
+
+	return deduplicateOptions(options);
 }
 
 export function getSuggesterOptionsForInputField(
@@ -73,6 +78,7 @@ export function getSuggesterOptionsForInputField(
 ): SuggesterOption<MBLiteral>[] {
 	const optionArgs = inputField.mountable.getArguments(InputFieldArgumentType.OPTION);
 	const optionQueryArgs = inputField.mountable.getArguments(InputFieldArgumentType.OPTION_QUERY);
+	const optionSourceArgs = inputField.mountable.getArguments(InputFieldArgumentType.OPTION_SOURCE);
 	const useLinksArg = inputField.mountable.getArgument(InputFieldArgumentType.USE_LINKS);
 	// in not present, we treat the use links argument as true
 	return getSuggesterOptions(
@@ -80,6 +86,7 @@ export function getSuggesterOptionsForInputField(
 		inputField.mountable.getFilePath(),
 		optionArgs,
 		optionQueryArgs,
+		optionSourceArgs,
 		useLinksArg === undefined ? UseLinksInputFieldArgumentValue.TRUE : useLinksArg.value,
 	);
 }

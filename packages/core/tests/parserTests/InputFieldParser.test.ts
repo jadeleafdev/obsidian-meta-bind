@@ -26,6 +26,16 @@ describe('should not error or warn cases', () => {
 			expect(res.errorCollection.hasErrors()).toBe(false);
 		});
 
+		test('INPUT[select(optionSource(...))]', () => {
+			const input = `INPUT[select(optionSource('file from:"Folder/Foo Bar" ext:md'))]`;
+			const res = mb.inputFieldParser.fromStringAndValidate(input, TEST_FILE, undefined);
+
+			expect(mb.syntaxHighlighting.highlightInputFieldDeclaration(input, false).parsingError).toBeUndefined();
+
+			expect(res.errorCollection.hasWarnings()).toBe(false);
+			expect(res.errorCollection.hasErrors()).toBe(false);
+		});
+
 		test('INPUT[text:text]', () => {
 			const input = 'INPUT[text:text]';
 			const res = mb.inputFieldParser.fromStringAndValidate(input, TEST_FILE, undefined);

@@ -55,6 +55,7 @@ export enum InputFieldArgumentType {
 	OPTION = 'option',
 	TITLE = 'title',
 	OPTION_QUERY = 'optionQuery',
+	OPTION_SOURCE = 'optionSource',
 	SHOWCASE = 'showcase',
 	ON_VALUE = 'onValue',
 	OFF_VALUE = 'offValue',
@@ -374,6 +375,29 @@ export const InputFieldArgumentConfigs: Record<InputFieldArgumentType, InputFiel
 					name: 'value',
 					allowed: [],
 					description: 'the query for options',
+				},
+			],
+		],
+		allowMultiple: true,
+	},
+	[InputFieldArgumentType.OPTION_SOURCE]: {
+		type: InputFieldArgumentType.OPTION_SOURCE,
+		allowedFieldTypes: [
+			InputFieldType.SELECT,
+			InputFieldType.MULTI_SELECT,
+			InputFieldType.SUGGESTER,
+			InputFieldType.IMAGE_SUGGESTER,
+			InputFieldType.INLINE_SELECT,
+			InputFieldType.LIST_SUGGESTER,
+			InputFieldType.INLINE_LIST_SUGGESTER,
+			InputFieldType.IMAGE_LIST_SUGGESTER,
+		],
+		values: [
+			[
+				{
+					name: 'value',
+					allowed: [],
+					description: 'the source query for options',
 				},
 			],
 		],

@@ -489,6 +489,89 @@ describe('Button', () => {
 		});
 	});
 
+	describe('Button Manager', () => {
+		beforeEach(() => {
+			testPlugin = new TestMetaBind();
+		});
+
+		test('keeps retained buttons available after their block button unloads', () => {
+			const button: ButtonConfig = {
+				id: 'shared-button',
+				label: 'Shared',
+				style: ButtonStyleType.DEFAULT,
+				actions: [],
+			};
+
+			testPlugin.buttonManager.addButton(testFilePath, button);
+			const releaseButton = testPlugin.buttonManager.retainButton(testFilePath, 'shared-button');
+
+			testPlugin.buttonManager.removeButton(testFilePath, 'shared-button');
+
+			expect(testPlugin.buttonManager.getButton(testFilePath, 'shared-button')).toBe(button);
+
+			releaseButton();
+
+			expect(testPlugin.buttonManager.getButton(testFilePath, 'shared-button')).toBeUndefined();
+		});
+
+		test('preserves retained references when a retained button remounts', () => {
+			const button: ButtonConfig = {
+				id: 'shared-button',
+				label: 'Shared',
+				style: ButtonStyleType.DEFAULT,
+				actions: [],
+			};
+			const remountedButton: ButtonConfig = {
+				id: 'shared-button',
+				label: 'Shared Remounted',
+				style: ButtonStyleType.PRIMARY,
+				actions: [],
+			};
+
+			testPlugin.buttonManager.addButton(testFilePath, button);
+			const releaseButton = testPlugin.buttonManager.retainButton(testFilePath, 'shared-button');
+			testPlugin.buttonManager.removeButton(testFilePath, 'shared-button');
+
+			testPlugin.buttonManager.addButton(testFilePath, remountedButton);
+			testPlugin.buttonManager.removeButton(testFilePath, 'shared-button');
+
+			expect(testPlugin.buttonManager.getButton(testFilePath, 'shared-button')).toBe(remountedButton);
+
+			releaseButton();
+
+			expect(testPlugin.buttonManager.getButton(testFilePath, 'shared-button')).toBeUndefined();
+		});
+
+		test('does not release manager buttons when grouped block button fields unmount', () => {
+			const container = document.createElement('div');
+			document.body.appendChild(container);
+			const button: ButtonConfig = {
+				id: 'grouped-button',
+				label: 'Grouped',
+				style: ButtonStyleType.DEFAULT,
+				actions: [],
+			};
+			const groupedButtonField = new ButtonField(
+				testPlugin,
+				button,
+				testFilePath,
+				RenderChildType.BLOCK,
+				undefined,
+				true,
+				false,
+			);
+
+			testPlugin.buttonManager.addButton(testFilePath, button);
+			groupedButtonField.mount(container);
+			groupedButtonField.unmount();
+
+			expect(testPlugin.buttonManager.getButton(testFilePath, 'grouped-button')).toBe(button);
+
+			testPlugin.buttonManager.removeButton(testFilePath, 'grouped-button');
+			document.body.removeChild(container);
+		});
+	});
+
 	describe('ButtonClickContext', () => {
 		test('returns true for MIDDLE click', () => {
 			const ctx = new ButtonClickContext(ButtonClickType.MIDDLE, false, false, false);

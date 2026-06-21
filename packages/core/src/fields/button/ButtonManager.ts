@@ -157,7 +157,13 @@ export class ButtonManager {
 
 		const fileButtons = this.buttons.get(filePath)!;
 
-		fileButtons.set(button.id, new RefCounter(button));
+		const existingButton = fileButtons.get(button.id);
+		if (existingButton) {
+			existingButton.setValue(button);
+			existingButton.increment();
+		} else {
+			fileButtons.set(button.id, new RefCounter(button));
+		}
 		this.notifyButtonLoadListeners(filePath, button.id);
 	}
 
@@ -185,5 +191,29 @@ export class ButtonManager {
 				this.buttons.delete(filePath);
 			}
 		}
+	}
+
+	public retainButton(filePath: string, buttonId: string): () => void {
+		if (this.buttonTemplates.has(buttonId)) {
+			return () => {};
+		}
+
+		const fileButtons = this.buttons.get(filePath);
+		const button = fileButtons?.get(buttonId);
+		if (!button) {
+			return () => {};
+		}
+
+		button.increment();
+
+		let released = false;
+		return () => {
+			if (released) {
+				return;
+			}
+
+			released = true;
+			this.removeButton(filePath, buttonId);
+		};
 	}
 }

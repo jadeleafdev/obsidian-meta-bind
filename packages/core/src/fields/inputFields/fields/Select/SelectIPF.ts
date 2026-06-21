@@ -1,19 +1,29 @@
 import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
-import type { OptionInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
 import { AbstractInputField } from 'meta-bind-core/src/fields/inputFields/AbstractInputField';
 import type { InputFieldMountable } from 'meta-bind-core/src/fields/inputFields/InputFieldMountable';
 import type { InputFieldSvelteComponent } from 'meta-bind-core/src/fields/inputFields/InputFieldSvelteWrapper';
+import type { OptionSourceOption } from 'meta-bind-core/src/fields/inputFields/optionSource/OptionSourceTypes';
+import { deduplicateOptions } from 'meta-bind-core/src/fields/inputFields/optionSource/OptionSourceUtils';
 import type { MBLiteral } from 'meta-bind-core/src/utils/Literal';
 import { parseUnknownToLiteral } from 'meta-bind-core/src/utils/Literal';
 import SelectComponent from 'meta-bind-core/src/fields/inputFields/fields/Select/SelectComponent.svelte';
 
 export class SelectIPF extends AbstractInputField<MBLiteral, MBLiteral> {
-	options: OptionInputFieldArgument[];
+	options: OptionSourceOption[];
 
 	constructor(mountable: InputFieldMountable) {
 		super(mountable);
 
-		this.options = this.mountable.getArguments(InputFieldArgumentType.OPTION);
+		const optionArgs = this.mountable.getArguments(InputFieldArgumentType.OPTION);
+		const optionSourceArgs = this.mountable.getArguments(InputFieldArgumentType.OPTION_SOURCE);
+		if (optionSourceArgs.length > 0) {
+			this.options = deduplicateOptions([
+				...optionArgs,
+				...this.mountable.mb.optionSourceResolver.resolve(this.mountable.mb, optionSourceArgs),
+			]);
+		} else {
+			this.options = optionArgs;
+		}
 	}
 
 	protected filterValue(value: unknown): MBLiteral | undefined {

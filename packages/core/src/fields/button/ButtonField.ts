@@ -105,7 +105,7 @@ export class ButtonField extends Mountable {
 			void unmount(this.buttonComponent);
 		}
 
-		if (!this.isInline && !this.isPreview) {
+		if (!this.isInline && !this.isPreview && !this.isInGroup) {
 			if (this.config?.id) {
 				this.mb.buttonManager.removeButton(this.filePath, this.config.id);
 			}

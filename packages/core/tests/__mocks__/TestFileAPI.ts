@@ -4,11 +4,13 @@ import type { TestComponents, TestMetaBind } from './TestPlugin';
 
 export class TestFileAPI extends FileAPI<TestComponents> {
 	fileSystem: TestFileSystem;
+	fileTags: Map<string, string[]>;
 
 	constructor(mb: TestMetaBind) {
 		super(mb);
 
 		this.fileSystem = new TestFileSystem();
+		this.fileTags = new Map();
 	}
 
 	public read(filePath: string): Promise<string> {
@@ -46,6 +48,18 @@ export class TestFileAPI extends FileAPI<TestComponents> {
 
 	public getAllFolders(): string[] {
 		return this.fileSystem.listDirs();
+	}
+
+	public getAllTags(): string[] {
+		return Array.from(new Set(Array.from(this.fileTags.values()).flat()));
+	}
+
+	public getFileTags(filePath: string): string[] {
+		return this.fileTags.get(filePath) ?? [];
+	}
+
+	public setFileTags(filePath: string, tags: string[]): void {
+		this.fileTags.set(filePath, tags);
 	}
 
 	public open(_filePath: string, _callingFilePath: string, _newTab: boolean): Promise<void> {

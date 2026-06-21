@@ -2,8 +2,10 @@ import { IMAGE_FILE_EXTENSIONS } from 'meta-bind-core/src/api/InternalAPI';
 import { InputFieldArgumentType } from 'meta-bind-core/src/config/FieldConfigs';
 import type { OptionInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionInputFieldArgument';
 import type { OptionQueryInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionQueryInputFieldArgument';
+import type { OptionSourceInputFieldArgument } from 'meta-bind-core/src/fields/fieldArguments/inputFieldArguments/arguments/OptionSourceInputFieldArgument';
 import type { ImageSuggesterLikeIPF } from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
 import { SuggesterOption } from 'meta-bind-core/src/fields/inputFields/fields/Suggester/SuggesterHelper';
+import { deduplicateOptions } from 'meta-bind-core/src/fields/inputFields/optionSource/OptionSourceUtils';
 import { ErrorLevel, MetaBindArgumentError } from 'meta-bind-core/src/utils/errors/MetaBindErrors';
 import { stringifyLiteral } from 'meta-bind-core/src/utils/Literal';
 import type { ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
@@ -27,6 +29,7 @@ export function getImageSuggesterOptions(
 	mb: ObsMetaBind,
 	optionArgs: OptionInputFieldArgument[],
 	optionQueryArgs: OptionQueryInputFieldArgument[],
+	optionSourceArgs: OptionSourceInputFieldArgument[],
 ): SuggesterOption<string>[] {
 	const options: SuggesterOption<string>[] = [];
 
@@ -129,7 +132,9 @@ export function getImageSuggesterOptions(
 		options.push(new SuggesterOption(imageFile.path, imageFile.name));
 	}
 
-	return options;
+	options.push(...mb.optionSourceResolver.resolveToImageSuggesterOptions(mb, optionSourceArgs));
+
+	return deduplicateOptions(options);
 }
 
 function isImageExtension(extension: string): boolean {
@@ -142,5 +147,6 @@ export function getImageSuggesterOptionsForInputField(
 ): SuggesterOption<string>[] {
 	const optionArgs = inputField.mountable.getArguments(InputFieldArgumentType.OPTION);
 	const optionQueryArgs = inputField.mountable.getArguments(InputFieldArgumentType.OPTION_QUERY);
-	return getImageSuggesterOptions(mb, optionArgs, optionQueryArgs);
+	const optionSourceArgs = inputField.mountable.getArguments(InputFieldArgumentType.OPTION_SOURCE);
+	return getImageSuggesterOptions(mb, optionArgs, optionQueryArgs, optionSourceArgs);
 }

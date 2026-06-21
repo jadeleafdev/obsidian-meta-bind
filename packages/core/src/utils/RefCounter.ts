@@ -1,5 +1,5 @@
 export class RefCounter<T> {
-	private readonly value: T;
+	private value: T;
 	private count: number;
 
 	constructor(value: T) {
@@ -9,6 +9,10 @@ export class RefCounter<T> {
 
 	getValue(): T {
 		return this.value;
+	}
+
+	setValue(value: T): void {
+		this.value = value;
 	}
 
 	increment(): number {

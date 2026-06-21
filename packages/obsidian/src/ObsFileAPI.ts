@@ -1,4 +1,5 @@
 import { FileAPI } from 'meta-bind-core/src/api/FileAPI';
+import { normalizeTag } from 'meta-bind-core/src/fields/inputFields/optionSource/OptionSourceUtils';
 import type { ObsComponents, ObsMetaBind } from 'meta-bind-obsidian/src/ObsMB';
 import type { App } from 'obsidian';
 import { normalizePath, TFile, TFolder } from 'obsidian';
@@ -72,6 +73,38 @@ export class ObsFileAPI extends FileAPI<ObsComponents> {
 			.map(file => file.path);
 	}
 
+	public getAllTags(): string[] {
+		const tags = new Set<string>();
+
+		for (const filePath of this.getAllFiles()) {
+			for (const tag of this.getFileTags(filePath)) {
+				tags.add(tag);
+			}
+		}
+
+		return Array.from(tags);
+	}
+
+	public getFileTags(filePath: string): string[] {
+		const file = this.app.vault.getFileByPath(filePath);
+		if (!file) {
+			return [];
+		}
+
+		const cache = this.app.metadataCache.getFileCache(file);
+		const tags = new Set<string>();
+
+		for (const tagCache of cache?.tags ?? []) {
+			tags.add(normalizeTag(tagCache.tag));
+		}
+
+		const frontmatter = cache?.frontmatter;
+		this.addFrontmatterTags(frontmatter?.tag, tags);
+		this.addFrontmatterTags(frontmatter?.tags, tags);
+
+		return Array.from(tags);
+	}
+
 	public async open(filePath: string, callingFilePath: string, newTab: boolean): Promise<void> {
 		void this.app.workspace.openLinkText(filePath, callingFilePath, newTab);
 	}
@@ -87,5 +120,19 @@ export class ObsFileAPI extends FileAPI<ObsComponents> {
 
 	public getPathByName(name: string, relativeTo: string = ''): string | undefined {
 		return this.app.metadataCache.getFirstLinkpathDest(name, relativeTo)?.path;
+	}
+
+	private addFrontmatterTags(value: unknown, tags: Set<string>): void {
+		if (typeof value === 'string') {
+			for (const tag of value.split(',').map(tag => tag.trim())) {
+				if (tag.length > 0) {
+					tags.add(normalizeTag(tag));
+				}
+			}
+		} else if (Array.isArray(value)) {
+			for (const tag of value) {
+				this.addFrontmatterTags(tag, tags);
+			}
+		}
 	}
 }
