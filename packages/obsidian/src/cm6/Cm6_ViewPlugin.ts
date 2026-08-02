@@ -76,6 +76,14 @@ export function createMarkdownRenderChildWidgetEditorPlugin(mb: ObsMetaBind): Vi
 			update(update: ViewUpdate): void {
 				this.decorations = this.decorations.map(update.changes);
 
+				// Rebuilding replace decorations while an IME composition is active can
+				// interrupt the composition and corrupt text at soft-wrap boundaries.
+				// Keep mapping the existing decorations, but wait until composition ends
+				// before reconciling widgets with the syntax tree.
+				if (update.view.compositionStarted) {
+					return;
+				}
+
 				this.updateWidgets(update.view);
 			}
 
